@@ -105,4 +105,3 @@ Short, scannable, plain words. No em dashes. No long paragraphs.
 ## Open items (as of 2026-11-13)
 - Primary: Project Manager. No secondaries.
 - Imported statuses came from an earlier import and need Seph's review.
-- Repo not yet pushed: GitHub isn't connected.
