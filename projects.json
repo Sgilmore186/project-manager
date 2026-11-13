@@ -1,0 +1,94 @@
+{
+  "updated": "2026-11-13",
+  "rules": {
+    "max_primary": 1,
+    "max_secondary": 2,
+    "note": "Limits, not requirements"
+  },
+  "projects": [
+    {
+      "id": "avello",
+      "name": "AVELLO",
+      "goal": "A web design and automation studio with paying clients",
+      "status": "archived",
+      "focus": "none",
+      "stage": "Site, pricing, tracker and outreach set up; no paying client yet",
+      "next_step": "",
+      "open_items": [
+        "First paying client"
+      ],
+      "started": "2026-10",
+      "updated": "2026-11-13"
+    },
+    {
+      "id": "echovault",
+      "name": "ECHOVAULT",
+      "goal": "Private local-first voice-memory app working on Windows and Mac",
+      "status": "active",
+      "focus": "none",
+      "stage": "Substantial working prototype",
+      "next_step": "Mac encryption (Keychain, AES-256-GCM)",
+      "open_items": [
+        "Windows physical acceptance",
+        "Mac encryption",
+        "Real-world speaker accuracy",
+        "More AI features"
+      ],
+      "started": null,
+      "updated": "2026-11-04"
+    },
+    {
+      "id": "command-center",
+      "name": "Daily Command Center",
+      "goal": "Morning Briefing and My Day dashboards",
+      "status": "active",
+      "focus": "none",
+      "stage": "Both views live, being refined",
+      "next_step": "",
+      "open_items": [],
+      "started": null,
+      "updated": "2026-11-12"
+    },
+    {
+      "id": "project-manager",
+      "name": "Project Manager (this system)",
+      "goal": "GitHub-backed record of ideas and projects with a dashboard and accountability loop",
+      "status": "active",
+      "focus": "primary",
+      "stage": "Data files drafted; waiting on GitHub connection",
+      "next_step": "Connect GitHub and push this repo",
+      "open_items": [],
+      "started": "2026-11-13",
+      "updated": "2026-11-13"
+    }
+  ],
+  "statuses": [
+    "active",
+    "paused",
+    "archived",
+    "done",
+    "dropped"
+  ],
+  "parts": [
+    {
+      "id": "learning-coach",
+      "name": "Learning Coach",
+      "part_of": [
+        "project-manager"
+      ],
+      "stage": "Architecture and Sheets dataset built; synthetic tests not accepted",
+      "updated": "2026-11-13"
+    },
+    {
+      "id": "crosswalk",
+      "name": "Crosswalk",
+      "part_of": [
+        "learning-coach",
+        "project-manager",
+        "multi-model-workflow"
+      ],
+      "stage": "Muse and Codex handoffs working; polling reliability still being tested",
+      "updated": "2026-11-13"
+    }
+  ]
+}
