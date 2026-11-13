@@ -10,3 +10,4 @@
 - 2026-11-13: ELSEWHERE moved to ideas (Seph: not committed to finishing it yet).
 - 2026-11-13: Selah and God on the Move moved to ideas (Seph: not committed to building them).
 - 2026-11-13: Removed project 'Aviation career'. Reason: Seph: a life goal, not something to build; taken off the tracker.
+- 2026-11-13: Updated project 'Project Manager (this system)': stage=Repo seeded on GitHub; rules, data and CRUD script done. Dashboard and update skill not built.; next_step=Build the dashboard that reads ideas.json and projects.json; open_items=Dashboard,Update skill. Reason: Seph asked to update the next step

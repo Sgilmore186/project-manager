@@ -55,9 +55,12 @@
       "goal": "GitHub-backed record of ideas and projects with a dashboard and accountability loop",
       "status": "active",
       "focus": "primary",
-      "stage": "Data files drafted; waiting on GitHub connection",
-      "next_step": "Connect GitHub and push this repo",
-      "open_items": [],
+      "stage": "Repo seeded on GitHub; rules, data and CRUD script done. Dashboard and update skill not built.",
+      "next_step": "Build the dashboard that reads ideas.json and projects.json",
+      "open_items": [
+        "Dashboard",
+        "Update skill"
+      ],
       "started": "2026-11-13",
       "updated": "2026-11-13"
     }
