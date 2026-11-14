@@ -113,4 +113,4 @@ Short, scannable, plain words. No em dashes. No long paragraphs.
 ## Open items (as of 2026-11-13)
 - Primary: Project Manager. No secondaries.
 - Imported statuses came from an earlier import and need Seph's review.
-- The 8 imported ideas have no description yet. Ask Seph for them; don't invent them.
+- Mac Setup Blueprint description is a placeholder. Ask Seph what it covers.
