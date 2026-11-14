@@ -1,33 +1,14 @@
 # Project Manager
 
-Seph's running record of ideas and projects. Plain JSON so any tool or AI can read it.
+Seph's running record of ideas and projects, in plain JSON so any tool or AI can read it.
+The goal: hold Seph accountable and help him finish what he starts.
 
-## Data model
-- **Idea**: an outcome you want to accomplish that hasn't started yet. Lives in `ideas.json`.
-- **Project**: an idea in motion, with the current status of fulfilling it. Lives in `projects.json`.
+- **Idea** (`ideas.json`): an outcome Seph wants but hasn't committed to finishing.
+- **Project** (`projects.json`): an outcome Seph has committed to finishing, with its goal, next step, open items and progress.
+- **Part**: something that only matters because it helps a larger project.
+- **Log** (`log.md`): a dated line for every change.
 
-When an idea starts, it moves from `ideas.json` to `projects.json` and keeps its `id`.
+All changes go through `scripts/pm.py` (run `python3 scripts/pm.py --help`).
+Tests: `python3 -m unittest discover -s tests -v`.
 
-## Rules
-- Finish a project before abandoning it, unless there's a good reason.
-- Up to 1 primary and 2 secondary projects (limits, not requirements).
-- A new idea goes to the ideas list first, not straight into work.
-- Every change is a dated commit. `log.md` keeps the human-readable history.
-
-## Idea fields
-- `id`, `name`, `description` (required: what the idea is), `goal` (the outcome wanted), `added`, `notes`
-- The description stays with the item if it moves to projects and back.
-
-## Project fields
-- `id`, `name`, `goal` (what done looks like), `status` (active, paused, archived, done, dropped)
-- `focus` (primary, secondary, or none), `stage` (where it actually is)
-- `next_step` (the one action to do now), `open_items` (the bigger pieces still unfinished), `started`, `updated`
-- `progress`: history of completed steps, oldest first. Each entry is `{"date": "YYYY-MM-DD", "step": "..."}`.
-
-## Completing a step
-`python3 scripts/pm.py done ID [--next "new next step"]` moves the current `next_step` into `progress`.
-Use `--step "..."` to record a finished step that wasn't the `next_step`.
-If the step matches an open item, it is removed from `open_items` in the same save. Use `--item "..."` when the wording differs.
-
-## Updating
-Use `scripts/pm.py`. Run `python3 scripts/pm.py --help`.
+Full rules, fields and steps: [CLAUDE.md](CLAUDE.md).
