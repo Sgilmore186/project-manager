@@ -24,7 +24,7 @@ An outcome Seph wants that he hasn't committed to finishing. Old or abandoned pr
 An outcome Seph has committed to finishing.
 - **Goal (required):** one sentence saying what done looks like (`goal`).
 - **Next step (nice to have):** one concrete action that keeps his work organized (`next_step`). Ask for one when it helps, but a project without it is still a project.
-- **Open items (nice to have):** the bigger pieces still left before the goal is reached (`open_items`). The next step is the one action to do now; open items are everything else that's unfinished. Remove an item when it's finished (record the finished work with `done`). Use this list when naming what's left before Seph moves off a project.
+- **Open items (nice to have):** the bigger pieces still left before the goal is reached (`open_items`). The next step is the one action to do now; open items are everything else that's unfinished. When one is finished, `done` records it in progress and removes it from open items in one step. Use this list when naming what's left before Seph moves off a project.
 - **Progress:** the history of completed steps (`progress`), oldest first. Each entry is `{"date", "step"}`. When a next step is finished, it moves here. Only the `done` command writes to it.
 
 ### Part
@@ -76,7 +76,7 @@ python3 scripts/pm.py add project --id ID --name NAME --goal G [--status S] [--f
 python3 scripts/pm.py add part    --id ID --name NAME --part-of PARENT1,PARENT2 [--stage S]
 python3 scripts/pm.py update ID --set field=value [--set field=value] [--reason R]
 python3 scripts/pm.py move ID --to idea|project [--goal G] [--reason R]
-python3 scripts/pm.py done ID [--step S] [--next N] [--reason R]
+python3 scripts/pm.py done ID [--step S] [--item OPEN_ITEM] [--next N] [--reason R]
 python3 scripts/pm.py delete ID --reason R
 python3 scripts/pm.py commit [--push]
 ```
@@ -90,6 +90,7 @@ Every write also takes `--date YYYY-MM-DD` (default today) and `--dry-run`.
 - **Goal reached:** `update ID --set status=done --set focus=none`.
 - **Next step finished:** `done ID --next "..."`. Moves the current `next_step` into `progress` and sets the new one. Without `--next`, `next_step` is cleared; ask Seph what's next.
 - **Something else got finished** (not the `next_step`): `done ID --step "what was done"`. Leaves `next_step` alone.
+- **An open item got finished:** `done` closes it automatically when the step matches its name (case and spacing ignored). If the wording differs, add `--item "open item name"`. A wrong `--item` is an error and nothing is saved.
 - **Stage changed:** `update ID --set stage="..."`.
 - **List fields** (`open_items`, `part_of`, `aliases`) take comma-separated values.
 
@@ -100,6 +101,7 @@ Every write also takes `--date YYYY-MM-DD` (default today) and `--dry-run`.
 - Every part has at least one parent, and every parent exists.
 - New ideas need a `description`. `check` warns about ideas still missing one.
 - `progress` is a list of `{date, step}` entries, can't be set with `--set`, and only projects have it.
+- `done` writes progress, open items and next step together in one save, or not at all.
 - Deleting a parent unlinks its parts; a part is removed only when no parents remain.
 
 ## How to challenge Seph

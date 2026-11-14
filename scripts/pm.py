@@ -12,7 +12,7 @@ Usage (run from anywhere; paths resolve to the repo root):
   pm.py add part    --id ID --name NAME --part-of A,B [--stage S]
   pm.py update ID --set field=value [--set field=value ...] [--reason R]
   pm.py move ID --to idea|project [--goal G] [--reason R]
-  pm.py done ID [--step S] [--next N] [--reason R]
+  pm.py done ID [--step S] [--item OPEN_ITEM] [--next N] [--reason R]
   pm.py delete ID --reason R
   pm.py check
   pm.py commit [--push]
@@ -237,13 +237,23 @@ def cmd_done(db, a):
     if not step:
         raise PMError("no next_step to complete; pass --step \"what was done\"")
     used_next_step = not a.step or step == (item.get("next_step") or "").strip()
+    norm = lambda t: " ".join(t.split()).casefold()
+    open_items = item.get("open_items") or []
+    target = a.item if a.item is not None else step
+    match = next((o for o in open_items if norm(o) == norm(target)), None)
+    if a.item is not None and match is None:
+        raise PMError(f"'{a.item}' is not an open item on '{a.id}'; open items: {', '.join(open_items) or 'none'}")
     item.setdefault("progress", []).append({"date": a.date, "step": step})
+    if match is not None:
+        item["open_items"] = [o for o in open_items if o is not match]
     if a.next is not None:
         item["next_step"] = a.next
     elif used_next_step:
         item["next_step"] = ""
     item["updated"] = a.date
     msg = f"Completed step on '{item['name']}': {step.rstrip('.')}."
+    if match is not None:
+        msg += f" Closed open item: {match.rstrip('.')}."
     if a.next is not None:
         msg += f" Next step: {a.next.rstrip('.')}." if a.next else " Next step cleared."
     elif used_next_step:
@@ -312,7 +322,7 @@ def main(argv=None):
     s = sub.add_parser("update"); writer(s); s.add_argument("id"); s.add_argument("--set", action="append")
     s = sub.add_parser("move"); writer(s); s.add_argument("id"); s.add_argument("--to", required=True, choices=["idea", "project"]); s.add_argument("--goal")
     s = sub.add_parser("done", help="move the current next_step (or --step) into progress")
-    writer(s); s.add_argument("id"); s.add_argument("--step"); s.add_argument("--next")
+    writer(s); s.add_argument("id"); s.add_argument("--step"); s.add_argument("--item"); s.add_argument("--next")
     s = sub.add_parser("delete"); writer(s); s.add_argument("id")
     sub.add_parser("check")
     s = sub.add_parser("commit"); s.add_argument("--push", action="store_true")

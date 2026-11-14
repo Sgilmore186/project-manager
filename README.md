@@ -27,6 +27,7 @@ When an idea starts, it moves from `ideas.json` to `projects.json` and keeps its
 ## Completing a step
 `python3 scripts/pm.py done ID [--next "new next step"]` moves the current `next_step` into `progress`.
 Use `--step "..."` to record a finished step that wasn't the `next_step`.
+If the step matches an open item, it is removed from `open_items` in the same save. Use `--item "..."` when the wording differs.
 
 ## Updating
 Use `scripts/pm.py`. Run `python3 scripts/pm.py --help`.
