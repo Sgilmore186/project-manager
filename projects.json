@@ -65,7 +65,6 @@
         "Update skill",
         "Stale check: after 25 days with no progress entry ask whether to archive",
         "Project artifacts: a projects/<id>/ folder per project for the repo link and notes or anything else",
-        "Flag active projects with no focus",
         "Ask whether the goal is reached when the last open item closes",
         "Fix crash on Python older than 3.12",
         "Make commit report a failed git commit",
@@ -88,6 +87,10 @@
         {
           "date": "2026-11-13",
           "step": "Required a reason in code to step away from a project, with what's left shown"
+        },
+        {
+          "date": "2026-11-13",
+          "step": "Flagged active projects with no focus in check and list"
         }
       ]
     }
