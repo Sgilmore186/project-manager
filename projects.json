@@ -65,7 +65,6 @@
         "Update skill",
         "Stale check: after 25 days with no progress entry ask whether to archive",
         "Project artifacts: a projects/<id>/ folder per project for the repo link and notes or anything else",
-        "Let projects have a description",
         "Make CLAUDE.md the single source and fix README definitions",
         "Match open items ignoring punctuation in done",
         "Data cleanup: missing dates and Command Center goal and AVELLO archive reason and Learning Coach part status"
@@ -124,6 +123,10 @@
         {
           "date": "2026-11-13",
           "step": "Enforced ideas first and done only on active projects"
+        },
+        {
+          "date": "2026-11-13",
+          "step": "Projects can have a description"
         }
       ]
     }
