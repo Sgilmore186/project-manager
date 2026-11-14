@@ -21,7 +21,7 @@ When an idea starts, it moves from `ideas.json` to `projects.json` and keeps its
 ## Project fields
 - `id`, `name`, `goal` (what done looks like), `status` (active, paused, archived, done, dropped)
 - `focus` (primary, secondary, or none), `stage` (where it actually is)
-- `next_step`, `open_items`, `started`, `updated`
+- `next_step` (the one action to do now), `open_items` (the bigger pieces still unfinished), `started`, `updated`
 - `progress`: history of completed steps, oldest first. Each entry is `{"date": "YYYY-MM-DD", "step": "..."}`.
 
 ## Completing a step

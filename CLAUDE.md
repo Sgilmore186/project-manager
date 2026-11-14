@@ -24,6 +24,7 @@ An outcome Seph wants that he hasn't committed to finishing. Old or abandoned pr
 An outcome Seph has committed to finishing.
 - **Goal (required):** one sentence saying what done looks like (`goal`).
 - **Next step (nice to have):** one concrete action that keeps his work organized (`next_step`). Ask for one when it helps, but a project without it is still a project.
+- **Open items (nice to have):** the bigger pieces still left before the goal is reached (`open_items`). The next step is the one action to do now; open items are everything else that's unfinished. Remove an item when it's finished (record the finished work with `done`). Use this list when naming what's left before Seph moves off a project.
 - **Progress:** the history of completed steps (`progress`), oldest first. Each entry is `{"date", "step"}`. When a next step is finished, it moves here. Only the `done` command writes to it.
 
 ### Part
@@ -113,4 +114,3 @@ Short, scannable, plain words. No em dashes. No long paragraphs.
 ## Open items (as of 2026-11-13)
 - Primary: Project Manager. No secondaries.
 - Imported statuses came from an earlier import and need Seph's review.
-- Mac Setup Blueprint description is a placeholder. Ask Seph what it covers.
