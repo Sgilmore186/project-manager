@@ -65,7 +65,6 @@
         "Update skill",
         "Stale check: after 25 days with no progress entry ask whether to archive",
         "Project artifacts: a projects/<id>/ folder per project for the repo link and notes or anything else",
-        "Enforce ideas first and block done on archived or dropped projects",
         "Let projects have a description",
         "Make CLAUDE.md the single source and fix README definitions",
         "Match open items ignoring punctuation in done",
@@ -121,6 +120,10 @@
         {
           "date": "2026-11-13",
           "step": "Added update --add and --remove for single list items"
+        },
+        {
+          "date": "2026-11-13",
+          "step": "Enforced ideas first and done only on active projects"
         }
       ]
     }
