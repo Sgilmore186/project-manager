@@ -65,7 +65,6 @@
         "Update skill",
         "Stale check: after 25 days with no progress entry ask whether to archive",
         "Project artifacts: a projects/<id>/ folder per project for the repo link and notes or anything else",
-        "Make commit report a failed git commit",
         "Reject unknown fields and newlines and bad dates",
         "Use Central time for default dates",
         "Fix double periods in log lines",
@@ -97,6 +96,10 @@
         {
           "date": "2026-11-13",
           "step": "Fixed crash on Python older than 3.12 (runs on 3.9+)"
+        },
+        {
+          "date": "2026-11-13",
+          "step": "commit reports failed git commits and pushes"
         }
       ]
     }
