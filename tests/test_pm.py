@@ -225,9 +225,16 @@ class Commit(PMTest):
     def last_message(self):
         return self.git("log", "-1", "--format=%B").stdout.strip()
 
-    def test_commit_uses_log_lines(self):
+    def test_each_write_is_its_own_commit(self):
         self.ok("update", "proj", "--set", "stage=a")
         self.ok("update", "proj", "--set", "stage=b")
+        self.assertIn("stage=b", self.last_message())
+        self.assertIn("stage=a", self.git("log", "-2", "--format=%s").stdout)
+        self.assertEqual(self.git("status", "--porcelain").stdout.strip(), "")
+
+    def test_commit_bundles_no_commit_writes(self):
+        self.ok("update", "proj", "--set", "stage=a", "--no-commit")
+        self.ok("update", "proj", "--set", "stage=b", "--no-commit")
         self.ok("commit")
         msg = self.last_message()
         self.assertIn("2 changes", msg.splitlines()[0])
@@ -244,8 +251,123 @@ class Commit(PMTest):
         hook = os.path.join(self.dir, ".git", "hooks", "pre-commit")
         with open(hook, "w") as f: f.write("#!/bin/sh\nexit 1\n")
         os.chmod(hook, 0o755)
-        self.ok("update", "proj", "--set", "stage=a")
+        r = self.ok("update", "proj", "--set", "stage=a")
+        self.assertIn("saved but not committed", r.stderr)
         self.fails("commit", says="git commit failed")
+
+
+class SafeSave(PMTest):
+    def test_failed_write_changes_nothing(self):
+        before = self.data()
+        os.mkdir(os.path.join(self.dir, "projects.json.tmp"))  # second file can't be written
+        self.fails("move", "idea-a", "--to", "project", says="nothing was changed")
+        self.assertUnchanged(before)
+        self.assertEqual(self.log_lines(), [])
+        self.assertEqual(self.item("idea-a")["kind"], "idea")
+
+
+class LosslessMove(PMTest):
+    def test_round_trip_keeps_everything(self):
+        self.ok("move", "idea-a", "--to", "project")
+        p = self.item("idea-a")
+        self.assertEqual(p["aliases"], ["alpha"])
+        self.assertEqual(p["idea_history"], {"added": "2026-01-01", "notes": "Has a prototype"})
+        self.ok("done", "idea-a", "--step", "First step", "--date", "2026-02-01")
+        self.ok("update", "idea-a", "--add", "open_items=Later, maybe")
+        self.ok("move", "idea-a", "--to", "idea", "--reason", "Not now")
+        i = self.item("idea-a")
+        self.assertEqual(i["added"], "2026-01-01")
+        self.assertEqual(i["project_history"]["progress"], [{"date": "2026-02-01", "step": "First step"}])
+        self.ok("move", "idea-a", "--to", "project")
+        p = self.item("idea-a")
+        self.assertEqual(p["progress"], [{"date": "2026-02-01", "step": "First step"}])
+        self.assertEqual(p["open_items"], ["Later, maybe"])
+        self.assertEqual(p["focus"], "none")
+        self.assertNotIn("project_history", p)
+
+    def test_history_cannot_be_set(self):
+        self.fails("update", "idea-a", "--set", "project_history=x", says="can't be set directly")
+
+
+class ListEdits(PMTest):
+    def test_add_and_remove_single_items_with_commas(self):
+        self.ok("update", "proj", "--add", "open_items=Pick 1, 2, or 3 colors")
+        self.assertIn("Pick 1, 2, or 3 colors", self.item("proj")["open_items"])
+        self.ok("update", "proj", "--remove", "open_items=mac encryption")
+        self.assertEqual(self.item("proj")["open_items"], ["Build the thing", "Pick 1, 2, or 3 colors"])
+
+    def test_list_edit_errors(self):
+        self.fails("update", "proj", "--add", "open_items=Mac Encryption", says="already in")
+        self.fails("update", "proj", "--remove", "open_items=ghost", says="not in open_items")
+        self.fails("update", "proj", "--add", "stage=x", says="list fields")
+
+
+class Sync(unittest.TestCase):
+    """Two clones of one remote, like two AIs working at once."""
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.remote = os.path.join(self.tmp, "remote.git")
+        self.sh("git", "init", "-q", "--bare", "-b", "main", self.remote)
+        seed = os.path.join(self.tmp, "seed")
+        os.makedirs(os.path.join(seed, "scripts"))
+        shutil.copy(os.path.join(REPO, "scripts", "pm.py"), os.path.join(seed, "scripts", "pm.py"))
+        shutil.copy(os.path.join(REPO, ".gitattributes"), os.path.join(seed, ".gitattributes"))
+        for name, data in (("ideas.json", IDEAS), ("projects.json", PROJECTS)):
+            with open(os.path.join(seed, name), "w") as f:
+                json.dump(data, f, indent=2)
+        with open(os.path.join(seed, "log.md"), "w") as f:
+            f.write("# Log\n\n")
+        self.sh("git", "init", "-q", "-b", "main", seed)
+        self.config(seed)
+        self.sh("git", "-C", seed, "add", "-A")
+        self.sh("git", "-C", seed, "commit", "-qm", "init")
+        self.sh("git", "-C", seed, "push", "-q", self.remote, "main")
+        self.a, self.b = (self.clone(n) for n in ("a", "b"))
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def sh(self, *args):
+        r = subprocess.run(args, capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        return r
+
+    def config(self, path):
+        self.sh("git", "-C", path, "config", "user.email", "t@example.com")
+        self.sh("git", "-C", path, "config", "user.name", "t")
+
+    def clone(self, name):
+        path = os.path.join(self.tmp, name)
+        self.sh("git", "clone", "-q", self.remote, path)
+        self.config(path)
+        return path
+
+    def pm(self, clone, *args):
+        return subprocess.run([sys.executable, os.path.join(clone, "scripts", "pm.py"), *args],
+                              capture_output=True, text=True)
+
+    def test_two_clones_both_push(self):
+        self.assertEqual(self.pm(self.a, "update", "proj", "--set", "stage=from a", "--date", "2026-03-01").returncode, 0)
+        self.assertEqual(self.pm(self.b, "update", "other", "--set", "stage=from b", "--date", "2026-03-01").returncode, 0)
+        self.assertEqual(self.pm(self.a, "commit", "--push").returncode, 0)
+        r = self.pm(self.b, "commit", "--push")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual(self.pm(self.a, "sync").returncode, 0)
+        with open(os.path.join(self.a, "log.md")) as f:
+            log = f.read()
+        self.assertIn("from a", log)
+        self.assertIn("from b", log)
+        self.assertEqual(self.pm(self.a, "check").returncode, 0)
+
+    def test_conflict_stops_cleanly(self):
+        self.pm(self.a, "update", "proj", "--set", "stage=from a")
+        self.pm(self.b, "update", "proj", "--set", "stage=from b")
+        self.assertEqual(self.pm(self.a, "commit", "--push").returncode, 0)
+        r = self.pm(self.b, "commit", "--push")
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("pull was undone", r.stderr)
+        status = subprocess.run(["git", "-C", self.b, "status"], capture_output=True, text=True).stdout
+        self.assertNotIn("rebase in progress", status)
 
 
 class RealData(unittest.TestCase):

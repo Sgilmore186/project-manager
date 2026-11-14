@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """pm.py: deterministic CRUD for the project-manager repo.
 
-No network, no AI. Reads and writes ideas.json and projects.json,
-appends one line to log.md per change, and can git-commit the result.
+No AI. Reads and writes ideas.json and projects.json and appends one line
+to log.md per change, all in one all-or-nothing save. Inside a git repo each
+change is committed on its own. Only 'sync' and 'commit --push' use the network.
 Works on Python 3.9+ with the standard library only.
 
 Usage (run from anywhere; paths resolve to the repo root):
@@ -11,14 +12,15 @@ Usage (run from anywhere; paths resolve to the repo root):
   pm.py add idea    --id ID --name NAME --description D [--goal G] [--notes N]
   pm.py add project --id ID --name NAME --goal G --skip-idea --reason R [--description D] [--status S] [--focus F] [--stage S] [--next-step N]
   pm.py add part    --id ID --name NAME --part-of A,B [--stage S]
-  pm.py update ID --set field=value [--set field=value ...] [--reason R]
+  pm.py update ID [--set field=value] [--add list_field=item] [--remove list_field=item] [--reason R]
   pm.py move ID --to idea|project [--goal G] [--reason R]
   pm.py done ID [--step S] [--item OPEN_ITEM] [--next N] [--reason R]
   pm.py delete ID --reason R
   pm.py check
+  pm.py sync
   pm.py commit [--push]
 
-Every write takes --date YYYY-MM-DD (default: today in US Central time) and --dry-run.
+Every write takes --date YYYY-MM-DD (default: today in US Central time), --dry-run and --no-commit.
 """
 import argparse, datetime, json, os, re, subprocess, sys
 
@@ -29,11 +31,14 @@ STATUSES = ["active", "paused", "archived", "done", "dropped"]
 STEP_AWAY = {"paused", "archived", "dropped"}  # leaving a project for these needs a reason
 FOCUS = ["primary", "secondary", "none"]
 LIST_FIELDS = {"open_items", "part_of", "aliases"}
-MANAGED_FIELDS = {"progress"}  # changed only by dedicated commands, never by --set
+MANAGED_FIELDS = {"progress", "project_history", "idea_history"}  # changed only by dedicated commands, never by --set
+# Fields kept aside when an item moves, so moving back restores them.
+PROJECT_ONLY = ["status", "focus", "stage", "next_step", "open_items", "progress", "started", "updated"]
+IDEA_ONLY = ["added", "notes"]
 FIELDS = {
-    "idea": ["id", "name", "description", "goal", "added", "notes", "aliases"],
+    "idea": ["id", "name", "description", "goal", "added", "notes", "aliases", "project_history"],
     "project": ["id", "name", "description", "goal", "status", "focus", "stage", "next_step",
-                "open_items", "progress", "started", "updated", "notes", "aliases"],
+                "open_items", "progress", "started", "updated", "notes", "aliases", "idea_history"],
     "part": ["id", "name", "part_of", "stage", "updated", "aliases"],
 }
 
@@ -100,19 +105,41 @@ def with_description(item):
     out.setdefault("description", "")
     return out
 
-def save(db, date):
+def save(db, date, message):
+    """Write both JSON files and the log line together: all of it lands, or none of it does."""
     db["ideas"]["updated"] = date
     db["projects"]["updated"] = date
-    for path, key in ((IDEAS, "ideas"), (PROJECTS, "projects")):
-        tmp = path + ".tmp"
-        with open(tmp, "w") as f:
-            json.dump(db[key], f, indent=2, ensure_ascii=False)
-            f.write("\n")
-        os.replace(tmp, path)
-
-def log(date, text):
-    with open(LOG, "a") as f:
-        f.write(f"- {date}: {text}\n")
+    paths = {"ideas": IDEAS, "projects": PROJECTS}
+    originals = {}
+    for path in (IDEAS, PROJECTS, LOG):
+        with open(path, "rb") as f:
+            originals[path] = f.read()
+    tmps = []
+    try:
+        for key, path in paths.items():
+            tmp = path + ".tmp"
+            tmps.append(tmp)
+            with open(tmp, "w") as f:
+                json.dump(db[key], f, indent=2, ensure_ascii=False)
+                f.write("\n")
+        for key, path in paths.items():
+            os.replace(path + ".tmp", path)
+        with open(LOG, "a") as f:
+            f.write(f"- {date}: {message}\n")
+    except Exception as e:
+        for path, data in originals.items():
+            try:
+                with open(path, "wb") as f:
+                    f.write(data)
+            except Exception:
+                pass
+        for tmp in tmps:
+            if os.path.exists(tmp):
+                try:
+                    os.remove(tmp)
+                except OSError:
+                    pass
+        raise PMError(f"save failed, nothing was changed: {e}")
 
 def collections(db):
     return {"idea": db["ideas"]["ideas"], "project": db["projects"]["projects"], "part": db["projects"]["parts"]}
@@ -184,16 +211,21 @@ def warnings(db):
             for p in db["projects"]["projects"] if p.get("status") == "active" and p.get("focus") == "none"]
     return out
 
-def commit_changes(db, date, message, dry):
+def commit_changes(db, date, message, dry, no_commit=False):
     errors = validate(db)
     if errors:
         raise PMError("refusing to save:\n  " + "\n  ".join(errors))
     if dry:
         print(f"[dry run] would save and log: {message}")
         return
-    save(db, date)
-    log(date, message)
+    save(db, date, message)
     print(message)
+    if not no_commit and in_git():
+        git("add", "ideas.json", "projects.json", "log.md")
+        r = git("commit", "-q", "-m", f"{date}: {message}", "--", "ideas.json", "projects.json", "log.md")
+        if r.returncode != 0:
+            print(f"warning: saved but not committed ({(r.stderr or r.stdout).strip()}). "
+                  "Run 'pm.py commit' once that's fixed.", file=sys.stderr)
 
 # ---------- commands ----------
 
@@ -243,13 +275,37 @@ def cmd_add(db, a):
         parents = parse_value("part_of", a.part_of or "")
         item = {"id": a.id, "name": a.name, "part_of": parents, "stage": a.stage or "", "updated": a.date}
     collections(db)[a.kind].append(item)
-    commit_changes(db, a.date, with_reason(f"Added {a.kind} '{a.name}'.", a.reason), a.dry_run)
+    commit_changes(db, a.date, with_reason(f"Added {a.kind} '{a.name}'.", a.reason), a.dry_run, a.no_commit)
 
 def cmd_update(db, a):
     kind, items, i = find(db, a.id)
     item = items[i]
     before = dict(item)
     changes = []
+    for flag, pairs in (("--add", a.add or []), ("--remove", a.remove or [])):
+        for pair in pairs:
+            if "=" not in pair:
+                raise PMError(f"{flag} needs list_field=item, got '{pair}'")
+            field, value = (t.strip() for t in pair.split("=", 1))
+            field = field.replace("-", "_")
+            if field not in LIST_FIELDS or field not in FIELDS[kind]:
+                raise PMError(f"{flag} works on list fields of a {kind}: "
+                              f"{', '.join(f for f in FIELDS[kind] if f in LIST_FIELDS)}")
+            if not value:
+                raise PMError(f"{flag} {field}= needs an item")
+            current = list(item.get(field) or [])
+            if flag == "--add":
+                if any(norm(v) == norm(value) for v in current):
+                    raise PMError(f"'{value}' is already in {field}")
+                current.append(value)
+                changes.append(f"added to {field}: {clean(value)}")
+            else:
+                match = next((v for v in current if norm(v) == norm(value)), None)
+                if match is None:
+                    raise PMError(f"'{value}' is not in {field}; current: {', '.join(current) or 'none'}")
+                current = [v for v in current if v is not match]
+                changes.append(f"removed from {field}: {clean(match)}")
+            item[field] = current
     for pair in a.set or []:
         if "=" not in pair:
             raise PMError(f"--set needs field=value, got '{pair}'")
@@ -264,7 +320,7 @@ def cmd_update(db, a):
         item[field] = parse_value(field, raw)
         changes.append(f"{field}={clean(raw)}")
     if not changes:
-        raise PMError("nothing to update; pass --set field=value")
+        raise PMError("nothing to update; pass --set, --add or --remove")
     if kind == "project" and not a.reason:
         new_status, old_status = item.get("status"), before.get("status")
         lost_focus = before.get("focus") in ("primary", "secondary") and item.get("focus") == "none"
@@ -275,7 +331,7 @@ def cmd_update(db, a):
     if "updated" in item or kind != "idea":
         item["updated"] = a.date
     msg = f"Updated {kind} '{item['name']}': {'; '.join(changes)}."
-    commit_changes(db, a.date, with_reason(msg, a.reason), a.dry_run)
+    commit_changes(db, a.date, with_reason(msg, a.reason), a.dry_run, a.no_commit)
 
 def cmd_move(db, a):
     kind, items, i = find(db, a.id)
@@ -286,24 +342,33 @@ def cmd_move(db, a):
     if kind == "project" and not a.reason:
         raise PMError(f"moving project '{a.id}' back to ideas needs --reason. What's left: {whats_left(items[i])}")
     old = items.pop(i)
+    shared = {k: old[k] for k in ("id", "name", "description", "aliases") if k in old}
+    shared.setdefault("description", "")
     if a.to == "project":
         goal = a.goal or old.get("goal")
         if not goal:
             raise PMError("moving to a project needs a goal (--goal)")
-        new = {"id": old["id"], "name": old["name"], "description": old.get("description", ""),
-               "goal": goal, "status": "active", "focus": "none",
-               "stage": old.get("notes", ""), "next_step": "", "open_items": [], "progress": [], "started": a.date, "updated": a.date}
+        back = old.get("project_history") or {}
+        new = {**shared, "goal": goal, "status": "active", "focus": "none",
+               "stage": back.get("stage") or old.get("notes", ""), "next_step": back.get("next_step", ""),
+               "open_items": back.get("open_items", []), "progress": back.get("progress", []),
+               "started": back.get("started") or a.date, "updated": a.date}
+        kept = {k: old[k] for k in IDEA_ONLY if old.get(k)}
+        if kept:
+            new["idea_history"] = kept
     else:
-        notes = old.get("stage", "")
-        new = {"id": old["id"], "name": old["name"], "description": old.get("description", ""),
-               "goal": old.get("goal", ""), "added": a.date,
-               "notes": notes}
+        back = old.get("idea_history") or {}
+        new = {**shared, "goal": old.get("goal", ""), "added": back.get("added") or a.date,
+               "notes": old.get("stage", "") or back.get("notes", "")}
+        kept = {k: old[k] for k in PROJECT_ONLY if old.get(k) not in (None, "", [])}
+        if kept:
+            new["project_history"] = kept
         for part in db["projects"]["parts"]:
             if old["id"] in part.get("part_of", []):
                 print(f"note: part '{part['id']}' still lists '{old['id']}' as a parent")
     collections(db)[a.to].append(new)
     msg = f"Moved '{old['name']}' from {kind}s to {a.to}s."
-    commit_changes(db, a.date, with_reason(msg, a.reason), a.dry_run)
+    commit_changes(db, a.date, with_reason(msg, a.reason), a.dry_run, a.no_commit)
 
 def cmd_done(db, a):
     kind, items, i = find(db, a.id)
@@ -336,7 +401,7 @@ def cmd_done(db, a):
         msg += f" Next step: {clean(a.next)}." if a.next else " Next step cleared."
     elif used_next_step:
         msg += " No next step set."
-    commit_changes(db, a.date, with_reason(msg, a.reason), a.dry_run)
+    commit_changes(db, a.date, with_reason(msg, a.reason), a.dry_run, a.no_commit)
     if match is not None and not item["open_items"] and not a.dry_run:
         print(f"note: that was the last open item on '{a.id}'. Ask Seph: is the goal reached? "
               f"If yes: update {a.id} --set status=done --set focus=none")
@@ -354,7 +419,7 @@ def cmd_delete(db, a):
     msg = with_reason(f"Removed {kind} '{old['name']}'.", a.reason)
     if removed_parts:
         msg += f" Also removed parts with no parents left: {', '.join(removed_parts)}."
-    commit_changes(db, a.date, msg, a.dry_run)
+    commit_changes(db, a.date, msg, a.dry_run, a.no_commit)
 
 def cmd_check(db, a):
     errors = validate(db)
@@ -367,6 +432,26 @@ def cmd_check(db, a):
 
 def git(*args):
     return subprocess.run(["git", "-C", ROOT, *args], capture_output=True, text=True)
+
+def in_git():
+    return git("rev-parse", "--is-inside-work-tree").returncode == 0
+
+def pull():
+    """Bring in other AIs' changes. log.md merges by union (.gitattributes); JSON conflicts stop it."""
+    if git("remote").stdout.strip() == "":
+        return "no remote; nothing to pull"
+    r = git("pull", "--rebase", "--autostash", "-q")
+    if r.returncode != 0:
+        git("rebase", "--abort")
+        raise PMError("someone else changed the same lines, so the pull was undone and nothing was pushed. "
+                      f"Your changes are still committed locally.\n{(r.stderr or r.stdout).strip()}\n"
+                      "Tell Seph which change clashed. Don't force-push or reset without his OK.")
+    return "up to date with the remote"
+
+def cmd_sync(db, a):
+    if not in_git():
+        raise PMError("not a git repo")
+    print(pull())
 
 def cmd_commit(db, a):
     if git("rev-parse", "--is-inside-work-tree").returncode != 0:
@@ -390,6 +475,7 @@ def cmd_commit(db, a):
             raise PMError(f"git commit failed, nothing was committed:\n{(r.stderr or r.stdout).strip()}")
         print((r.stdout or "").strip())
     if a.push:
+        print(pull())
         r = git("push")
         out = (r.stdout + r.stderr).strip()
         if r.returncode != 0:
@@ -403,6 +489,7 @@ def main(argv=None):
         sp.add_argument("--date", type=valid_date, default=today())
         sp.add_argument("--dry-run", action="store_true")
         sp.add_argument("--reason")
+        sp.add_argument("--no-commit", action="store_true", help="save without the automatic git commit")
     s = sub.add_parser("list"); s.add_argument("what", nargs="?", default="all", choices=["ideas", "projects", "parts", "all"])
     s = sub.add_parser("get"); s.add_argument("id")
     s = sub.add_parser("add"); writer(s)
@@ -412,11 +499,13 @@ def main(argv=None):
     s.add_argument("--status", default="active", choices=STATUSES); s.add_argument("--focus", default="none", choices=FOCUS)
     s.add_argument("--part-of"); s.add_argument("--skip-idea", action="store_true")
     s = sub.add_parser("update"); writer(s); s.add_argument("id"); s.add_argument("--set", action="append")
+    s.add_argument("--add", action="append"); s.add_argument("--remove", action="append")
     s = sub.add_parser("move"); writer(s); s.add_argument("id"); s.add_argument("--to", required=True, choices=["idea", "project"]); s.add_argument("--goal")
     s = sub.add_parser("done", help="move the current next_step (or --step) into progress")
     writer(s); s.add_argument("id"); s.add_argument("--step"); s.add_argument("--item"); s.add_argument("--next")
     s = sub.add_parser("delete"); writer(s); s.add_argument("id")
     sub.add_parser("check")
+    sub.add_parser("sync")
     s = sub.add_parser("commit"); s.add_argument("--push", action="store_true")
     a = p.parse_args(argv)
     for name, value in vars(a).items():

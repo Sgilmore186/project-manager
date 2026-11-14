@@ -10,7 +10,7 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 ## Files
 - `ideas.json`: outcomes Seph wants but hasn't committed to.
 - `projects.json`: outcomes Seph has committed to, with current status.
-- `log.md`: dated, human-readable history of every change (written by the script).
+- `log.md`: dated, human-readable history of every change (written by the script). `.gitattributes` merges it line by line, so two AIs adding lines never conflict.
 - `scripts/pm.py`: the only way to change the data. Python 3.9+, standard library only.
 - `tests/test_pm.py`: behavior tests for the script.
 - `.github/workflows/tests.yml`: runs the tests on every PR and push to main.
@@ -62,14 +62,15 @@ Seph finishes a project before abandoning it, unless he gives a good reason to m
 
 ## How to update
 Every change goes through `scripts/pm.py`. Never hand-edit the JSON or `log.md`.
-The script is deterministic: no AI, no network, Python standard library only. It checks the rules before saving, writes the JSON, and appends a dated line to `log.md`.
+The script is deterministic: no AI, Python standard library only. It checks the rules, then saves both JSON files and the `log.md` line together (all or nothing). Inside a git repo, each change is then committed on its own, with the log line as the message. Only `sync` and `commit --push` touch the network.
 
 ### Steps
+0. At the start of a session, run `python3 scripts/pm.py sync` to pull changes other AIs made.
 1. Seph talks. Decide what changed: new idea, new project, status, focus, progress, next step.
 2. If unsure whether something is an idea, project or part, ask Seph. Don't guess.
 3. Run the matching command below. Pass Seph's reason with `--reason` whenever he gives one.
 4. If the script prints `error:`, nothing was saved. Fix the input or ask Seph; never force it.
-5. Run `python3 scripts/pm.py commit --push`. The commit message is built from the new log lines. If it prints `error:`, nothing was committed or pushed; read the message.
+5. Run `python3 scripts/pm.py commit --push`. It commits anything left over, pulls other AIs' changes, then pushes. If it prints `error:`, nothing was pushed; read the message. If it says the pull was undone, tell Seph which change clashed. Never force-push or reset without his OK.
 
 ### Changing the script or docs
 1. Work on a branch and open a PR. Data changes go straight to main through the script; code changes don't.
@@ -87,13 +88,14 @@ python3 scripts/pm.py check
 python3 scripts/pm.py add idea    --id ID --name NAME --description D [--goal G] [--notes N]
 python3 scripts/pm.py add project --id ID --name NAME --goal G --skip-idea --reason R [--description D] [--status S] [--focus F] [--stage S] [--next-step N]
 python3 scripts/pm.py add part    --id ID --name NAME --part-of PARENT1,PARENT2 [--stage S]
-python3 scripts/pm.py update ID --set field=value [--set field=value] [--reason R]
+python3 scripts/pm.py update ID [--set field=value] [--add list_field=item] [--remove list_field=item] [--reason R]
 python3 scripts/pm.py move ID --to idea|project [--goal G] [--reason R]
 python3 scripts/pm.py done ID [--step S] [--item OPEN_ITEM] [--next N] [--reason R]
 python3 scripts/pm.py delete ID --reason R
+python3 scripts/pm.py sync
 python3 scripts/pm.py commit [--push]
 ```
-Every write also takes `--date YYYY-MM-DD` (default: today in US Central time, Seph's day) and `--dry-run`.
+Every write also takes `--date YYYY-MM-DD` (default: today in US Central time, Seph's day) `--dry-run`, and `--no-commit` (save without the automatic commit).
 
 ### Common cases
 - **New idea:** `add idea`. Ask how it ranks against current focus first.
@@ -105,7 +107,9 @@ Every write also takes `--date YYYY-MM-DD` (default: today in US Central time, S
 - **Something else got finished** (not the `next_step`): `done ID --step "what was done"`. Leaves `next_step` alone.
 - **An open item got finished:** `done` closes it automatically when the step matches its name (case, spacing and punctuation ignored). If the wording differs, add `--item "open item name"`. A wrong `--item` is an error and nothing is saved.
 - **Stage changed:** `update ID --set stage="..."`.
-- **List fields** (`open_items`, `part_of`, `aliases`) take comma-separated values.
+- **One list item:** `update ID --add open_items="..."` or `--remove open_items="..."`. Use these for open items, parts and aliases; one item can contain commas. Matching on `--remove` ignores case, spacing and punctuation.
+- **Whole list:** `--set open_items=A,B,C` replaces the list and splits on commas.
+- **Moving between ideas and projects keeps everything.** Project-only fields go into `project_history` on the idea, and idea-only fields into `idea_history` on the project. Moving back restores them (focus always comes back as `none`).
 
 ### What the script enforces
 - Unique ids; every item has an id and name.
@@ -118,7 +122,8 @@ Every write also takes `--date YYYY-MM-DD` (default: today in US Central time, S
 - `done` only works on active projects.
 - Every part has at least one parent, and every parent exists.
 - New ideas need a `description`. `check` warns about ideas still missing one.
-- `progress` is a list of `{date, step}` entries, can't be set with `--set`, and only projects have it.
+- `progress` is a list of `{date, step}` entries, can't be set with `--set`, and only projects have it. The same goes for `project_history` and `idea_history`.
+- Every save is all or nothing across `ideas.json`, `projects.json` and `log.md`.
 - `done` writes progress, open items and next step together in one save, or not at all.
 - Deleting a parent unlinks its parts; a part is removed only when no parents remain.
 - `commit` refuses if the data changed without a new log line (a hand edit), and reports a failed git commit or push as an error.
