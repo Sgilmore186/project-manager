@@ -30,3 +30,4 @@
 - 2026-11-13: Completed step on 'Project Manager (this system)': Fixed crash on Python older than 3.12 (runs on 3.9+). Closed open item: Fix crash on Python older than 3.12. Reason: Merged in PRs 3, 4 and 5.
 - 2026-11-13: Completed step on 'Project Manager (this system)': commit reports failed git commits and pushes. Closed open item: Make commit report a failed git commit. Reason: Merged in PRs 3, 4 and 5.
 - 2026-11-13: Completed step on 'Project Manager (this system)': Rejected unknown fields and line breaks and bad dates. Closed open item: Reject unknown fields and newlines and bad dates. Reason: Merged in PRs 3, 4 and 5.
+- 2026-11-13: Completed step on 'Project Manager (this system)': Default dates use US Central time. Closed open item: Use Central time for default dates. Reason: Merged in PRs 3, 4 and 5.
