@@ -7,7 +7,7 @@ appends one line to log.md per change, and can git-commit the result.
 Usage (run from anywhere; paths resolve to the repo root):
   pm.py list [ideas|projects|parts|all]
   pm.py get ID
-  pm.py add idea    --id ID --name NAME [--goal G] [--notes N]
+  pm.py add idea    --id ID --name NAME --description D [--goal G] [--notes N]
   pm.py add project --id ID --name NAME --goal G [--status S] [--focus F] [--stage S] [--next-step N]
   pm.py add part    --id ID --name NAME --part-of A,B [--stage S]
   pm.py update ID --set field=value [--set field=value ...] [--reason R]
@@ -36,9 +36,26 @@ def load():
     with open(IDEAS) as f: ideas = json.load(f)
     with open(PROJECTS) as f: projects = json.load(f)
     projects.setdefault("parts", [])
+    ideas["ideas"] = [with_description(x) for x in ideas.get("ideas", [])]
     for p in projects.get("projects", []):
         p.setdefault("progress", [])
     return {"ideas": ideas, "projects": projects}
+
+def with_description(item):
+    """Return item with a 'description' key placed right after 'name'."""
+    if "description" in item:
+        return item
+    out = {}
+    for k, v in item.items():
+        out[k] = v
+        if k == "name":
+            out["description"] = ""
+    out.setdefault("description", "")
+    return out
+
+def warnings(db):
+    return [f"idea '{x['id']}' has no description" for x in db["ideas"]["ideas"]
+            if not (x.get("description") or "").strip()]
 
 def save(db, date):
     db["ideas"]["updated"] = date
@@ -147,7 +164,10 @@ def cmd_add(db, a):
     if a.id in all_ids(db):
         raise PMError(f"id '{a.id}' already exists")
     if a.kind == "idea":
-        item = {"id": a.id, "name": a.name, "goal": a.goal or "", "added": a.date, "notes": a.notes or ""}
+        if not (a.description or "").strip():
+            raise PMError("an idea needs --description (what the idea is)")
+        item = {"id": a.id, "name": a.name, "description": a.description.strip(), "goal": a.goal or "",
+                "added": a.date, "notes": a.notes or ""}
     elif a.kind == "project":
         if not a.goal:
             raise PMError("a project needs --goal")
@@ -193,11 +213,13 @@ def cmd_move(db, a):
         goal = a.goal or old.get("goal")
         if not goal:
             raise PMError("moving to a project needs a goal (--goal)")
-        new = {"id": old["id"], "name": old["name"], "goal": goal, "status": "active", "focus": "none",
+        new = {"id": old["id"], "name": old["name"], "description": old.get("description", ""),
+               "goal": goal, "status": "active", "focus": "none",
                "stage": old.get("notes", ""), "next_step": "", "open_items": [], "progress": [], "started": a.date, "updated": a.date}
     else:
         notes = old.get("stage", "")
-        new = {"id": old["id"], "name": old["name"], "goal": old.get("goal", ""), "added": a.date,
+        new = {"id": old["id"], "name": old["name"], "description": old.get("description", ""),
+               "goal": old.get("goal", ""), "added": a.date,
                "notes": notes}
         for part in db["projects"]["parts"]:
             if old["id"] in part.get("part_of", []):
@@ -248,6 +270,8 @@ def cmd_check(db, a):
     if errors:
         print("problems:\n  " + "\n  ".join(errors))
         sys.exit(1)
+    for w in warnings(db):
+        print(f"warning: {w}")
     print("ok")
 
 def git(*args):
@@ -282,7 +306,7 @@ def main(argv=None):
     s = sub.add_parser("add"); writer(s)
     s.add_argument("kind", choices=["idea", "project", "part"])
     s.add_argument("--id", required=True); s.add_argument("--name", required=True)
-    s.add_argument("--goal"); s.add_argument("--notes"); s.add_argument("--stage"); s.add_argument("--next-step")
+    s.add_argument("--goal"); s.add_argument("--description"); s.add_argument("--notes"); s.add_argument("--stage"); s.add_argument("--next-step")
     s.add_argument("--status", default="active", choices=STATUSES); s.add_argument("--focus", default="none", choices=FOCUS)
     s.add_argument("--part-of")
     s = sub.add_parser("update"); writer(s); s.add_argument("id"); s.add_argument("--set", action="append")

@@ -4,6 +4,7 @@
     {
       "id": "jarvis",
       "name": "JARVIS personal AI",
+      "description": "A personal AI assistant that goes beyond chat. It remembers you, talks by voice, controls your computer, and runs workflows across your devices using both local and cloud AI.",
       "goal": "A personal AI with memory, voice, computer control and cross-device workflows",
       "added": null,
       "notes": "Marked planned, future build"
@@ -11,6 +12,7 @@
     {
       "id": "church-media",
       "name": "AI church media platform",
+      "description": "Software that helps churches manage their media: sermon recordings, transcripts, searchable archives, event info, auto-made clips, and production workflows.",
       "goal": "App for sermons, events, transcripts, searchable archives and auto clips",
       "added": null,
       "notes": ""
@@ -18,6 +20,7 @@
     {
       "id": "mac-setup-blueprint",
       "name": "Mac Setup Blueprint",
+      "description": "A repeatable plan for setting up a Mac the way Seph wants it. Details not written down yet.",
       "goal": "",
       "added": null,
       "notes": "Outcome not written down yet"
@@ -25,6 +28,7 @@
     {
       "id": "multi-model-workflow",
       "name": "Autonomous multi-model workflow",
+      "description": "A system where several AIs work together on their own. Muse plans and coordinates, Codex builds and tests, Gemini researches and reviews, and Crosswalk carries messages and keeps records. Runs on existing subscriptions instead of paid APIs.",
       "goal": "Muse orchestrates, Codex builds, Gemini reviews, Crosswalk records, on existing subscriptions",
       "added": null,
       "notes": "",
@@ -35,6 +39,7 @@
     {
       "id": "canvas-assistant",
       "name": "Canvas academic assistant",
+      "description": "A tool that connects a student's authorized Canvas coursework to an AI so it can track deadlines, explain assignments, plan study time, and help with exam prep, while respecting privacy and school policies.",
       "goal": "Authorized Canvas coursework connected to an AI for deadlines, scheduling and exam prep",
       "added": null,
       "notes": "In discovery: seeking feedback and pilots"
@@ -42,6 +47,7 @@
     {
       "id": "elsewhere",
       "name": "ELSEWHERE",
+      "description": "A realistic, open-ended life-simulation game. Independent characters, relationships, money, career, health, stress, and memory all change over time, and choices have lasting consequences. Grew out of the Eli Randel story simulation.",
       "goal": "A realistic open-ended life-simulation game",
       "added": null,
       "notes": "Prototype v0.2 exists (browser, saves, 1,100-turn tests). Not committed to finishing yet."
@@ -49,6 +55,7 @@
     {
       "id": "selah",
       "name": "Selah",
+      "description": "A private web app for reading the Bible and staying spiritually accountable. It has a reader with highlights, verse notes, search, and daily reflections, with plans for personal AI memory and Hebrew and Greek study tools.",
       "goal": "Private Bible-reading and accountability app",
       "added": null,
       "notes": "Starter prototype exists (reader, highlights, notes, 5 sample verses). Not committed yet."
@@ -56,6 +63,7 @@
     {
       "id": "god-on-the-move",
       "name": "God on the Move",
+      "description": "A long-term spiritual journal that keeps original entries about prayers, revelations, Scripture insights, and meaningful events, and builds a timeline that shows patterns and possible answered prayers over time.",
       "goal": "A long-term spiritual journal and timeline",
       "added": null,
       "notes": "Journal instructions and an Oct 3-11 dashboard exist. Not committed yet."
