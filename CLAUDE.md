@@ -22,6 +22,7 @@ An outcome Seph wants that he hasn't committed to finishing. Old or abandoned pr
 An outcome Seph has committed to finishing.
 - **Goal (required):** one sentence saying what done looks like (`goal`).
 - **Next step (nice to have):** one concrete action that keeps his work organized (`next_step`). Ask for one when it helps, but a project without it is still a project.
+- **Progress:** the history of completed steps (`progress`), oldest first. Each entry is `{"date", "step"}`. When a next step is finished, it moves here. Only the `done` command writes to it.
 
 ### Part
 Something that depends on a larger project to have a purpose. Parts live in the `parts` list in `projects.json`, not as projects.
@@ -72,6 +73,7 @@ python3 scripts/pm.py add project --id ID --name NAME --goal G [--status S] [--f
 python3 scripts/pm.py add part    --id ID --name NAME --part-of PARENT1,PARENT2 [--stage S]
 python3 scripts/pm.py update ID --set field=value [--set field=value] [--reason R]
 python3 scripts/pm.py move ID --to idea|project [--goal G] [--reason R]
+python3 scripts/pm.py done ID [--step S] [--next N] [--reason R]
 python3 scripts/pm.py delete ID --reason R
 python3 scripts/pm.py commit [--push]
 ```
@@ -83,7 +85,9 @@ Every write also takes `--date YYYY-MM-DD` (default today) and `--dry-run`.
 - **Seph sets focus:** `update ID --set focus=primary` (or `secondary`, `none`).
 - **Seph steps away from a project:** ask for his reason, then `update ID --set status=paused` (or `archived`, `dropped`) with `--reason`.
 - **Goal reached:** `update ID --set status=done --set focus=none`.
-- **Progress:** `update ID --set stage="..." --set next_step="..."`.
+- **Next step finished:** `done ID --next "..."`. Moves the current `next_step` into `progress` and sets the new one. Without `--next`, `next_step` is cleared; ask Seph what's next.
+- **Something else got finished** (not the `next_step`): `done ID --step "what was done"`. Leaves `next_step` alone.
+- **Stage changed:** `update ID --set stage="..."`.
 - **List fields** (`open_items`, `part_of`, `aliases`) take comma-separated values.
 
 ### What the script enforces
@@ -91,6 +95,7 @@ Every write also takes `--date YYYY-MM-DD` (default today) and `--dry-run`.
 - Every project has a goal, a valid status and a valid focus.
 - At most 1 primary and 2 secondary projects, and only active projects can hold focus.
 - Every part has at least one parent, and every parent exists.
+- `progress` is a list of `{date, step}` entries, can't be set with `--set`, and only projects have it.
 - Deleting a parent unlinks its parts; a part is removed only when no parents remain.
 
 ## How to challenge Seph

@@ -18,7 +18,8 @@
         "First paying client"
       ],
       "started": "2026-10",
-      "updated": "2026-11-13"
+      "updated": "2026-11-13",
+      "progress": []
     },
     {
       "id": "echovault",
@@ -35,7 +36,8 @@
         "More AI features"
       ],
       "started": null,
-      "updated": "2026-11-04"
+      "updated": "2026-11-04",
+      "progress": []
     },
     {
       "id": "command-center",
@@ -47,7 +49,8 @@
       "next_step": "",
       "open_items": [],
       "started": null,
-      "updated": "2026-11-12"
+      "updated": "2026-11-12",
+      "progress": []
     },
     {
       "id": "project-manager",
@@ -62,7 +65,8 @@
         "Update skill"
       ],
       "started": "2026-11-13",
-      "updated": "2026-11-13"
+      "updated": "2026-11-13",
+      "progress": []
     }
   ],
   "statuses": [

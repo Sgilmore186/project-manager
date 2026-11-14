@@ -12,6 +12,7 @@ Usage (run from anywhere; paths resolve to the repo root):
   pm.py add part    --id ID --name NAME --part-of A,B [--stage S]
   pm.py update ID --set field=value [--set field=value ...] [--reason R]
   pm.py move ID --to idea|project [--goal G] [--reason R]
+  pm.py done ID [--step S] [--next N] [--reason R]
   pm.py delete ID --reason R
   pm.py check
   pm.py commit [--push]
@@ -25,6 +26,7 @@ IDEAS, PROJECTS, LOG = (os.path.join(ROOT, f) for f in ("ideas.json", "projects.
 STATUSES = ["active", "paused", "archived", "done", "dropped"]
 FOCUS = ["primary", "secondary", "none"]
 LIST_FIELDS = {"open_items", "part_of", "aliases"}
+MANAGED_FIELDS = {"progress"}  # changed only by dedicated commands, never by --set
 KINDS = {"idea": ("ideas", "ideas"), "project": ("projects", "projects"), "part": ("projects", "parts")}
 
 class PMError(Exception):
@@ -34,6 +36,8 @@ def load():
     with open(IDEAS) as f: ideas = json.load(f)
     with open(PROJECTS) as f: projects = json.load(f)
     projects.setdefault("parts", [])
+    for p in projects.get("projects", []):
+        p.setdefault("progress", [])
     return {"ideas": ideas, "projects": projects}
 
 def save(db, date):
@@ -90,6 +94,10 @@ def validate(db):
             errors.append(f"project '{p['id']}' has invalid status '{p.get('status')}'")
         if p.get("focus") not in FOCUS:
             errors.append(f"project '{p['id']}' has invalid focus '{p.get('focus')}'")
+        prog = p.get("progress", [])
+        if not isinstance(prog, list) or any(
+                not isinstance(e, dict) or not e.get("date") or not e.get("step") for e in prog):
+            errors.append(f"project '{p['id']}' has malformed progress (needs a list of {{date, step}})")
         if p.get("focus") in counts:
             if p.get("status") != "active":
                 errors.append(f"project '{p['id']}' has focus but is not active")
@@ -145,7 +153,7 @@ def cmd_add(db, a):
             raise PMError("a project needs --goal")
         item = {"id": a.id, "name": a.name, "goal": a.goal, "status": a.status, "focus": a.focus,
                 "stage": a.stage or "", "next_step": a.next_step or "", "open_items": [],
-                "started": a.date, "updated": a.date}
+                "progress": [], "started": a.date, "updated": a.date}
     else:
         parents = parse_value("part_of", a.part_of or "")
         item = {"id": a.id, "name": a.name, "part_of": parents, "stage": a.stage or "", "updated": a.date}
@@ -163,6 +171,8 @@ def cmd_update(db, a):
         field = field.strip().replace("-", "_")
         if field == "id":
             raise PMError("ids can't be changed; delete and re-add instead")
+        if field in MANAGED_FIELDS:
+            raise PMError(f"'{field}' can't be set directly; use 'pm.py done ID' to record a completed step")
         item[field] = parse_value(field, raw)
         changes.append(f"{field}={raw}")
     if not changes:
@@ -184,7 +194,7 @@ def cmd_move(db, a):
         if not goal:
             raise PMError("moving to a project needs a goal (--goal)")
         new = {"id": old["id"], "name": old["name"], "goal": goal, "status": "active", "focus": "none",
-               "stage": old.get("notes", ""), "next_step": "", "open_items": [], "started": a.date, "updated": a.date}
+               "stage": old.get("notes", ""), "next_step": "", "open_items": [], "progress": [], "started": a.date, "updated": a.date}
     else:
         notes = old.get("stage", "")
         new = {"id": old["id"], "name": old["name"], "goal": old.get("goal", ""), "added": a.date,
@@ -194,6 +204,28 @@ def cmd_move(db, a):
                 print(f"note: part '{part['id']}' still lists '{old['id']}' as a parent")
     collections(db)[a.to].append(new)
     msg = f"Moved '{old['name']}' from {kind}s to {a.to}s."
+    commit_changes(db, a.date, msg + (f" Reason: {a.reason}" if a.reason else ""), a.dry_run)
+
+def cmd_done(db, a):
+    kind, items, i = find(db, a.id)
+    if kind != "project":
+        raise PMError(f"'{a.id}' is a {kind}; progress is tracked on projects only")
+    item = items[i]
+    step = (a.step or item.get("next_step") or "").strip()
+    if not step:
+        raise PMError("no next_step to complete; pass --step \"what was done\"")
+    used_next_step = not a.step or step == (item.get("next_step") or "").strip()
+    item.setdefault("progress", []).append({"date": a.date, "step": step})
+    if a.next is not None:
+        item["next_step"] = a.next
+    elif used_next_step:
+        item["next_step"] = ""
+    item["updated"] = a.date
+    msg = f"Completed step on '{item['name']}': {step.rstrip('.')}."
+    if a.next is not None:
+        msg += f" Next step: {a.next.rstrip('.')}." if a.next else " Next step cleared."
+    elif used_next_step:
+        msg += " No next step set."
     commit_changes(db, a.date, msg + (f" Reason: {a.reason}" if a.reason else ""), a.dry_run)
 
 def cmd_delete(db, a):
@@ -255,6 +287,8 @@ def main(argv=None):
     s.add_argument("--part-of")
     s = sub.add_parser("update"); writer(s); s.add_argument("id"); s.add_argument("--set", action="append")
     s = sub.add_parser("move"); writer(s); s.add_argument("id"); s.add_argument("--to", required=True, choices=["idea", "project"]); s.add_argument("--goal")
+    s = sub.add_parser("done", help="move the current next_step (or --step) into progress")
+    writer(s); s.add_argument("id"); s.add_argument("--step"); s.add_argument("--next")
     s = sub.add_parser("delete"); writer(s); s.add_argument("id")
     sub.add_parser("check")
     s = sub.add_parser("commit"); s.add_argument("--push", action="store_true")
