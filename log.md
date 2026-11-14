@@ -33,3 +33,4 @@
 - 2026-11-13: Completed step on 'Project Manager (this system)': Default dates use US Central time. Closed open item: Use Central time for default dates. Reason: Merged in PRs 3, 4 and 5.
 - 2026-11-13: Completed step on 'Project Manager (this system)': Fixed double periods in log lines. Closed open item: Fix double periods in log lines. Reason: Merged in PRs 3, 4 and 5.
 - 2026-11-13: Completed step on 'Project Manager (this system)': All-or-nothing save across both JSON files and the log. Closed open item: Safe save across ideas.json and projects.json. Reason: Merged in PRs 3, 4 and 5.
+- 2026-11-13: Completed step on 'Project Manager (this system)': Added sync and pull-before-push with union merge on log.md. Closed open item: Pull before every write so AIs don't conflict. Reason: Merged in PRs 3, 4 and 5.
