@@ -62,7 +62,11 @@
       "next_step": "Build the dashboard that reads ideas.json and projects.json",
       "open_items": [
         "Dashboard",
-        "Update skill"
+        "Update skill",
+        "Open project limit: pick X open projects to focus on and flag work outside them",
+        "List completed projects (done status already exists)",
+        "Stale check: after 25 days without work ask whether to archive",
+        "Project artifacts: a folder per project for metadata like the repo link and notes or anything else"
       ],
       "started": "2026-11-13",
       "updated": "2026-11-13",
