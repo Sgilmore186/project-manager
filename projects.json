@@ -133,6 +133,10 @@
         {
           "date": "2026-11-13",
           "step": "done matches open items ignoring punctuation"
+        },
+        {
+          "date": "2026-11-13",
+          "step": "Added 38 behavior tests and GitHub CI on Python 3.9, 3.11 and 3.13"
         }
       ]
     }
