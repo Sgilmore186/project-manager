@@ -34,3 +34,4 @@
 - 2026-11-13: Completed step on 'Project Manager (this system)': Fixed double periods in log lines. Closed open item: Fix double periods in log lines. Reason: Merged in PRs 3, 4 and 5.
 - 2026-11-13: Completed step on 'Project Manager (this system)': All-or-nothing save across both JSON files and the log. Closed open item: Safe save across ideas.json and projects.json. Reason: Merged in PRs 3, 4 and 5.
 - 2026-11-13: Completed step on 'Project Manager (this system)': Added sync and pull-before-push with union merge on log.md. Closed open item: Pull before every write so AIs don't conflict. Reason: Merged in PRs 3, 4 and 5.
+- 2026-11-13: Completed step on 'Project Manager (this system)': Moves between ideas and projects keep every field. Closed open item: Keep all data when moving between ideas and projects. Reason: Merged in PRs 3, 4 and 5.
