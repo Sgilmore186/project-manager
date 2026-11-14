@@ -4,6 +4,7 @@
     {
       "id": "jarvis",
       "name": "JARVIS personal AI",
+      "description": "",
       "goal": "A personal AI with memory, voice, computer control and cross-device workflows",
       "added": null,
       "notes": "Marked planned, future build"
@@ -11,6 +12,7 @@
     {
       "id": "church-media",
       "name": "AI church media platform",
+      "description": "",
       "goal": "App for sermons, events, transcripts, searchable archives and auto clips",
       "added": null,
       "notes": ""
@@ -18,6 +20,7 @@
     {
       "id": "mac-setup-blueprint",
       "name": "Mac Setup Blueprint",
+      "description": "",
       "goal": "",
       "added": null,
       "notes": "Outcome not written down yet"
@@ -25,6 +28,7 @@
     {
       "id": "multi-model-workflow",
       "name": "Autonomous multi-model workflow",
+      "description": "",
       "goal": "Muse orchestrates, Codex builds, Gemini reviews, Crosswalk records, on existing subscriptions",
       "added": null,
       "notes": "",
@@ -35,6 +39,7 @@
     {
       "id": "canvas-assistant",
       "name": "Canvas academic assistant",
+      "description": "",
       "goal": "Authorized Canvas coursework connected to an AI for deadlines, scheduling and exam prep",
       "added": null,
       "notes": "In discovery: seeking feedback and pilots"
@@ -42,6 +47,7 @@
     {
       "id": "elsewhere",
       "name": "ELSEWHERE",
+      "description": "",
       "goal": "A realistic open-ended life-simulation game",
       "added": null,
       "notes": "Prototype v0.2 exists (browser, saves, 1,100-turn tests). Not committed to finishing yet."
@@ -49,6 +55,7 @@
     {
       "id": "selah",
       "name": "Selah",
+      "description": "",
       "goal": "Private Bible-reading and accountability app",
       "added": null,
       "notes": "Starter prototype exists (reader, highlights, notes, 5 sample verses). Not committed yet."
@@ -56,6 +63,7 @@
     {
       "id": "god-on-the-move",
       "name": "God on the Move",
+      "description": "",
       "goal": "A long-term spiritual journal and timeline",
       "added": null,
       "notes": "Journal instructions and an Oct 3-11 dashboard exist. Not committed yet."

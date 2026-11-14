@@ -17,6 +17,8 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 
 ### Idea
 An outcome Seph wants that he hasn't committed to finishing. Old or abandoned prototypes count as ideas.
+- **Description (required):** a short plain explanation of what the idea is (`description`). The `goal` says what done looks like; the description says what the thing is. If Seph doesn't give one, ask.
+- The description carries over when an idea moves to projects (and back).
 
 ### Project
 An outcome Seph has committed to finishing.
@@ -68,7 +70,7 @@ Run from the repo root.
 python3 scripts/pm.py list [ideas|projects|parts|all]
 python3 scripts/pm.py get ID
 python3 scripts/pm.py check
-python3 scripts/pm.py add idea    --id ID --name NAME [--goal G] [--notes N]
+python3 scripts/pm.py add idea    --id ID --name NAME --description D [--goal G] [--notes N]
 python3 scripts/pm.py add project --id ID --name NAME --goal G [--status S] [--focus F] [--stage S] [--next-step N]
 python3 scripts/pm.py add part    --id ID --name NAME --part-of PARENT1,PARENT2 [--stage S]
 python3 scripts/pm.py update ID --set field=value [--set field=value] [--reason R]
@@ -95,6 +97,7 @@ Every write also takes `--date YYYY-MM-DD` (default today) and `--dry-run`.
 - Every project has a goal, a valid status and a valid focus.
 - At most 1 primary and 2 secondary projects, and only active projects can hold focus.
 - Every part has at least one parent, and every parent exists.
+- New ideas need a `description`. `check` warns about ideas still missing one.
 - `progress` is a list of `{date, step}` entries, can't be set with `--set`, and only projects have it.
 - Deleting a parent unlinks its parts; a part is removed only when no parents remain.
 
@@ -110,3 +113,4 @@ Short, scannable, plain words. No em dashes. No long paragraphs.
 ## Open items (as of 2026-11-13)
 - Primary: Project Manager. No secondaries.
 - Imported statuses came from an earlier import and need Seph's review.
+- The 8 imported ideas have no description yet. Ask Seph for them; don't invent them.

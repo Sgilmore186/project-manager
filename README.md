@@ -14,6 +14,10 @@ When an idea starts, it moves from `ideas.json` to `projects.json` and keeps its
 - A new idea goes to the ideas list first, not straight into work.
 - Every change is a dated commit. `log.md` keeps the human-readable history.
 
+## Idea fields
+- `id`, `name`, `description` (required: what the idea is), `goal` (the outcome wanted), `added`, `notes`
+- The description stays with the item if it moves to projects and back.
+
 ## Project fields
 - `id`, `name`, `goal` (what done looks like), `status` (active, paused, archived, done, dropped)
 - `focus` (primary, secondary, or none), `stage` (where it actually is)
