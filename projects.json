@@ -65,7 +65,6 @@
         "Update skill",
         "Stale check: after 25 days with no progress entry ask whether to archive",
         "Project artifacts: a projects/<id>/ folder per project for the repo link and notes or anything else",
-        "Fix double periods in log lines",
         "Safe save across ideas.json and projects.json",
         "Pull before every write so AIs don't conflict",
         "Keep all data when moving between ideas and projects",
@@ -106,6 +105,10 @@
         {
           "date": "2026-11-13",
           "step": "Default dates use US Central time"
+        },
+        {
+          "date": "2026-11-13",
+          "step": "Fixed double periods in log lines"
         }
       ]
     }
