@@ -65,7 +65,6 @@
         "Update skill",
         "Stale check: after 25 days with no progress entry ask whether to archive",
         "Project artifacts: a projects/<id>/ folder per project for the repo link and notes or anything else",
-        "Reject unknown fields and newlines and bad dates",
         "Use Central time for default dates",
         "Fix double periods in log lines",
         "Safe save across ideas.json and projects.json",
@@ -100,6 +99,10 @@
         {
           "date": "2026-11-13",
           "step": "commit reports failed git commits and pushes"
+        },
+        {
+          "date": "2026-11-13",
+          "step": "Rejected unknown fields and line breaks and bad dates"
         }
       ]
     }
