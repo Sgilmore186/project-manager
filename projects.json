@@ -45,10 +45,9 @@
       "goal": "GitHub-backed record of ideas and projects with a dashboard and accountability loop",
       "status": "active",
       "focus": "primary",
-      "stage": "Rules, data, CRUD script and live dashboard done (Claude artifact Project Manager Dashboard, reads the repo via the dashboard-data issue). Update skill not built.",
-      "next_step": "Build the update skill that decides what to change after Seph talks",
+      "stage": "Rules, data, CRUD script, live dashboard and update skill (skills/pm-update, PR 8) done. Loop complete once PR 8 merges.",
+      "next_step": "Use the loop for a week and fix what it misses",
       "open_items": [
-        "Update skill",
         "Stale check: after 25 days with no progress entry ask whether to archive",
         "Project artifacts: a projects/<id>/ folder per project for the repo link and notes or anything else",
         "Data cleanup: missing dates and Command Center goal and AVELLO archive reason and Learning Coach part status"
