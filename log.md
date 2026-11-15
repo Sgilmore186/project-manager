@@ -46,3 +46,4 @@
 - 2026-11-15: Updated project 'Daily Command Center': focus=secondary.
 - 2026-11-15: Completed step on 'Project Manager (this system)': Develop the dashboard. Closed open item: Dashboard. Next step: Build the update skill that decides what to change after Seph talks. Reason: Seph finished the dashboard.
 - 2026-11-15: Updated project 'Project Manager (this system)': stage=Rules, data, CRUD script and live dashboard done (Claude artifact Project Manager Dashboard, reads the repo via the dashboard-data issue). Update skill not built. Reason: Seph finished the dashboard.
+- 2026-11-15: Moved 'Daily Command Center' from projects to ideas. Reason: Seph: not committed to finishing it yet.

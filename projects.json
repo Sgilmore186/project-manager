@@ -40,19 +40,6 @@
       "progress": []
     },
     {
-      "id": "command-center",
-      "name": "Daily Command Center",
-      "goal": "Morning Briefing and My Day dashboards",
-      "status": "active",
-      "focus": "secondary",
-      "stage": "Both views live, being refined",
-      "next_step": "",
-      "open_items": [],
-      "started": null,
-      "updated": "2026-11-15",
-      "progress": []
-    },
-    {
       "id": "project-manager",
       "name": "Project Manager (this system)",
       "goal": "GitHub-backed record of ideas and projects with a dashboard and accountability loop",

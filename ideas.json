@@ -67,6 +67,20 @@
       "goal": "A long-term spiritual journal and timeline",
       "added": null,
       "notes": "Journal instructions and an Oct 3-11 dashboard exist. Not committed yet."
+    },
+    {
+      "id": "command-center",
+      "name": "Daily Command Center",
+      "description": "",
+      "goal": "Morning Briefing and My Day dashboards",
+      "added": "2026-11-15",
+      "notes": "Both views live, being refined",
+      "project_history": {
+        "status": "active",
+        "focus": "secondary",
+        "stage": "Both views live, being refined",
+        "updated": "2026-11-15"
+      }
     }
   ]
 }
