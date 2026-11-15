@@ -44,12 +44,12 @@
       "name": "Daily Command Center",
       "goal": "Morning Briefing and My Day dashboards",
       "status": "active",
-      "focus": "none",
+      "focus": "secondary",
       "stage": "Both views live, being refined",
       "next_step": "",
       "open_items": [],
       "started": null,
-      "updated": "2026-11-12",
+      "updated": "2026-11-15",
       "progress": []
     },
     {
