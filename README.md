@@ -11,4 +11,4 @@ The goal: hold Seph accountable and help him finish what he starts.
 All changes go through `scripts/pm.py` (run `python3 scripts/pm.py --help`).
 Tests: `python3 -m unittest discover -s tests -v`.
 
-Full rules, fields and steps: [CLAUDE.md](CLAUDE.md).
+Full rules, fields and steps: [AGENTS.md](AGENTS.md). Repo organization standard: [docs/REPO_STANDARD.md](docs/REPO_STANDARD.md).
