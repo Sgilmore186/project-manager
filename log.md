@@ -50,3 +50,4 @@
 - 2026-11-15: Updated idea 'Daily Command Center': description=A morning briefing that tells Seph what he needs to get done that day and flags important messages and emails.
 - 2026-11-15: Updated project 'Project Manager (this system)': removed from open_items: Update skill; stage=Rules, data, CRUD script, live dashboard and update skill (skills/pm-update, PR 8) done. Loop complete once PR 8 merges; next_step=Use the loop for a week and fix what it misses. Reason: Seph asked for the update skill.
 - 2026-11-15: Updated project 'Project Manager (this system)': stage=Rules, data, CRUD script, live dashboard and update skill (skills/pm-update) done. Loop complete.
+- 2026-11-15: Removed part 'Learning Coach'. Reason: Replaced by Project Manager; learning-coach repo archived.

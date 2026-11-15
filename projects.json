@@ -143,19 +143,9 @@
   ],
   "parts": [
     {
-      "id": "learning-coach",
-      "name": "Learning Coach",
-      "part_of": [
-        "project-manager"
-      ],
-      "stage": "Architecture and Sheets dataset built; synthetic tests not accepted",
-      "updated": "2026-11-13"
-    },
-    {
       "id": "crosswalk",
       "name": "Crosswalk",
       "part_of": [
-        "learning-coach",
         "project-manager",
         "multi-model-workflow"
       ],
