@@ -5,8 +5,10 @@ on:
     branches: [main]
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Pinned: newer runner images dropped Python 3.9, which the Mac's system Python still is.
+    runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         python: ["3.9", "3.11", "3.13"]
     steps:
