@@ -59,16 +59,15 @@
       "status": "active",
       "focus": "primary",
       "stage": "Repo seeded on GitHub; rules, data and CRUD script done. Dashboard and update skill not built.",
-      "next_step": "Develop the dashboard",
+      "next_step": "Build the update skill that decides what to change after Seph talks",
       "open_items": [
-        "Dashboard",
         "Update skill",
         "Stale check: after 25 days with no progress entry ask whether to archive",
         "Project artifacts: a projects/<id>/ folder per project for the repo link and notes or anything else",
         "Data cleanup: missing dates and Command Center goal and AVELLO archive reason and Learning Coach part status"
       ],
       "started": "2026-11-13",
-      "updated": "2026-11-14",
+      "updated": "2026-11-15",
       "progress": [
         {
           "date": "2026-11-13",
@@ -141,6 +140,10 @@
         {
           "date": "2026-11-14",
           "step": "Build the dashboard that reads ideas.json and projects.json"
+        },
+        {
+          "date": "2026-11-15",
+          "step": "Develop the dashboard"
         }
       ]
     }
