@@ -64,6 +64,7 @@ Seph finishes a project before abandoning it, unless he gives a good reason to m
 ## How to update
 Every change goes through `scripts/pm.py`. Never hand-edit the JSON or `log.md`.
 The script is deterministic: no AI, Python standard library only. It checks the rules, then saves both JSON files and the `log.md` line together (all or nothing). Inside a git repo, each change is then committed on its own, with the log line as the message. Only `sync` and `commit --push` touch the network.
+The step-by-step version is skills/pm-update/SKILL.md.
 
 ### Steps
 0. At the start of a session, run `python3 scripts/pm.py sync` to pull changes other AIs made.
