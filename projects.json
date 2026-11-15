@@ -45,7 +45,7 @@
       "goal": "GitHub-backed record of ideas and projects with a dashboard and accountability loop",
       "status": "active",
       "focus": "primary",
-      "stage": "Rules, data, CRUD script, live dashboard and update skill (skills/pm-update, PR 8) done. Loop complete once PR 8 merges.",
+      "stage": "Rules, data, CRUD script, live dashboard and update skill (skills/pm-update) done. Loop complete.",
       "next_step": "Use the loop for a week and fix what it misses",
       "open_items": [
         "Stale check: after 25 days with no progress entry ask whether to archive",
