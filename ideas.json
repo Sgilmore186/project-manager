@@ -71,7 +71,7 @@
     {
       "id": "command-center",
       "name": "Daily Command Center",
-      "description": "",
+      "description": "A morning briefing that tells Seph what he needs to get done that day and flags important messages and emails.",
       "goal": "Morning Briefing and My Day dashboards",
       "added": "2026-11-15",
       "notes": "Both views live, being refined",
