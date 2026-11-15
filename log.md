@@ -41,3 +41,4 @@
 - 2026-11-13: Completed step on 'Project Manager (this system)': CLAUDE.md is the single source and README points to it. Closed open item: Make CLAUDE.md the single source and fix README definitions. Reason: Merged in PRs 3, 4 and 5.
 - 2026-11-13: Completed step on 'Project Manager (this system)': done matches open items ignoring punctuation. Closed open item: Match open items ignoring punctuation in done. Reason: Merged in PRs 3, 4 and 5.
 - 2026-11-13: Completed step on 'Project Manager (this system)': Added 38 behavior tests and GitHub CI on Python 3.9, 3.11 and 3.13. Reason: Merged in PRs 3, 4 and 5.
+- 2026-11-14: Completed step on 'Project Manager (this system)': Build the dashboard that reads ideas.json and projects.json. Next step: Develop the dashboard. Reason: Seph wants the dashboard improved next.

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "rules": {
     "max_primary": 1,
     "max_secondary": 2,
@@ -59,7 +59,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "Repo seeded on GitHub; rules, data and CRUD script done. Dashboard and update skill not built.",
-      "next_step": "Build the dashboard that reads ideas.json and projects.json",
+      "next_step": "Develop the dashboard",
       "open_items": [
         "Dashboard",
         "Update skill",
@@ -68,7 +68,7 @@
         "Data cleanup: missing dates and Command Center goal and AVELLO archive reason and Learning Coach part status"
       ],
       "started": "2026-11-13",
-      "updated": "2026-11-13",
+      "updated": "2026-11-14",
       "progress": [
         {
           "date": "2026-11-13",
@@ -137,6 +137,10 @@
         {
           "date": "2026-11-13",
           "step": "Added 38 behavior tests and GitHub CI on Python 3.9, 3.11 and 3.13"
+        },
+        {
+          "date": "2026-11-14",
+          "step": "Build the dashboard that reads ideas.json and projects.json"
         }
       ]
     }
