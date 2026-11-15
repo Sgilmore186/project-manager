@@ -58,7 +58,7 @@
       "goal": "GitHub-backed record of ideas and projects with a dashboard and accountability loop",
       "status": "active",
       "focus": "primary",
-      "stage": "Repo seeded on GitHub; rules, data and CRUD script done. Dashboard and update skill not built.",
+      "stage": "Rules, data, CRUD script and live dashboard done (Claude artifact Project Manager Dashboard, reads the repo via the dashboard-data issue). Update skill not built.",
       "next_step": "Build the update skill that decides what to change after Seph talks",
       "open_items": [
         "Update skill",
