@@ -13,7 +13,8 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 - `log.md`: dated, human-readable history of every change (written by the script). `.gitattributes` merges it line by line, so two AIs adding lines never conflict.
 - `scripts/pm.py`: the only way to change the data. Python 3.9+, standard library only.
 - `tests/test_pm.py`: behavior tests for the script.
-- `.github/workflows/tests.yml`: runs the tests on every PR and push to main.
+- `.github/workflows/tests.yml`: runs the tests on every PR and push to main (on Ubuntu 24.04, the last runner image with Python 3.9).
+- `scripts/dashboard_data.py` and `.github/workflows/dashboard-data.yml`: on every push to main, copy `ideas.json` and `projects.json` into the GitHub issue labeled `dashboard-data`. Seph's dashboard reads that issue, so it stays live. Never edit or close that issue by hand; if it's missing, run the `dashboard-data` workflow.
 - `README.md`: short overview for humans. `AGENTS.md`: pointer to this file.
 
 ## Definitions

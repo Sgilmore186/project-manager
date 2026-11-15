@@ -1,0 +1,35 @@
+name: dashboard-data
+# Mirrors ideas.json and projects.json into the issue labeled 'dashboard-data',
+# which the Project Manager dashboard reads through the GitHub connector.
+on:
+  push:
+    branches: [main]
+    paths: [ideas.json, projects.json, scripts/dashboard_data.py, .github/workflows/dashboard-data.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: dashboard-data
+  cancel-in-progress: false
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Build issue body
+        run: python scripts/dashboard_data.py --commit "${GITHUB_SHA}" --out body.md
+      - name: Write the dashboard-data issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create dashboard-data --color c8a97e --description "Data mirror for the dashboard" 2>/dev/null || true
+          num=$(gh issue list --label dashboard-data --state open --limit 1 --json number --jq '.[0].number')
+          if [ -z "$num" ]; then
+            gh issue create --title "Dashboard data (auto-updated, do not edit)" --label dashboard-data --body-file body.md
+          else
+            gh issue edit "$num" --body-file body.md
+          fi
