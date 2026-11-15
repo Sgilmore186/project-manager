@@ -14,6 +14,7 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 - `scripts/pm.py`: the only way to change the data. Python 3.9+, standard library only.
 - `tests/test_pm.py`: behavior tests for the script.
 - `.github/workflows/tests.yml`: runs the tests on every PR and push to main.
+- `scripts/dashboard_data.py` and `.github/workflows/dashboard-data.yml`: on every push to main, copy `ideas.json` and `projects.json` into the GitHub issue labeled `dashboard-data`. Seph's dashboard reads that issue, so it stays live. Never edit or close that issue by hand; if it's missing, run the `dashboard-data` workflow.
 - `README.md`: short overview for humans. `AGENTS.md`: pointer to this file.
 
 ## Definitions
