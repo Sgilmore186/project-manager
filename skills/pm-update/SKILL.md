@@ -5,7 +5,7 @@ description: After Seph says anything about his ideas or projects, decide what c
 
 # pm-update
 
-Repo: Sgilmore186/project-manager. `scripts/pm.py` is the only way to change data. Never hand-edit JSON or log.md. CLAUDE.md has the full rules; this is the short path.
+Repo: Sgilmore186/project-manager. `scripts/pm.py` is the only way to change data. Never hand-edit JSON or log.md. AGENTS.md has the full rules; this is the short path.
 
 ## Keep it cheap
 - Don't read the whole repo. Run `python3 scripts/pm.py get ID` for the items the message touches. Use `list` only when you can't tell which id he means.
