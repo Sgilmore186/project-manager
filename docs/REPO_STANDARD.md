@@ -15,7 +15,7 @@ How every Seph repo is organized. `project-manager` is the model repo.
 | --- | --- |
 | `AGENTS.md` | The rules. The single source of truth for the repo. |
 | `CLAUDE.md` | Two lines: an `@AGENTS.md` import and a link. No rules here. |
-| `.gemini/settings.json` | Points Gemini CLI at AGENTS.md. |
+| `GEMINI.md` | The same two lines as CLAUDE.md, for Gemini CLI. No rules here. |
 | `README.md` | Short overview for humans. Links to AGENTS.md and docs. |
 | `docs/` | Guides. Add `docs/README.md` as an index once there are several. |
 | `docs/history/` | Finished reports. Kept, not rewritten. |
@@ -27,7 +27,7 @@ How every Seph repo is organized. `project-manager` is the model repo.
 | --- | --- |
 | Codex | Reads AGENTS.md natively. |
 | Claude Code | Reads CLAUDE.md, which imports AGENTS.md. Newer versions also fall back to AGENTS.md when no CLAUDE.md exists, but the import is more reliable. |
-| Gemini CLI | Reads `.gemini/settings.json`, which names AGENTS.md. |
+| Gemini CLI | Reads GEMINI.md by default, which imports AGENTS.md. |
 | Cursor, Copilot, Windsurf and others | Most read AGENTS.md natively. Check the tool's docs. |
 | Chat sessions with a GitHub connector | Nothing loads automatically. Tell the AI to read AGENTS.md first. |
 
@@ -48,7 +48,7 @@ Paste this as section 7:
 ## Repo standard
 This repo follows the Seph repo standard:
 https://github.com/Sgilmore186/project-manager/blob/main/docs/REPO_STANDARD.md
-Short version: AGENTS.md holds the rules, CLAUDE.md only imports it, README stays short,
+Short version: AGENTS.md holds the rules, CLAUDE.md and GEMINI.md only import it, README stays short,
 docs have one index, changes go through a branch and PR, nothing private is committed.
 ```
 
@@ -70,8 +70,7 @@ environments and private logs. `.gitignore` is a guard, not proof.
 - Details go in `docs/`.
 
 ## Checklist
-- [ ] AGENTS.md has the rules, and CLAUDE.md only imports it
-- [ ] `.gemini/settings.json` names AGENTS.md
+- [ ] AGENTS.md has the rules, and CLAUDE.md and GEMINI.md only import it
 - [ ] README is short and links to the details
 - [ ] Docs are organized, with finished reports in `docs/history/`
 - [ ] Tests exist and CI runs them on every PR
@@ -89,11 +88,4 @@ Copy these files, then fill in AGENTS.md from the outline.
 All rules for this repo are in [AGENTS.md](AGENTS.md). Don't add rules here.
 ```
 
-`.gemini/settings.json`:
-```json
-{
-  "context": {
-    "fileName": "AGENTS.md"
-  }
-}
-```
+`GEMINI.md`: the same two lines as `CLAUDE.md`.
