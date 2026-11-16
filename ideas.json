@@ -81,6 +81,14 @@
         "stage": "Both views live, being refined",
         "updated": "2026-11-15"
       }
+    },
+    {
+      "id": "seahawks-update-center",
+      "name": "Seahawks Update Center",
+      "description": "A Claude Duet artifact that collects Seahawks news through the week (trade updates, injury report, what the media is saying before the game) and ends with a post-game brief covering what happened, media reaction, and some interesting extras.",
+      "goal": "",
+      "added": "2026-11-15",
+      "notes": "Parked as an idea only. Folds in the earlier post-game Duet briefing idea. Part of Claude Duet."
     }
   ]
 }
