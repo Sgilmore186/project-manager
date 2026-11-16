@@ -74,7 +74,7 @@
       "description": "A morning briefing that tells Seph what he needs to get done that day and flags important messages and emails.",
       "goal": "Morning Briefing and My Day dashboards",
       "added": "2026-11-15",
-      "notes": "Rebuilt as a Claude artifact, Seph's Daily Brief (Morning and My Day tabs), live 2026-11-15. Source in the claude-duet repo, daily-brief/. Replaces the Muse version.",
+      "notes": "Rebuilt as a Claude artifact, Seph's Daily Brief (Morning and My Day tabs), live 2026-11-15. Source in the claude-duet repo, daily-brief/.",
       "project_history": {
         "status": "active",
         "focus": "secondary",

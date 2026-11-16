@@ -53,3 +53,4 @@
 - 2026-11-15: Removed part 'Learning Coach'. Reason: Replaced by Project Manager; learning-coach repo archived.
 - 2026-11-15: Added idea 'Seahawks Update Center'.
 - 2026-11-15: Updated idea 'Daily Command Center': notes=Rebuilt as a Claude artifact, Seph's Daily Brief (Morning and My Day tabs), live 2026-11-15. Source in the claude-duet repo, daily-brief/. Replaces the Muse version. Reason: Seph had the Daily Brief built and saved to the claude-duet repo.
+- 2026-11-15: Updated idea 'Daily Command Center': notes=Rebuilt as a Claude artifact, Seph's Daily Brief (Morning and My Day tabs), live 2026-11-15. Source in the claude-duet repo, daily-brief/. Reason: Removed an unconfirmed claim that it replaces the Muse version.
