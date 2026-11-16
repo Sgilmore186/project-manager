@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Instructions for any AI working on this repo. Read this first, every session.
-This file is the single source of truth for how the repo works. README.md is a short overview that points here. CLAUDE.md imports this file for Claude Code. `.gemini/settings.json` points Gemini CLI here.
+This file is the single source of truth for how the repo works. README.md is a short overview that points here. CLAUDE.md imports this file for Claude Code, and GEMINI.md imports it for Gemini CLI.
 
 ## What this repo is
 Seph's single source of truth for ideas and projects. Plain JSON so it moves across tools and AIs.
@@ -17,7 +17,7 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 - `scripts/dashboard_data.py` and `.github/workflows/dashboard-data.yml`: on every push to main, copy `ideas.json` and `projects.json` into the GitHub issue labeled `dashboard-data`. Seph's dashboard reads that issue, so it stays live. Never edit or close that issue by hand; if it's missing, run the `dashboard-data` workflow.
 - `README.md`: short overview for humans.
 - `CLAUDE.md`: two lines that import this file for Claude Code. Never put rules there.
-- `.gemini/settings.json`: tells Gemini CLI to read AGENTS.md.
+- `GEMINI.md`: the same two lines, for Gemini CLI. Never put rules there.
 - `docs/REPO_STANDARD.md`: the organization standard every Seph repo follows.
 
 ## Definitions
@@ -141,7 +141,7 @@ Every write also takes `--date YYYY-MM-DD` (default: today in US Central time, S
 
 ## Repo standard
 This repo is the model for every Seph repo. The full standard is [docs/REPO_STANDARD.md](docs/REPO_STANDARD.md).
-Short version: AGENTS.md holds the rules, CLAUDE.md only imports it, README stays short, docs have one index, code changes go through a branch and PR (data changes here go through `pm.py`), and nothing private is committed.
+Short version: AGENTS.md holds the rules, CLAUDE.md and GEMINI.md only import it, README stays short, docs have one index, code changes go through a branch and PR (data changes here go through `pm.py`), and nothing private is committed.
 
 ## Writing style
 Short, scannable, plain words. No em dashes. No long paragraphs.
