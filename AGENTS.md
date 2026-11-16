@@ -146,6 +146,5 @@ Short version: AGENTS.md holds the rules, CLAUDE.md and GEMINI.md only import it
 ## Writing style
 Short, scannable, plain words. No em dashes. No long paragraphs.
 
-## Open items (as of 2026-11-13)
-- Primary: Project Manager. No secondaries.
-- Imported statuses came from an earlier import and need Seph's review.
+## Current status
+Don't copy status into this file. It goes stale. For the live picture run `python3 scripts/pm.py list`, or read `projects.json`.
