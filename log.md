@@ -61,3 +61,4 @@
 - 2026-11-17: Added idea 'Claude artifacts'.
 - 2026-11-17: Moved 'Claude artifacts' from ideas to projects.
 - 2026-11-17: Updated project 'Claude artifacts': added to open_items: News Hub (Three-Day Read); added to open_items: Seahawks briefing; focus=secondary; notes=Overlaps the Seahawks Update Center idea, which is still on the idea list. Reason: Seph: secondary.
+- 2026-11-17: Updated project 'Essay agentic workflow': notes=Due Nov 18, 11:59 PM Central (Seph's deadline). Reason: Seph clarified the deadline.
