@@ -59,3 +59,4 @@
 - 2026-11-17: Moved 'Essay agentic workflow' from ideas to projects.
 - 2026-11-17: Updated project 'Essay agentic workflow': focus=primary; notes=Due Nov 18 at midnight Central (Seph's deadline). Reason: Seph: primary, needs to be done very soon. Due Nov 18 at midnight.
 - 2026-11-17: Added idea 'Claude artifacts'.
+- 2026-11-17: Moved 'Claude artifacts' from ideas to projects.
