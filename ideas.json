@@ -89,6 +89,14 @@
       "goal": "",
       "added": "2026-11-15",
       "notes": "Parked as an idea only. Folds in the earlier post-game Duet briefing idea. Part of Claude Duet."
+    },
+    {
+      "id": "claude-artifacts",
+      "name": "Claude artifacts",
+      "description": "The Claude Duet artifacts Seph relies on, like the News Hub (Three-Day Read), the Seahawks briefing and others in progress.",
+      "goal": "",
+      "added": "2026-11-17",
+      "notes": ""
     }
   ]
 }
