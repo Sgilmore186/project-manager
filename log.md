@@ -57,3 +57,4 @@
 - 2026-11-17: Updated project 'Project Manager (this system)': status=done; focus=none; stage=Complete. Rules, data, CRUD script, live dashboard and update skill all done. Reason: Seph: completely done. Remaining open items left on the record as possible future extras.
 - 2026-11-17: Added idea 'Essay agentic workflow'.
 - 2026-11-17: Moved 'Essay agentic workflow' from ideas to projects.
+- 2026-11-17: Updated project 'Essay agentic workflow': focus=primary; notes=Due Nov 18 at midnight Central (Seph's deadline). Reason: Seph: primary, needs to be done very soon. Due Nov 18 at midnight.
