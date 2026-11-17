@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15",
+  "updated": "2026-11-17",
   "rules": {
     "max_primary": 1,
     "max_secondary": 2,
@@ -43,9 +43,9 @@
       "id": "project-manager",
       "name": "Project Manager (this system)",
       "goal": "GitHub-backed record of ideas and projects with a dashboard and accountability loop",
-      "status": "active",
-      "focus": "primary",
-      "stage": "Rules, data, CRUD script, live dashboard and update skill (skills/pm-update) done. Loop complete.",
+      "status": "done",
+      "focus": "none",
+      "stage": "Complete. Rules, data, CRUD script, live dashboard and update skill all done.",
       "next_step": "Use the loop for a week and fix what it misses",
       "open_items": [
         "Stale check: after 25 days with no progress entry ask whether to archive",
@@ -53,7 +53,7 @@
         "Data cleanup: missing dates and Command Center goal and AVELLO archive reason and Learning Coach part status"
       ],
       "started": "2026-11-13",
-      "updated": "2026-11-15",
+      "updated": "2026-11-17",
       "progress": [
         {
           "date": "2026-11-13",
