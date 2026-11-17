@@ -56,3 +56,4 @@
 - 2026-11-15: Updated idea 'Daily Command Center': notes=Rebuilt as a Claude artifact, Seph's Daily Brief (Morning and My Day tabs), live 2026-11-15. Source in the claude-duet repo, daily-brief/. Reason: Removed an unconfirmed claim that it replaces the Muse version.
 - 2026-11-17: Updated project 'Project Manager (this system)': status=done; focus=none; stage=Complete. Rules, data, CRUD script, live dashboard and update skill all done. Reason: Seph: completely done. Remaining open items left on the record as possible future extras.
 - 2026-11-17: Added idea 'Essay agentic workflow'.
+- 2026-11-17: Moved 'Essay agentic workflow' from ideas to projects.

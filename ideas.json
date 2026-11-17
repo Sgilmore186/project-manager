@@ -89,14 +89,6 @@
       "goal": "",
       "added": "2026-11-15",
       "notes": "Parked as an idea only. Folds in the earlier post-game Duet briefing idea. Part of Claude Duet."
-    },
-    {
-      "id": "essay-workflow",
-      "name": "Essay agentic workflow",
-      "description": "A reusable agentic workflow for writing research papers, built with Gemini's help and Claude Opus as the orchestrator.",
-      "goal": "A reusable agentic research-paper writing workflow, built and stored in GitHub",
-      "added": "2026-11-17",
-      "notes": ""
     }
   ]
 }
