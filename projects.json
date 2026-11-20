@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-20",
   "rules": {
     "max_primary": 1,
     "max_secondary": 2,
@@ -161,12 +161,16 @@
       "stage": "",
       "next_step": "",
       "open_items": [
-        "News Hub (Three-Day Read)",
         "Seahawks briefing"
       ],
-      "progress": [],
+      "progress": [
+        {
+          "date": "2026-11-20",
+          "step": "News Hub (Three-Day Read)"
+        }
+      ],
       "started": "2026-11-17",
-      "updated": "2026-11-17",
+      "updated": "2026-11-20",
       "idea_history": {
         "added": "2026-11-17"
       },
