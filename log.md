@@ -64,3 +64,4 @@
 - 2026-11-17: Updated project 'Essay agentic workflow': notes=Due Nov 18, 11:59 PM Central (Seph's deadline). Reason: Seph clarified the deadline.
 - 2026-11-20: Completed step on 'Claude artifacts': News Hub (Three-Day Read). Closed open item: News Hub (Three-Day Read). Reason: Seph marked Claude artifacts complete.
 - 2026-11-20: Completed step on 'Claude artifacts': Seahawks briefing. Closed open item: Seahawks briefing. Reason: Seph marked Claude artifacts complete.
+- 2026-11-20: Updated project 'Claude artifacts': status=done; focus=none. Reason: Seph: mark the artifacts as complete.
