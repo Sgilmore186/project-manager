@@ -160,13 +160,15 @@
       "focus": "secondary",
       "stage": "",
       "next_step": "",
-      "open_items": [
-        "Seahawks briefing"
-      ],
+      "open_items": [],
       "progress": [
         {
           "date": "2026-11-20",
           "step": "News Hub (Three-Day Read)"
+        },
+        {
+          "date": "2026-11-20",
+          "step": "Seahawks briefing"
         }
       ],
       "started": "2026-11-17",
