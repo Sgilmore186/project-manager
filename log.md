@@ -67,3 +67,4 @@
 - 2026-11-20: Updated project 'Claude artifacts': status=done; focus=none. Reason: Seph: mark the artifacts as complete.
 - 2026-11-21: Removed idea 'Autonomous multi-model workflow'. Reason: Seph asked to remove it.
 - 2026-11-21: Updated project 'Essay agentic workflow': focus=secondary. Reason: ECHOVAULT took primary.
+- 2026-11-21: Updated project 'ECHOVAULT': focus=primary. Reason: Seph: make ECHOVAULT the main project now.
