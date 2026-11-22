@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "ideas": [
     {
       "id": "jarvis",
@@ -24,17 +24,6 @@
       "goal": "",
       "added": null,
       "notes": "Outcome not written down yet"
-    },
-    {
-      "id": "multi-model-workflow",
-      "name": "Autonomous multi-model workflow",
-      "description": "A system where several AIs work together on their own. Muse plans and coordinates, Codex builds and tests, Gemini researches and reviews, and Crosswalk carries messages and keeps records. Runs on existing subscriptions instead of paid APIs.",
-      "goal": "Muse orchestrates, Codex builds, Gemini reviews, Crosswalk records, on existing subscriptions",
-      "added": null,
-      "notes": "",
-      "aliases": [
-        "orchestrator"
-      ]
     },
     {
       "id": "canvas-assistant",

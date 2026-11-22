@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "rules": {
     "max_primary": 1,
     "max_secondary": 2,
@@ -191,8 +191,7 @@
       "id": "crosswalk",
       "name": "Crosswalk",
       "part_of": [
-        "project-manager",
-        "multi-model-workflow"
+        "project-manager"
       ],
       "stage": "Muse and Codex handoffs working; polling reliability still being tested",
       "updated": "2026-11-13"
