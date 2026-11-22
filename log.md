@@ -66,3 +66,4 @@
 - 2026-11-20: Completed step on 'Claude artifacts': Seahawks briefing. Closed open item: Seahawks briefing. Reason: Seph marked Claude artifacts complete.
 - 2026-11-20: Updated project 'Claude artifacts': status=done; focus=none. Reason: Seph: mark the artifacts as complete.
 - 2026-11-21: Removed idea 'Autonomous multi-model workflow'. Reason: Seph asked to remove it.
+- 2026-11-21: Updated project 'Essay agentic workflow': focus=secondary. Reason: ECHOVAULT took primary.
