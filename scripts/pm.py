@@ -33,6 +33,7 @@ FOCUS = ["primary", "secondary", "none"]
 LIST_FIELDS = {"open_items", "part_of", "aliases"}
 MANAGED_FIELDS = {"progress", "project_history", "idea_history"}  # changed only by dedicated commands, never by --set
 # Fields kept aside when an item moves, so moving back restores them.
+CLOSED_STATUSES = ("done", "archived", "dropped")
 PROJECT_ONLY = ["status", "focus", "stage", "next_step", "open_items", "progress", "started", "updated"]
 IDEA_ONLY = ["added", "notes"]
 FIELDS = {
@@ -233,9 +234,19 @@ def cmd_list(db, a):
     which = a.what
     show = {"ideas": ["idea"], "projects": ["project"], "parts": ["part"], "all": ["project", "part", "idea"]}[which]
     cols = collections(db)
+    groups = []
     for kind in show:
-        print(f"## {kind}s ({len(cols[kind])})")
-        for x in cols[kind]:
+        if kind == "project":
+            # Completed (done) and archived (archived or dropped) are kept apart from current work.
+            ps = cols["project"]
+            groups.append(("projects", kind, [x for x in ps if x.get("status") not in CLOSED_STATUSES]))
+            groups.append(("completed", kind, [x for x in ps if x.get("status") == "done"]))
+            groups.append(("archived", kind, [x for x in ps if x.get("status") in ("archived", "dropped")]))
+        else:
+            groups.append((f"{kind}s", kind, cols[kind]))
+    for title, kind, items in groups:
+        print(f"## {title} ({len(items)})")
+        for x in items:
             extra = ""
             if kind == "project":
                 tags = [x.get("status")]
