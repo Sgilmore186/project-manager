@@ -141,14 +141,14 @@
       "name": "Essay agentic workflow",
       "description": "A reusable agentic workflow for writing research papers, built with Gemini's help and Claude Opus as the orchestrator.",
       "goal": "A reusable agentic research-paper writing workflow, built and stored in GitHub",
-      "status": "active",
-      "focus": "secondary",
-      "stage": "",
+      "status": "done",
+      "focus": "none",
+      "stage": "Marked complete Nov 24.",
       "next_step": "",
       "open_items": [],
       "progress": [],
       "started": "2026-11-17",
-      "updated": "2026-11-21",
+      "updated": "2026-11-24",
       "idea_history": {
         "added": "2026-11-17"
       },
