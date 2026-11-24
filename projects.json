@@ -180,6 +180,24 @@
         "added": "2026-11-17"
       },
       "notes": "Overlaps the Seahawks Update Center idea, which is still on the idea list."
+    },
+    {
+      "id": "seahawks-update-center",
+      "name": "Seahawks Update Center",
+      "description": "A Claude Duet artifact that collects Seahawks news through the week (trade updates, injury report, what the media is saying before the game) and ends with a post-game brief covering what happened, media reaction, and some interesting extras.",
+      "goal": "A Claude Duet Seahawks briefing that collects the week's news and ends with a post-game brief",
+      "status": "active",
+      "focus": "none",
+      "stage": "Parked as an idea only. Folds in the earlier post-game Duet briefing idea. Part of Claude Duet.",
+      "next_step": "",
+      "open_items": [],
+      "progress": [],
+      "started": "2026-11-24",
+      "updated": "2026-11-24",
+      "idea_history": {
+        "added": "2026-11-15",
+        "notes": "Parked as an idea only. Folds in the earlier post-game Duet briefing idea. Part of Claude Duet."
+      }
     }
   ],
   "statuses": [

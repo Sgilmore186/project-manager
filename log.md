@@ -72,3 +72,4 @@
 - 2026-11-24: Updated project 'Echos': added to aliases: ECHOVAULT; name=Echos. Reason: Seph renamed the project from ECHOVAULT to Echos.
 - 2026-11-24: Updated project 'Echos': status=done; focus=none; stage=Marked complete Nov 24. Open items (Windows physical acceptance, Mac encryption, real-world speaker accuracy, more AI features) left on the record as possible future extras. Reason: Seph: move it to the finished project file.
 - 2026-11-24: Updated project 'Essay agentic workflow': status=done; focus=none; stage=Marked complete Nov 24. Reason: Seph: essay workflow is also complete.
+- 2026-11-24: Moved 'Seahawks Update Center' from ideas to projects. Reason: Seph: complete, it's the Seahawks news briefing.
