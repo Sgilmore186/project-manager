@@ -25,9 +25,9 @@
       "id": "echovault",
       "name": "Echos",
       "goal": "Private local-first voice-memory app working on Windows and Mac",
-      "status": "active",
-      "focus": "primary",
-      "stage": "Substantial working prototype",
+      "status": "done",
+      "focus": "none",
+      "stage": "Marked complete Nov 24. Open items (Windows physical acceptance, Mac encryption, real-world speaker accuracy, more AI features) left on the record as possible future extras.",
       "next_step": "Mac encryption (Keychain, AES-256-GCM)",
       "open_items": [
         "Windows physical acceptance",
