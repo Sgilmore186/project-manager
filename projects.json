@@ -23,7 +23,7 @@
     },
     {
       "id": "echovault",
-      "name": "ECHOVAULT",
+      "name": "Echos",
       "goal": "Private local-first voice-memory app working on Windows and Mac",
       "status": "active",
       "focus": "primary",
@@ -36,8 +36,11 @@
         "More AI features"
       ],
       "started": null,
-      "updated": "2026-11-21",
-      "progress": []
+      "updated": "2026-11-24",
+      "progress": [],
+      "aliases": [
+        "ECHOVAULT"
+      ]
     },
     {
       "id": "project-manager",

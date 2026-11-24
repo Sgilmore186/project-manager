@@ -69,3 +69,4 @@
 - 2026-11-21: Updated project 'Essay agentic workflow': focus=secondary. Reason: ECHOVAULT took primary.
 - 2026-11-21: Updated project 'ECHOVAULT': focus=primary. Reason: Seph: make ECHOVAULT the main project now.
 - 2026-11-24: Added idea 'Used Tech Price Tracker'.
+- 2026-11-24: Updated project 'Echos': added to aliases: ECHOVAULT; name=Echos. Reason: Seph renamed the project from ECHOVAULT to Echos.
