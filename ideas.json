@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-24",
   "ideas": [
     {
       "id": "jarvis",
@@ -78,6 +78,14 @@
       "goal": "",
       "added": "2026-11-15",
       "notes": "Parked as an idea only. Folds in the earlier post-game Duet briefing idea. Part of Claude Duet."
+    },
+    {
+      "id": "used-tech-price-tracker",
+      "name": "Used Tech Price Tracker",
+      "description": "Site that tracks used and refurbished electronics prices (starting with Apple MacBooks) and gives a buy-now-or-wait forecast using variables like release cycles, new-price hikes, memory costs and depreciation, with price-drop alerts. Grow via SEO and short-form video; affiliate revenue first, B2B pricing data for refurbishers later.",
+      "goal": "Launch an Apple-only site with per-model price pages and alerts, and grow it to real traffic",
+      "added": "2026-11-24",
+      "notes": ""
     }
   ]
 }
