@@ -74,3 +74,4 @@
 - 2026-11-24: Updated project 'Essay agentic workflow': status=done; focus=none; stage=Marked complete Nov 24. Reason: Seph: essay workflow is also complete.
 - 2026-11-24: Moved 'Seahawks Update Center' from ideas to projects. Reason: Seph: complete, it's the Seahawks news briefing.
 - 2026-11-24: Updated project 'Seahawks Update Center': status=done; focus=none; stage=Marked complete Nov 24. Built as the Seahawks briefing. Reason: Seph: complete, it's the Seahawks news briefing.
+- 2026-11-24: Moved 'Daily Command Center' from ideas to projects. Reason: Seph: complete, rebuilt as the Daily Brief artifact.

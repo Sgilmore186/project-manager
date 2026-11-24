@@ -198,6 +198,24 @@
         "added": "2026-11-15",
         "notes": "Parked as an idea only. Folds in the earlier post-game Duet briefing idea. Part of Claude Duet."
       }
+    },
+    {
+      "id": "command-center",
+      "name": "Daily Command Center",
+      "description": "A morning briefing that tells Seph what he needs to get done that day and flags important messages and emails.",
+      "goal": "Morning Briefing and My Day dashboards",
+      "status": "active",
+      "focus": "none",
+      "stage": "Both views live, being refined",
+      "next_step": "",
+      "open_items": [],
+      "progress": [],
+      "started": "2026-11-24",
+      "updated": "2026-11-24",
+      "idea_history": {
+        "added": "2026-11-15",
+        "notes": "Rebuilt as a Claude artifact, Seph's Daily Brief (Morning and My Day tabs), live 2026-11-15. Source in the claude-duet repo, daily-brief/."
+      }
     }
   ],
   "statuses": [
