@@ -224,8 +224,8 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "playable exhibition games: Team Red vs Team Blue",
-      "next_step": "Playtest a full exhibition game and tune the clock, CPU drives and menus",
+      "stage": "playable exhibition games with 32 real-roster teams",
+      "next_step": "Playtest an exhibition game with real teams and tune ratings, clock, CPU drives and menus",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
