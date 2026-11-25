@@ -413,6 +413,10 @@
         {
           "date": "2026-11-25",
           "step": "Phase 2.8 deep-ball fix (safety help over the top, target elite QB 9 to 10 YPA), then Phase 3"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Phase 2.8 deep-ball fix (gridline 06c3954, Gridline V2 artifact v30): deep safety rotates over the top and breaks on hanging balls, corners contest deep throws to their man, faster recovery on floaters. Elite QB 68.8% / 9.4 YPA (was 75.9 / 12.1), weak 47.0%; past 30 yd elite 58% (was 85%); clean-release deep shots still 97%"
         }
       ],
       "started": "2026-11-24",
