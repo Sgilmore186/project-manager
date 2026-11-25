@@ -235,6 +235,10 @@
         {
           "date": "2026-11-24",
           "step": "First 2D pass at 22-player graphics (Gridline Players page); flat drawings hit their limit, decided to switch to low-poly 3D with Three.js"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "First 3D player model built (Gridline 3D Player page): ready, stance and run poses"
         }
       ],
       "started": "2026-11-24",

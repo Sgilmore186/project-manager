@@ -80,3 +80,4 @@
 - 2026-11-24: Updated project 'Football game': next_step=Perfect the graphics for all 22 players on the field (first pass: Gridline Players page).
 - 2026-11-24: Completed step on 'Football game': First 2D pass at 22-player graphics (Gridline Players page); flat drawings hit their limit, decided to switch to low-poly 3D with Three.js.
 - 2026-11-24: Updated project 'Football game': added to open_items: All 22 players in 3D formation with the camera locked in; added to open_items: The snap: routes, pass rush and blocking; added to open_items: Ball physics: throw, catch and tackle; stage=graphics: moving to 3D; next_step=Build one low-poly 3D player (Three.js) that looks right standing, in a stance and running. Reason: Seph agreed to the 3D direction.
+- 2026-11-24: Completed step on 'Football game': First 3D player model built (Gridline 3D Player page): ready, stance and run poses.
