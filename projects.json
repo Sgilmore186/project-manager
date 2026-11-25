@@ -249,6 +249,10 @@
         {
           "date": "2026-11-24",
           "step": "v2 player model and real stances (3-point with planted hand, WR 2-point, LB ready, CB press, QB shotgun, RB hands on knees); 3 concept renders"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "First animated play (Gridline Play page): snap, blocking, routes, QB drop and throw, ball flight, catch, run to a touchdown, Madden camera following the ball"
         }
       ],
       "started": "2026-11-24",
