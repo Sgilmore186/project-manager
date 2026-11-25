@@ -108,3 +108,4 @@
 - 2026-11-24: Updated project 'Football game': next_step=Pick a calmer pre-snap route display from 3 mockups, then build it into Gridline V2.
 - 2026-11-24: Completed step on 'Football game': V2: RUN IT! bubble moved closer to the RB on an even diagonal.
 - 2026-11-24: Completed step on 'Football game': V2: pre-snap routes painted into the grass (draft A), arrowheads match their lines, soft red run lane. Next step: Keep tuning Gridline V2 from Seph's playtests.
+- 2026-11-24: Completed step on 'Football game': V2 run blocking: pulling guards nearly twice as fast (no braking at turns, run flat behind the line, slip past teammates), runs called at the snap make the line fire out right away, linemen climb at full speed, LBs key the pulling guard; all run types back in the 2 to 7 yard target.
