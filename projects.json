@@ -313,6 +313,10 @@
         {
           "date": "2026-11-24",
           "step": "V2 smart stick: cleaner joystick (dead zone, finer control, straight-ahead snap, jitter filter), follows the called hole, bends toward the open lane with yellow lane chevrons; on/off toggle on the play-call screen"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "V2: RUN IT! hand-off bubble sits behind the RB on his side of the QB; QB tap scramble removed so runs can't mis-tap the QB"
         }
       ],
       "started": "2026-11-24",
