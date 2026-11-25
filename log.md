@@ -90,3 +90,4 @@
 - 2026-11-24: Completed step on 'Football game': Gridline Drive v2: field fills the screen (landscape and portrait), smaller players, removed shimmer, added handoffs and QB scrambles with run blocking.
 - 2026-11-24: Completed step on 'Football game': Gridline Drive v3: offense drives left, textured grass, thin stadium strip, smaller Retro Bowl-sized players with tucked arms, lines spaced apart with body collision.
 - 2026-11-24: Completed step on 'Football game': Gridline Drive v4: dead-zone camera, catch moment (slow-mo, flash, arms up), joystick steering with flick jukes, tap the RB for a run, checkerboard mowed field.
+- 2026-11-24: Completed step on 'Football game': Gridline Drive v5: upright posture, notched hashes and big arrowed yard numbers, centered top scoreboard, 25% slower pace, landing-ring reticle, backward throw = scramble, full end zone names, diving tackles with bigger tackle zone, spin move and back-juke.
