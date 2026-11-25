@@ -231,8 +231,7 @@
         "Ball physics: throw, catch and tackle",
         "Defense: pick a defender and control him",
         "Full drive: downs, first downs, touchdowns",
-        "Later: career mode as one player with a camera behind him",
-        "Import real teams and rosters (menus update automatically from TEAMS)"
+        "Later: career mode as one player with a camera behind him"
       ],
       "progress": [
         {
@@ -342,6 +341,10 @@
         {
           "date": "2026-11-25",
           "step": "V2: home screen, exhibition games (coin toss, clock and quarters, simulated CPU drives with drive summary, punt and FG on 4th down, halftime, sudden-death OT, final + rematch), rosters and playbook screens, rain/snow weather, difficulty levels; Team Red vs Team Blue from one TEAMS list that every menu reads"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "V2 league: all 32 real NFL rosters (depth charts through week 12) with Gridline OVR based on current form; ratings drive speed, pass rush, tackle breaks, catches and QB accuracy; all-teams picker in exhibition; ROSTERS > EDIT for team names, colors, players, OVR and starters; city names and original looks only"
         }
       ],
       "started": "2026-11-24",
