@@ -105,3 +105,4 @@
 - 2026-11-24: Completed step on 'Football game': Pushed game code to private GitHub repo gridline. Closed open item: Push game code to new private GitHub repo gridline (waiting on Seph to create the empty repo).
 - 2026-11-24: Completed step on 'Football game': V2 smart stick: cleaner joystick (dead zone, finer control, straight-ahead snap, jitter filter), follows the called hole, bends toward the open lane with yellow lane chevrons; on/off toggle on the play-call screen.
 - 2026-11-24: Completed step on 'Football game': V2: RUN IT! hand-off bubble sits behind the RB on his side of the QB; QB tap scramble removed so runs can't mis-tap the QB.
+- 2026-11-24: Updated project 'Football game': next_step=Pick a calmer pre-snap route display from 3 mockups, then build it into Gridline V2.
