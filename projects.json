@@ -289,6 +289,10 @@
         {
           "date": "2026-11-24",
           "step": "V2: head-first dives (QB-only slides), run lanes via seal blocks and DL driven out of the hole, faster pass rush (fixed QB collision bug), floating joystick on the left half, dive button removed, Madden-style pursuit angles, fatigue and stumbles after broken tackles"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "V2 run game rebuilt: zone run scheme with double teams that climb to linebackers, backside LB left unblocked, called gaps, D-line can win and close holes, run-first LB read step, LB attack vs breakdown tackling, stronger joystick with lateral cut animation, blockers drive their legs, tap to skip post-play; no-steer runs now 2.6-6.3 yds (median 3.7)"
         }
       ],
       "started": "2026-11-24",
