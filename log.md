@@ -95,3 +95,4 @@
 - 2026-11-24: Updated project 'Football game': next_step=Seph compares Gridline V2 against Gridline Drive and picks the art direction.
 - 2026-11-24: Updated project 'Football game': next_step=Keep tuning Gridline V2 (Seph prefers the V2 comic look): feel of blocking, tackling and passing from his playtests.
 - 2026-11-24: Completed step on 'Football game': V2 tuning: routes keep running, defenders overrun catches, real run and downfield blocking with arm-tackle shake near blockers, smarter D-line (double teams, pass-rush moves, contain), catch-prediction throw indicator (OPEN / TIGHT / PICK RISK).
+- 2026-11-24: Completed step on 'Football game': V2: individual player speed ratings, visible joystick and DIVE/SLIDE button, players drawn in front of the stands strip, throw indicator simulates routes (OPEN / TIGHT WINDOW / RISKY THROW / LEAD HIM / THROW IT AWAY), JUKE label every third juke.
