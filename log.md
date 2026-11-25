@@ -110,3 +110,4 @@
 - 2026-11-24: Completed step on 'Football game': V2: pre-snap routes painted into the grass (draft A), arrowheads match their lines, soft red run lane. Next step: Keep tuning Gridline V2 from Seph's playtests.
 - 2026-11-24: Completed step on 'Football game': V2 run blocking: pulling guards nearly twice as fast (no braking at turns, run flat behind the line, slip past teammates), runs called at the snap make the line fire out right away, linemen climb at full speed, LBs key the pulling guard; all run types back in the 2 to 7 yard target.
 - 2026-11-24: Completed step on 'Football game': V2: thinner painted route lines.
+- 2026-11-25: Completed step on 'Football game': Menu mockups (3 directions, then blended row D): dark broadcast home dashboard, exhibition setup with red vs blue matchup, tale of the tape and KICKOFF!.
