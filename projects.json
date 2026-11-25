@@ -360,6 +360,10 @@
         {
           "date": "2026-11-25",
           "step": "Review feasibility of three upgrades (tap-to-throw, predictive engine, intelligent coaching), then build them one at a time"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "V2 Phase 1.1: receiver badges after the snap (jersey number, team color, ink outline, 44 px tap targets, offset when receivers overlap); tap = touch pass, hold 0.25 s = bullet with a charge ring; joystick moves the QB in the pocket; old drag-back throw kept as a hidden setting"
         }
       ],
       "started": "2026-11-24",
