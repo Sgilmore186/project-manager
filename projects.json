@@ -337,6 +337,10 @@
         {
           "date": "2026-11-25",
           "step": "Menu mockups (3 directions, then blended row D): dark broadcast home dashboard, exhibition setup with red vs blue matchup, tale of the tape and KICKOFF!"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "V2: home screen, exhibition games (coin toss, clock and quarters, simulated CPU drives with drive summary, punt and FG on 4th down, halftime, sudden-death OT, final + rematch), rosters and playbook screens, rain/snow weather, difficulty levels; Team Red vs Team Blue from one TEAMS list that every menu reads"
         }
       ],
       "started": "2026-11-24",
