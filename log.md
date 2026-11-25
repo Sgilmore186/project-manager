@@ -77,3 +77,4 @@
 - 2026-11-24: Moved 'Daily Command Center' from ideas to projects. Reason: Seph: complete, rebuilt as the Daily Brief artifact.
 - 2026-11-24: Updated project 'Daily Command Center': status=done; focus=none; stage=Marked complete Nov 24. Rebuilt as the Daily Brief artifact. Reason: Seph: complete, rebuilt as the Daily Brief artifact.
 - 2026-11-24: Added project 'Football game'. Reason: Seph committed right away: wants to build it now as his main project.
+- 2026-11-24: Updated project 'Football game': next_step=Perfect the graphics for all 22 players on the field (first pass: Gridline Players page).
