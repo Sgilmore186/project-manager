@@ -393,6 +393,10 @@
         {
           "date": "2026-11-25",
           "step": "V2 tap-to-throw playtest fixes: bigger and more forgiving receiver taps (tap the player too, early taps queue), receivers led on their real path, tips only from defenders in the lane, much tighter accuracy for good QBs (Mahomes 78% comp, 84% past 30 yd in sim; weak QB 46%)"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Tap-to-throw badges restyled to the comic burst design: team-color star beside each receiver with a leader line to his helmet, close receivers fan apart (never stacked), hold traces yellow around the star for a bullet; gridline 78691cc, Gridline V2 artifact v25"
         }
       ],
       "started": "2026-11-24",
