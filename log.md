@@ -135,3 +135,4 @@
 - 2026-11-25: Completed step on 'Football game': Phase 1 tap-to-throw playtested and accepted; Seph moved on to Phase 2. Next step: Phase 2 predictive engine: build steps 2.1 to 2.7, then playtest before Phase 3. Reason: Seph chose to move on to Phase 2.
 - 2026-11-25: Updated project 'Football game': stage=upgrade Phase 2 of 3 (predictive engine).
 - 2026-11-25: Completed step on 'Football game': Phase 2 predictive engine: build steps 2.1 to 2.7, then playtest before Phase 3. Next step: Seph playtests Phase 2 duels (press jams, separation, SLIP!, captions, halftime RELEASES WON; Rookie and Pro, rain or snow) and signs off before Phase 3.
+- 2026-11-25: Updated project 'Football game': stage=upgrade Phase 2 of 3 built, waiting on playtest.
