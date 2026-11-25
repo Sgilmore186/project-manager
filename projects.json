@@ -237,8 +237,8 @@
         "Tap-to-throw passing: tap receiver icon for touch, hold for bullet; QB accuracy and pressure decide ball placement",
         "Menu cleanup: drop the smart stick toggle from home and add a Settings tab for it; hide the Playbook screen until there are more playbooks to pick from; fix the PLAY tile running off the screen",
         "Rosters redesign: remove Team Red and Team Blue; All Teams list instead of the top slider; team hub with big Overall, Offense, Defense, OL and DL ratings; tap a unit for a bigger player list; tap a player for his ratings card; back buttons",
-        "Seahawks OVR fixes: Smith-Njigba 99 (top WR in the league), raise Jarran Reed and 'Ninsu' (confirm name), Emmanwori 90+, Julian Love 87, Ty Okada 79, Witherspoon 94+, Barner above 76, Darnold and Lock both 84",
-        "Team colors: give league teams colors close to their real ones (still no uniforms, logos or nicknames), San Francisco first"
+        "Team colors: give league teams colors close to their real ones (still no uniforms, logos or nicknames), San Francisco first",
+        "Seahawks OVR fixes: Smith-Njigba 99 (top WR in the league), raise Jarran Reed and Uchenna Nwosu, Emmanwori 90+, Julian Love 87, Ty Okada 79, Witherspoon 94+, Barner above 76, Darnold and Lock both 84"
       ],
       "progress": [
         {
