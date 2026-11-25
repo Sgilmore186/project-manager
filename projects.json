@@ -261,6 +261,10 @@
         {
           "date": "2026-11-24",
           "step": "Gridline Drive v2: field fills the screen (landscape and portrait), smaller players, removed shimmer, added handoffs and QB scrambles with run blocking"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "Gridline Drive v3: offense drives left, textured grass, thin stadium strip, smaller Retro Bowl-sized players with tucked arms, lines spaced apart with body collision"
         }
       ],
       "started": "2026-11-24",
