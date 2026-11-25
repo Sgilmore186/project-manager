@@ -220,12 +220,12 @@
     {
       "id": "football-game",
       "name": "Football game",
-      "description": "Football game Seph wants to play on his phone. Madden-style camera behind the offense, Retro Bowl-like sprite graphics (crisp, not blurry retro). Control one player at a time with AI running the rest, on both offense and defense.",
+      "description": "Football game Seph wants to play on his phone. Retro Bowl style: side-on field, chunky pixel players, tap to snap, drag back to throw, steer the runner. Control one player at a time; defense control later.",
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "direction set: Madden camera + sprite players",
-      "next_step": "Build one playable offensive play: Madden-style camera, sprite players, snap, throw to a receiver, run after the catch",
+      "stage": "playable prototype: Retro Bowl style (Gridline Drive)",
+      "next_step": "Seph plays Gridline Drive and reports what feels off (throwing, running, difficulty)",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
