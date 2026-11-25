@@ -293,6 +293,10 @@
         {
           "date": "2026-11-24",
           "step": "V2 run game rebuilt: zone run scheme with double teams that climb to linebackers, backside LB left unblocked, called gaps, D-line can win and close holes, run-first LB read step, LB attack vs breakdown tackling, stronger joystick with lateral cut animation, blockers drive their legs, tap to skip post-play; no-steer runs now 2.6-6.3 yds (median 3.7)"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "V2: LB assignments each play (run fit, zone, blitz) and DBs stay in coverage until they recognize run; no-steer runs now 0.3 to 11.8 yds (median 3.4)"
         }
       ],
       "started": "2026-11-24",
