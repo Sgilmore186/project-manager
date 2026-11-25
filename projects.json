@@ -231,7 +231,8 @@
         "Ball physics: throw, catch and tackle",
         "Defense: pick a defender and control him",
         "Full drive: downs, first downs, touchdowns",
-        "Later: career mode as one player with a camera behind him"
+        "Later: career mode as one player with a camera behind him",
+        "Push game code to new private GitHub repo gridline (waiting on Seph to create the empty repo)"
       ],
       "progress": [
         {
