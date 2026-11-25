@@ -257,6 +257,10 @@
         {
           "date": "2026-11-24",
           "step": "Built Gridline Drive: playable Retro Bowl-style drive with pixel players, snap, slingshot passing, catches, run after catch, tackles, sacks, INTs, downs and touchdowns"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "Gridline Drive v2: field fills the screen (landscape and portrait), smaller players, removed shimmer, added handoffs and QB scrambles with run blocking"
         }
       ],
       "started": "2026-11-24",
