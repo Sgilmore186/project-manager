@@ -224,7 +224,7 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "upgrade Phase 1 of 3 built, waiting on playtest",
+      "stage": "upgrade Phase 2 of 3 (predictive engine)",
       "next_step": "Phase 2 predictive engine: build steps 2.1 to 2.7, then playtest before Phase 3",
       "open_items": [
         "The snap: routes, pass rush and blocking",
