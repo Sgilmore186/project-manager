@@ -231,7 +231,10 @@
         "Ball physics: throw, catch and tackle",
         "Defense: pick a defender and control him",
         "Full drive: downs, first downs, touchdowns",
-        "Later: career mode as one player with a camera behind him"
+        "Later: career mode as one player with a camera behind him",
+        "Intelligent coaching: CPU defense reads down, distance, formation and your tendencies; defenders commit to run or pass; scales by level",
+        "Predictive engine: every matchup (release, route, block) rolled per play from ratings plus variance, slips and hot or cold days",
+        "Tap-to-throw passing: tap receiver icon for touch, hold for bullet; QB accuracy and pressure decide ball placement"
       ],
       "progress": [
         {
