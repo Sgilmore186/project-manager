@@ -78,3 +78,4 @@
 - 2026-11-24: Updated project 'Daily Command Center': status=done; focus=none; stage=Marked complete Nov 24. Rebuilt as the Daily Brief artifact. Reason: Seph: complete, rebuilt as the Daily Brief artifact.
 - 2026-11-24: Added project 'Football game'. Reason: Seph committed right away: wants to build it now as his main project.
 - 2026-11-24: Updated project 'Football game': next_step=Perfect the graphics for all 22 players on the field (first pass: Gridline Players page).
+- 2026-11-24: Completed step on 'Football game': First 2D pass at 22-player graphics (Gridline Players page); flat drawings hit their limit, decided to switch to low-poly 3D with Three.js.

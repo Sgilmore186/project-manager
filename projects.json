@@ -227,7 +227,12 @@
       "stage": "planning",
       "next_step": "Perfect the graphics for all 22 players on the field (first pass: Gridline Players page)",
       "open_items": [],
-      "progress": [],
+      "progress": [
+        {
+          "date": "2026-11-24",
+          "step": "First 2D pass at 22-player graphics (Gridline Players page); flat drawings hit their limit, decided to switch to low-poly 3D with Three.js"
+        }
+      ],
       "started": "2026-11-24",
       "updated": "2026-11-24"
     }
