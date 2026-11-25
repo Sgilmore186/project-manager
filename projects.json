@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "upgrade Phase 2 of 3 built, waiting on playtest",
-      "next_step": "Phase 2.9 go-ball fix (contested deep catches rare, tackled at the catch), then Phase 3",
+      "next_step": "Seph playtests the 2.9 go-ball fix (go routes to Smith-Njigba mostly broken up when the corner is on him, rare WHAT A CATCH! tackled at the spot, drops, clean releases still score) and signs off Phase 2 before Phase 3",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -418,6 +418,10 @@
         {
           "date": "2026-11-25",
           "step": "Phase 2.8 deep-ball fix (gridline 06c3954, Gridline V2 artifact v30): deep safety rotates over the top and breaks on hanging balls, corners contest deep throws to their man, faster recovery on floaters. Elite QB 68.8% / 9.4 YPA (was 75.9 / 12.1), weak 47.0%; past 30 yd elite 58% (was 85%); clean-release deep shots still 97%"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Phase 2.9 go-ball fix (contested deep catches rare, tackled at the catch), then Phase 3"
         }
       ],
       "started": "2026-11-24",
