@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "playable exhibition games with 32 real-roster teams",
-      "next_step": "Playtest an exhibition game with real teams and tune ratings, clock, CPU drives and menus",
+      "next_step": "Review feasibility of three upgrades (tap-to-throw, predictive engine, intelligent coaching), then build them one at a time",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -349,6 +349,10 @@
         {
           "date": "2026-11-25",
           "step": "V2 full games: play-by-play CPU offense with situational calls (hurry-up, timeouts, kneels, end-of-half FGs, 4th-down and 2-point decisions) shown as an on-field drive chart; real clock (huddle runoff, two-minute warning, 3 timeouts per half, KNEEL); touchdowns go to a try for point (kick or go for two); kick returns, safeties, pick sixes"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Playtest an exhibition game with real teams and tune ratings, clock, CPU drives and menus"
         }
       ],
       "started": "2026-11-24",
