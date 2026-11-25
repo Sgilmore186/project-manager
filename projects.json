@@ -220,16 +220,18 @@
     {
       "id": "football-game",
       "name": "Football game",
-      "description": "Retro Bowl-style football game Seph wants to play on his phone. Modern and slick look, not retro: polished graphics Claude can perfect. Slingshot passing, run after catch, downs and scoring, later a season mode.",
+      "description": "Football game Seph wants to play on his phone. Madden-style camera behind the offense, Retro Bowl-like sprite graphics (crisp, not blurry retro). Control one player at a time with AI running the rest, on both offense and defense.",
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "graphics: moving to 3D",
-      "next_step": "Build one low-poly 3D player (Three.js) that looks right standing, in a stance and running",
+      "stage": "direction set: Madden camera + sprite players",
+      "next_step": "Build one playable offensive play: Madden-style camera, sprite players, snap, throw to a receiver, run after the catch",
       "open_items": [
-        "All 22 players in 3D formation with the camera locked in",
         "The snap: routes, pass rush and blocking",
-        "Ball physics: throw, catch and tackle"
+        "Ball physics: throw, catch and tackle",
+        "Defense: pick a defender and control him",
+        "Full drive: downs, first downs, touchdowns",
+        "Later: career mode as one player with a camera behind him"
       ],
       "progress": [
         {
