@@ -102,3 +102,4 @@
 - 2026-11-24: Updated project 'Football game': added to open_items: Push game code to new private GitHub repo gridline (waiting on Seph to create the empty repo).
 - 2026-11-24: Completed step on 'Football game': V2: play-call screen (3 cards each down, each pairing a run with a pass concept, 8-play playbook) and six run-blocking schemes: inside zone, stretch, power (pulling guard), counter (two pullers), toss, draw.
 - 2026-11-24: Completed step on 'Football game': V2: burst button, 4 defensive formations, tighter pass coverage with breakups and picks, route previews, front and back sprites, faster OL, run animations.
+- 2026-11-24: Completed step on 'Football game': Pushed game code to private GitHub repo gridline. Closed open item: Push game code to new private GitHub repo gridline (waiting on Seph to create the empty repo).

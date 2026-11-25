@@ -231,8 +231,7 @@
         "Ball physics: throw, catch and tackle",
         "Defense: pick a defender and control him",
         "Full drive: downs, first downs, touchdowns",
-        "Later: career mode as one player with a camera behind him",
-        "Push game code to new private GitHub repo gridline (waiting on Seph to create the empty repo)"
+        "Later: career mode as one player with a camera behind him"
       ],
       "progress": [
         {
@@ -306,6 +305,10 @@
         {
           "date": "2026-11-24",
           "step": "V2: burst button, 4 defensive formations, tighter pass coverage with breakups and picks, route previews, front and back sprites, faster OL, run animations"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "Pushed game code to private GitHub repo gridline"
         }
       ],
       "started": "2026-11-24",
