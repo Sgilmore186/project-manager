@@ -372,6 +372,10 @@
         {
           "date": "2026-11-25",
           "step": "V2 Phase 1.2: two ball flights; touch pass floats over underneath defenders, bullet is fast and flat but can be tipped in traffic and is harder to catch; receivers time their run to the ball"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "V2 Phase 1.3: accuracy cone from QB accuracy, distance and throw type; misses sail, die short (more picks) or land behind (kills YAC); new sim_qb_throws tool"
         }
       ],
       "started": "2026-11-24",
