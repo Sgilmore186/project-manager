@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "upgrade Phase 1 of 3 built, waiting on playtest",
-      "next_step": "Seph playtests Phase 1 tap-to-throw (Rookie and Pro, strong and weak QB, rain) and signs off before Phase 2",
+      "next_step": "Phase 2 predictive engine: build steps 2.1 to 2.7, then playtest before Phase 3",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -397,6 +397,10 @@
         {
           "date": "2026-11-25",
           "step": "Tap-to-throw badges restyled to the comic burst design: team-color star beside each receiver with a leader line to his helmet, close receivers fan apart (never stacked), hold traces yellow around the star for a bullet; gridline 78691cc, Gridline V2 artifact v25"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Phase 1 tap-to-throw playtested and accepted; Seph moved on to Phase 2"
         }
       ],
       "started": "2026-11-24",
