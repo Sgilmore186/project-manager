@@ -285,6 +285,10 @@
         {
           "date": "2026-11-24",
           "step": "V2: individual player speed ratings, visible joystick and DIVE/SLIDE button, players drawn in front of the stands strip, throw indicator simulates routes (OPEN / TIGHT WINDOW / RISKY THROW / LEAD HIM / THROW IT AWAY), JUKE label every third juke"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "V2: head-first dives (QB-only slides), run lanes via seal blocks and DL driven out of the hole, faster pass rush (fixed QB collision bug), floating joystick on the left half, dive button removed, Madden-style pursuit angles, fatigue and stumbles after broken tackles"
         }
       ],
       "started": "2026-11-24",
