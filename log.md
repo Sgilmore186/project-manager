@@ -92,3 +92,4 @@
 - 2026-11-24: Completed step on 'Football game': Gridline Drive v4: dead-zone camera, catch moment (slow-mo, flash, arms up), joystick steering with flick jukes, tap the RB for a run, checkerboard mowed field.
 - 2026-11-24: Completed step on 'Football game': Gridline Drive v5: upright posture, notched hashes and big arrowed yard numbers, centered top scoreboard, 25% slower pace, landing-ring reticle, backward throw = scramble, full end zone names, diving tackles with bigger tackle zone, spin move and back-juke.
 - 2026-11-24: Completed step on 'Football game': Built Gridline V2 (separate from Gridline Drive): flat poster-style vector players with ink outlines and jersey numbers, comic sound words with starbursts and misprint colors, touchdown sunburst, comic caption boxes, poster scoreboard and field.
+- 2026-11-24: Updated project 'Football game': next_step=Seph compares Gridline V2 against Gridline Drive and picks the art direction.
