@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "playable prototype: Retro Bowl style (Gridline Drive)",
-      "next_step": "Pick a calmer pre-snap route display from 3 mockups, then build it into Gridline V2",
+      "next_step": "Keep tuning Gridline V2 from Seph's playtests",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -321,6 +321,10 @@
         {
           "date": "2026-11-24",
           "step": "V2: RUN IT! bubble moved closer to the RB on an even diagonal"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "V2: pre-snap routes painted into the grass (draft A), arrowheads match their lines, soft red run lane"
         }
       ],
       "started": "2026-11-24",

@@ -107,3 +107,4 @@
 - 2026-11-24: Completed step on 'Football game': V2: RUN IT! hand-off bubble sits behind the RB on his side of the QB; QB tap scramble removed so runs can't mis-tap the QB.
 - 2026-11-24: Updated project 'Football game': next_step=Pick a calmer pre-snap route display from 3 mockups, then build it into Gridline V2.
 - 2026-11-24: Completed step on 'Football game': V2: RUN IT! bubble moved closer to the RB on an even diagonal.
+- 2026-11-24: Completed step on 'Football game': V2: pre-snap routes painted into the grass (draft A), arrowheads match their lines, soft red run lane. Next step: Keep tuning Gridline V2 from Seph's playtests.
