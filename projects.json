@@ -265,6 +265,10 @@
         {
           "date": "2026-11-24",
           "step": "Gridline Drive v3: offense drives left, textured grass, thin stadium strip, smaller Retro Bowl-sized players with tucked arms, lines spaced apart with body collision"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "Gridline Drive v4: dead-zone camera, catch moment (slow-mo, flash, arms up), joystick steering with flick jukes, tap the RB for a run, checkerboard mowed field"
         }
       ],
       "started": "2026-11-24",

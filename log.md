@@ -89,3 +89,4 @@
 - 2026-11-24: Completed step on 'Football game': Built Gridline Drive: playable Retro Bowl-style drive with pixel players, snap, slingshot passing, catches, run after catch, tackles, sacks, INTs, downs and touchdowns.
 - 2026-11-24: Completed step on 'Football game': Gridline Drive v2: field fills the screen (landscape and portrait), smaller players, removed shimmer, added handoffs and QB scrambles with run blocking.
 - 2026-11-24: Completed step on 'Football game': Gridline Drive v3: offense drives left, textured grass, thin stadium strip, smaller Retro Bowl-sized players with tucked arms, lines spaced apart with body collision.
+- 2026-11-24: Completed step on 'Football game': Gridline Drive v4: dead-zone camera, catch moment (slow-mo, flash, arms up), joystick steering with flick jukes, tap the RB for a run, checkerboard mowed field.
