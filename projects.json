@@ -216,6 +216,20 @@
         "added": "2026-11-15",
         "notes": "Rebuilt as a Claude artifact, Seph's Daily Brief (Morning and My Day tabs), live 2026-11-15. Source in the claude-duet repo, daily-brief/."
       }
+    },
+    {
+      "id": "football-game",
+      "name": "Football game",
+      "description": "Retro Bowl-style football game Seph wants to play on his phone. Modern and slick look, not retro: polished graphics Claude can perfect. Slingshot passing, run after catch, downs and scoring, later a season mode.",
+      "goal": "A polished, fun football game Seph actually plays on his phone",
+      "status": "active",
+      "focus": "primary",
+      "stage": "planning",
+      "next_step": "Build a playable single drive (passing play) and test the feel on phone",
+      "open_items": [],
+      "progress": [],
+      "started": "2026-11-24",
+      "updated": "2026-11-24"
     }
   ],
   "statuses": [
