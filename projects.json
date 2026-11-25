@@ -368,6 +368,10 @@
         {
           "date": "2026-11-25",
           "step": "V2 Phase 1.1: receiver badges after the snap (jersey number, team color, ink outline, 44 px tap targets, offset when receivers overlap); tap = touch pass, hold 0.25 s = bullet with a charge ring; joystick moves the QB in the pocket; old drag-back throw kept as a hidden setting"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "V2 Phase 1.2: two ball flights; touch pass floats over underneath defenders, bullet is fast and flat but can be tipped in traffic and is harder to catch; receivers time their run to the ball"
         }
       ],
       "started": "2026-11-24",
