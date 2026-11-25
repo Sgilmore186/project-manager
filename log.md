@@ -112,3 +112,4 @@
 - 2026-11-24: Completed step on 'Football game': V2: thinner painted route lines.
 - 2026-11-25: Completed step on 'Football game': Menu mockups (3 directions, then blended row D): dark broadcast home dashboard, exhibition setup with red vs blue matchup, tale of the tape and KICKOFF!.
 - 2026-11-25: Completed step on 'Football game': V2: home screen, exhibition games (coin toss, clock and quarters, simulated CPU drives with drive summary, punt and FG on 4th down, halftime, sudden-death OT, final + rematch), rosters and playbook screens, rain/snow weather, difficulty levels; Team Red vs Team Blue from one TEAMS list that every menu reads.
+- 2026-11-25: Updated project 'Football game': added to open_items: Import real teams and rosters (menus update automatically from TEAMS); stage=playable exhibition games: Team Red vs Team Blue; next_step=Playtest a full exhibition game and tune the clock, CPU drives and menus.
