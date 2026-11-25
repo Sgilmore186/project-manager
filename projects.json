@@ -253,6 +253,10 @@
         {
           "date": "2026-11-24",
           "step": "First animated play (Gridline Play page): snap, blocking, routes, QB drop and throw, ball flight, catch, run to a touchdown, Madden camera following the ball"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "Built Gridline Drive: playable Retro Bowl-style drive with pixel players, snap, slingshot passing, catches, run after catch, tackles, sacks, INTs, downs and touchdowns"
         }
       ],
       "started": "2026-11-24",
