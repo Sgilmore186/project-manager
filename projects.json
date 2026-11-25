@@ -241,6 +241,10 @@
         {
           "date": "2026-11-24",
           "step": "First 3D player model built (Gridline 3D Player page): ready, stance and run poses"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "Concept renders of the Madden camera with pixel-rendered players in a stadium (snap and ball-in-air shots)"
         }
       ],
       "started": "2026-11-24",
