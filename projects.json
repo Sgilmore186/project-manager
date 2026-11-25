@@ -224,9 +224,13 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "planning",
-      "next_step": "Perfect the graphics for all 22 players on the field (first pass: Gridline Players page)",
-      "open_items": [],
+      "stage": "graphics: moving to 3D",
+      "next_step": "Build one low-poly 3D player (Three.js) that looks right standing, in a stance and running",
+      "open_items": [
+        "All 22 players in 3D formation with the camera locked in",
+        "The snap: routes, pass rush and blocking",
+        "Ball physics: throw, catch and tackle"
+      ],
       "progress": [
         {
           "date": "2026-11-24",
