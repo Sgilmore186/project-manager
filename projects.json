@@ -277,6 +277,10 @@
         {
           "date": "2026-11-24",
           "step": "Built Gridline V2 (separate from Gridline Drive): flat poster-style vector players with ink outlines and jersey numbers, comic sound words with starbursts and misprint colors, touchdown sunburst, comic caption boxes, poster scoreboard and field"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "V2 tuning: routes keep running, defenders overrun catches, real run and downfield blocking with arm-tackle shake near blockers, smarter D-line (double teams, pass-rush moves, contain), catch-prediction throw indicator (OPEN / TIGHT / PICK RISK)"
         }
       ],
       "started": "2026-11-24",
