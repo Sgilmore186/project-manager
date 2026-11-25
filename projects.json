@@ -329,6 +329,10 @@
         {
           "date": "2026-11-24",
           "step": "V2 run blocking: pulling guards nearly twice as fast (no braking at turns, run flat behind the line, slip past teammates), runs called at the snap make the line fire out right away, linemen climb at full speed, LBs key the pulling guard; all run types back in the 2 to 7 yard target"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "V2: thinner painted route lines"
         }
       ],
       "started": "2026-11-24",
