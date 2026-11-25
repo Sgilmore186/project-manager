@@ -245,6 +245,10 @@
         {
           "date": "2026-11-24",
           "step": "Concept renders of the Madden camera with pixel-rendered players in a stadium (snap and ball-in-air shots)"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "v2 player model and real stances (3-point with planted hand, WR 2-point, LB ready, CB press, QB shotgun, RB hands on knees); 3 concept renders"
         }
       ],
       "started": "2026-11-24",
