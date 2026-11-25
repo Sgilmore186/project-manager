@@ -309,6 +309,10 @@
         {
           "date": "2026-11-24",
           "step": "Pushed game code to private GitHub repo gridline"
+        },
+        {
+          "date": "2026-11-24",
+          "step": "V2 smart stick: cleaner joystick (dead zone, finer control, straight-ahead snap, jitter filter), follows the called hole, bends toward the open lane with yellow lane chevrons; on/off toggle on the play-call screen"
         }
       ],
       "started": "2026-11-24",
