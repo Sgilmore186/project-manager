@@ -136,3 +136,4 @@
 - 2026-11-25: Updated project 'Football game': stage=upgrade Phase 2 of 3 (predictive engine).
 - 2026-11-25: Completed step on 'Football game': Phase 2 predictive engine: build steps 2.1 to 2.7, then playtest before Phase 3. Next step: Seph playtests Phase 2 duels (press jams, separation, SLIP!, captions, halftime RELEASES WON; Rookie and Pro, rain or snow) and signs off before Phase 3.
 - 2026-11-25: Updated project 'Football game': stage=upgrade Phase 2 of 3 built, waiting on playtest.
+- 2026-11-25: Completed step on 'Football game': Phase 2 predictive engine built (gridline 66d21ce..07b7885, Gridline V2 artifact v29): release and break duels for every WR vs DB, press vs off, real separation into the catch logic, slips/stumbles/bites/missed jams, hidden form and momentum, SLIP!, post-play captions, halftime releases won, tools/sim_duels.mjs (elite vs average 64%, elite vs elite 50%).
