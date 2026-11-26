@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "upgrade Phase 2 of 3 built, waiting on playtest",
-      "next_step": "Seph replays the go-route test in an exhibition after the go-ball rebalance (WHAT A CATCH! about once or twice per 15 go balls, most in-phase balls broken up) and signs off Phase 2 before Phase 3",
+      "next_step": "Seph playtests 2.10 in an exhibition (fewer catch-and-score breakaways: safeties stay deep and over the top, similar-speed defenders run receivers down, burners with a clean lead still score) and signs off Phase 2 before Phase 3",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -430,6 +430,10 @@
         {
           "date": "2026-11-25",
           "step": "Go-ball rebalance after Seph's SEA vs SF exhibition (gridline 81d2e44, Gridline V2 artifact v32): in-phase deep catches capped at 35% (elite about 27 to 30%, average 17%), 24 to 32 yd band mostly broken up, WHAT A CATCH! only on truly spectacular deep catches (about 1.4 per 15 go balls); realistic sim batch: go balls 43% complete, 5% INT; elite QB 8.5 YPA, under 24 yd unchanged"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Seph replays the go-route test in an exhibition after the go-ball rebalance (WHAT A CATCH! about once or twice per 15 go balls, most in-phase balls broken up) and signs off Phase 2 before Phase 3"
         }
       ],
       "started": "2026-11-24",
