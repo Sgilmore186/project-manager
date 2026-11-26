@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "upgrade Phase 3A (coaching part 1) built, waiting on playtest",
-      "next_step": "Seph playtests Phase 3A in an exhibition on Pro (run 3 times for 25+ and watch the box load, then hit play action; feed one receiver and watch the safety cheat over him; try the audible) before 3.5 to 3.9",
+      "next_step": "Run the Phase 3B prompt (3.5 to 3.9: defender IQ, scheme counters, disguise and halftime adjustments, MIKE callouts and COACH'S READ, sims) in a new Claude Code session, then playtest",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -446,6 +446,10 @@
         {
           "date": "2026-11-25",
           "step": "Phase 3A built (3.1 to 3.4b): 15-call defensive playbook, coordinator reading situation and personnel, run and pass heat with tendencies, star coverage (shade, bracket, double), play action, bootleg, quick game, screen and a pre-snap audible; balance fixes for blitz pickup and deep zones; sims in tools/sim_coach.py"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Seph playtests Phase 3A in an exhibition on Pro (run 3 times for 25+ and watch the box load, then hit play action; feed one receiver and watch the safety cheat over him; try the audible) before 3.5 to 3.9"
         }
       ],
       "started": "2026-11-24",
