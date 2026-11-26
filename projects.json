@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "upgrade Phase 2 of 3 built, waiting on playtest",
-      "next_step": "Seph playtests 2.10 in an exhibition (fewer catch-and-score breakaways: safeties stay deep and over the top, similar-speed defenders run receivers down, burners with a clean lead still score) and signs off Phase 2 before Phase 3",
+      "next_step": "Seph playtests Phase 3A in an exhibition on Pro (run 3 times for 25+ and watch the box load, then hit play action; feed one receiver and watch the safety cheat over him; try the audible) before 3.5 to 3.9",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -442,6 +442,10 @@
         {
           "date": "2026-11-25",
           "step": "Polish (gridline 970fd82, Gridline V2 artifact v34): bullets auto-throw when the charge fills, 80 px invisible tap targets with nearest receiver winning, a 0.7 s play finish before the result banner; no balance changes"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Phase 3A built (3.1 to 3.4b): 15-call defensive playbook, coordinator reading situation and personnel, run and pass heat with tendencies, star coverage (shade, bracket, double), play action, bootleg, quick game, screen and a pre-snap audible; balance fixes for blitz pickup and deep zones; sims in tools/sim_coach.py"
         }
       ],
       "started": "2026-11-24",
