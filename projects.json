@@ -455,6 +455,10 @@
         {
           "date": "2026-11-25",
           "step": "Split v2/index.html into 27 small files under v2/src with v2/build.mjs building one-file v2/dist/index.html; pure refactor, sims match the baseline; AGENTS.md trimmed to rules and a file map; Gridline V2 artifact republished from dist"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Fixed the __api.weather and __api.press sim debug hooks (a comment in main.js had swallowed them since before the split); WEATHER=RAIN and SNOW sim_qb_throws runs work again (elite comp 65% clear, 60% rain, 53% snow); no gameplay change (gridline 66ef638, Gridline V2 artifact v43)"
         }
       ],
       "started": "2026-11-24",
