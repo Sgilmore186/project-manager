@@ -451,6 +451,10 @@
         {
           "date": "2026-11-25",
           "step": "Seph playtests Phase 3A in an exhibition on Pro (run 3 times for 25+ and watch the box load, then hit play action; feed one receiver and watch the safety cheat over him; try the audible) before 3.5 to 3.9"
+        },
+        {
+          "date": "2026-11-25",
+          "step": "Split v2/index.html into 27 small files under v2/src with v2/build.mjs building one-file v2/dist/index.html; pure refactor, sims match the baseline; AGENTS.md trimmed to rules and a file map; Gridline V2 artifact republished from dist"
         }
       ],
       "started": "2026-11-24",
