@@ -224,7 +224,7 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "upgrade Phase 3A (coaching part 1) built, waiting on playtest",
+      "stage": "upgrade Phase 3A playtested and accepted; Phase 3B next",
       "next_step": "Run the Phase 3B prompt (3.5 to 3.9: defender IQ, scheme counters, disguise and halftime adjustments, MIKE callouts and COACH'S READ, sims) in a new Claude Code session, then playtest",
       "open_items": [
         "The snap: routes, pass rush and blocking",
@@ -240,7 +240,8 @@
         "Team colors: give league teams colors close to their real ones (still no uniforms, logos or nicknames), San Francisco first",
         "Seahawks OVR fixes: Smith-Njigba 99 (top WR in the league), raise Jarran Reed and Uchenna Nwosu, Emmanwori 90+, Julian Love 87, Ty Okada 79, Witherspoon 94+, Barner above 76, Darnold and Lock both 84",
         "Team names: private build shows real NFL team names (Seahawks, 49ers) by default; Settings gets a Public build switch that swaps to city and original names in one tap; a real public release must strip the real names from the code",
-        "Clutch rating (backlog): player rating that matters in big moments; raises spectacular plays for high clutch, costly mistakes (drops, missed kicks, missed tackles) for low clutch"
+        "Clutch rating (backlog): player rating that matters in big moments; raises spectacular plays for high clutch, costly mistakes (drops, missed kicks, missed tackles) for low clutch",
+        "Hot streaks (backlog): players heat up in-game after a big play or a run of good gains in a row; a hot player has better odds to break tackles, make big tackles, catch, throw accurately and come through in clutch moments; cools off over time"
       ],
       "progress": [
         {
