@@ -21,7 +21,7 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-scheduled-20261127-2212
-- Claimed/renewed UTC: 2026-11-27T22:14:55Z
+- Claimed/renewed UTC: 2026-11-27T22:20:34Z
 - Starting target commit: 13fa1a3f2072e9ed21dccf41c345bbce0272e751
 
 ## Priority repairs
@@ -703,3 +703,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 claim recovery, codex-scheduled-20261127-2212: confirmed prior run codex-phase4-final-20261127-1800 stopped at a usage limit, verified the released legacy claim and current Gridline main `13fa1a3` with green CI. Resume B-018/4.7a from remote main. An uncommitted browser test remains in the original checkout.
 
 - 2026-11-27 checkpoint, codex-scheduled-20261127-2212: Gridline `a2d4093` adds a source/dist browser regression for sudden-death overtime, including kickoff, timeout reset, score, and final with no try. Build, script checks, 23 Node tests, source/dist browser suites and [GitHub CI](https://github.com/Sgilmore186/gridline/actions/runs/46075325433) passed. The shipped game is byte-identical. Continue the Phase 4 statistical and archetype evidence review.
+
+- 2026-11-27 checkpoint, codex-scheduled-20261127-2212: Gridline `3f1edc2` fixes a second drop roll on clean deep passes. The deterministic browser case failed on the old build and passed on source and dist after the fix. Build, script checks, 23 Node tests, attribute/mobile browser checks and [GitHub CI](https://github.com/Sgilmore186/gridline/actions/runs/46075883857) passed. Three go-ball batches had 1,362/3,368 real completions (40.4%) and 113/3,368 picks (3.4%). After removing identical run-side replays, real-roster passing logged 396/2,400 gains of 20+ (16.5%) and 76/2,400 of 40+ (3.2%). Continue the statistical gate and harness corrections. The prior private Site build was confirmed at version 6.
