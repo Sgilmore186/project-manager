@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "Phase 4 gameplay implemented. Acceptance and current private release remain open.",
-      "next_step": "Continue B-018/4.7a by tracing the remaining real-roster explosive gains and low go-ball interceptions and callouts against the approved pursuit and catch rules. Verify the balance gate before private release and iPhone signoff.",
+      "next_step": "Finish B-018/4.7a explosive-gain validation. Trace catches already 20+ yards separately from gains that cross 20 or 40 after the catch. Preserve the revised go-ball rates on holdouts before private release and iPhone signoff.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
