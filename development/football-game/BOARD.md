@@ -13,7 +13,7 @@
 
 ## Cutover safety
 
-This board remains prepared, not yet active. The original Codex B-018/4.3-4.7 legacy claim is released in Gridline commit [59ab8fe](https://github.com/Sgilmore186/gridline/commit/59ab8fe0df1e50f6f0fb43edb32466f68d659a74), 2026-11-27. Run ID: codex-phase4-20261126-b92883f. Gameplay/save code is pushed through 7bf8ae3, with green CI and20 test groups. The [final report](https://github.com/Sgilmore186/gridline/blob/main/docs/reports/2026-11-27.md) records actual measurements, corrections and remaining limits. No active legacy or central claim remains. Do not rebuild validated tasks or begin another legacy run. Activation still requires the integration merges and routing checks below.
+This board was activated on 2026-11-27 after the verified cutover recorded below. The original Codex B-018/4.3-4.7 legacy claim is released in Gridline commit [59ab8fe](https://github.com/Sgilmore186/gridline/commit/59ab8fe0df1e50f6f0fb43edb32466f68d659a74), 2026-11-27. Run ID: codex-phase4-20261126-b92883f. Gameplay/save code is pushed through 7bf8ae3, with green CI and20 test groups. The [final report](https://github.com/Sgilmore186/gridline/blob/main/docs/reports/2026-11-27.md) records actual measurements, corrections and remaining limits. No active legacy or central claim remains. Do not rebuild validated tasks or begin another legacy run. Activation still requires the integration merges and routing checks below.
 
 After both integration PRs are merged: fetch the latest Gridline main and PM main, confirm the legacy agent has stopped/released its claim, reconcile its commits, test results, publication and new board entries, and verify Gridline's AGENTS.md points here. Perform a read-only routing pass (active primary, correct repo, skills accessible, valid dependencies, no competing claim). Then change Activation to active and record the handoff in this board, using a normal non-force push under the reviewed enrollment. Only the cutover coordinator may activate after those checks; if uncertain, leave pending. Do not run both queues. For pending activation, the nightly trigger may perform read-only checks and report what is missing but must not modify game code.
 
@@ -21,7 +21,7 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-phase4-final-20261127-1800
-- Claimed/renewed UTC: 2026-11-27T18:00:12Z
+- Claimed/renewed UTC: 2026-11-27T18:17:00Z
 - Starting target commit: 59ab8fe0df1e50f6f0fb43edb32466f68d659a74
 
 ## Priority repairs
@@ -47,7 +47,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** none
 - **Status:** done
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Verify existing audit/report and baseline provenance; avoid repeating completed work.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`, `node tests/check_scripts.mjs`, `node --test tests/player_attributes.test.mjs`; relevant seeded tools in the Phase 4 spec.
 - **Acceptance criteria:** Audit, baseline and specification recorded; no production change required.
@@ -60,7 +60,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.1
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Inspect existing implementation and attribute tests; preserve canonical attrs, provenance, legacy saves, authored OVR, player IDs and card fields. Do not activate gameplay formulas here.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`, `node tests/check_scripts.mjs`, `node --test tests/player_attributes.test.mjs`; relevant seeded tools in the Phase 4 spec.
 - **Acceptance criteria:** Existing attribute fixtures, paired source/dist checks and compatibility evidence; private release/physical verification remain recorded separately.
@@ -73,7 +73,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.2 implementation validated
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Replace global OL averages in protection with assigned pass blockers vs local rushers, strength, agility, acceleration and legal help. Instrument pocket time, pressure, blocks and sacks.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Seeded isolated OL/DL tests show monotonic talent effect and nonzero upsets; no duplicated help or OVR multiplier.
@@ -86,7 +86,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Use local run-block technique, strength, leverage, scheme and assigned/spare blockers against shedding; log wins, sheds and contact location.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Isolated OL/DL tests and mirrored runs show better blocking improves lanes; preserve run-type tactical counters.
@@ -99,7 +99,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.2 implementation validated
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Use acceleration/agility for movement and matching routeAhead predictions; preserve authored speed overrides where specified.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Source/dist and mirrored movement tests; no instant direction changes, no new aiming regression.
@@ -112,7 +112,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3c
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Separate release vs press from routes vs coverage/agility; use observed leverage, assignment and bounded noise; remove duplicate OVR terms.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Seeded mirrored release/break curves meet spec; archetype differences remain meaningful.
@@ -125,7 +125,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3d
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Use accuracy, arm, pressure handling and mobility with actual movement/weather; catch/contested catch vs coverage/ball skills and actual separation; remove OVR double-counting.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Spatial passing measures accuracy, pressure, sacks, YPA, drops, picks, contested catches and deep outcomes; no hidden target cheating.
@@ -138,7 +138,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3b, B-018/4.3c
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Use break tackle/strength/agility vs tackling/pursuit and contact geometry; preserve user moves. Implement bounded security/fumble path only with correct recovery, clock, possession, stats and heat.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Mirrored rush/contact tests and explicit turnover fixtures pass; retain nonzero upsets and no double-counted OVR.
@@ -151,7 +151,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Separate public coordinator inputs and currently observed player cues from hidden play ID, future routes and throw intent; use completed plays only for labels.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Same visible state and seed with different hidden plays yields same pre-snap decision; no reaction before cue.
@@ -164,7 +164,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.4a
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Implement bounded, decaying per-defender/context memory, IQ-based choice/learning and single AWR reaction timers; log actual cues/responses. Follow position effects in spec including QB/RB human control.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** IQ/AWR isolation experiments show distinct effects; no speed or physical ability boost; no teleportation or illegal help.
@@ -177,7 +177,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.4b
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Apply legal QB/RB/WR/TE/OL/DL/LB/CB/S decisions from spec, assignment-preserving cushion/leverage and single-help budget. Ensure decay and tactical costs.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Counter tests show short/opposite-side/PA opportunities and strategy reversal; no automatic human target, audible or movement override.
@@ -190,7 +190,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Use specified offense/defense weights and eligible starting depth chart; distinguish display summaries from runtime ability.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** OL strength changes offense summary; ratings and cards reflect actual packages; no extra speed/OVR multiplier.
@@ -203,7 +203,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.5a, B-018/4.4c
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Implement versioned CPU matchup inputs, personnel-aware concept choice, neutral defaults and remove str talent scalar after migration. Separate difficulty planning/assistance from physical ability.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Pure CPU sims show separate skill effects; difficulty never rewrites roster physical ability/IQ/AWR; game flow and possession remain valid.
@@ -216,7 +216,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.5b
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Create production-equivalent kickoff/OT mirrored simulations and tune mechanics across talent centers and gaps, separate difficulty/weather/clutch/heat.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Use full-game bands 45–55/60–70/75–85/85–95/90–98% at gaps 0/5/10/15/20, with uncertainty and raw counts. No win-probability lookup, scripted comeback or rubber banding.
@@ -229,7 +229,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.2 implementation validated, B-018/4.5a
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Finish full attribute editor; preserve stable IDs, OVR vs derived summary, provisional/hybrid labels, strengths/weaknesses, imports and reset. Verify any new imported fields in menus.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Browser edit/save/reload/swap/reset fixtures and small landscape/portrait views; no data loss or misleading labels.
@@ -242,7 +242,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.4c
 - **Status:** validated
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Use existing coachfx/captions for material cushion, shading and other legal changes; keep HUD clear and avoid cinematics.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; relevant source paths and https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md
 - **Acceptance criteria:** Caption reflects observed behavior; no new hidden information or blocked controls.
@@ -288,7 +288,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
 - **Dependencies:** B-018 gate
 - **Status:** pending
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Audit existing paired cards, define reusable IDs and backward-compatible data. Expose only supported formations; implement actual alignments and assignments for any newly supported formation.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
 - **Acceptance criteria:** No legacy call breaks; every formation has valid personnel and assignments.
@@ -301,7 +301,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
 - **Dependencies:** B-024/a1
 - **Status:** pending
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Define selectable offensive books from supported formations/concepts; ensure styles reflect actual personnel and choices.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
 - **Acceptance criteria:** Style selection changes available calls coherently; no fictitious formation or cosmetic-only difference.
@@ -314,7 +314,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
 - **Dependencies:** B-024/a2
 - **Status:** pending
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Keep quick calls; use down/distance, field position, score/clock, strengths and completed-play tendencies, never hidden opponent calls.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
 - **Acceptance criteria:** Same visible situation with hidden defense differences yields same suggestions; full book never restricted.
@@ -327,7 +327,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
 - **Dependencies:** B-024/a2, B-024/b1
 - **Status:** pending
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Build Suggested Plays and Formations views, explicit selection and accurate route/block diagrams. Preserve quick play and existing controls.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
 - **Acceptance criteria:** Browser shows all supported calls by formation/concept; no overlap; diagram matches actual execution.
@@ -340,7 +340,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
 - **Dependencies:** B-024/b2
 - **Status:** pending
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Expand supported run/pass/PA/screen concepts with real assignments and tactical purpose; implement formation-appropriate audibles without changing personnel magically.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
 - **Acceptance criteria:** Every selectable play executes legally; counter value and audible behavior verified.
@@ -353,7 +353,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
 - **Dependencies:** B-024/c1
 - **Status:** pending
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** none (legacy claim released)
 - **Instructions:** Test every call, mobile navigation, existing quick play, AI fairness and Phase 4 regression targets. Build, push and verify private release according to AGENTS.md.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
 - **Acceptance criteria:** All supported calls validated; relevant sims, browser checks and release evidence recorded.
@@ -387,3 +387,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 final handoff: legacy claim released in59ab8fe; code7bf8ae3;20-groupCI success. All measured evidence reconciled above. Initial go-ball regression was corrected; residual statistical targets, full spatial style coverage, private publication andphysical iPhone signoff remainopen. Registry milestone/nextstep updated throughpm.py. Activation remains pending whilePM14/15 areopen. No competing queue ornew claim; no B024/defense/cinematics/modes started. After required merges, fetch bothmain branches, verifyrelease androuting, then activateunder the reviewed enrollment.
 
 - 2026-11-27 cutover coordinator: activated after fresh fetch of both main branches. Verified PM14 merged2224241, PM15 merged8ac5782, Gridline2 mergedb53a87a, active primary football-game, released legacy59ab8fe, no competing claims, valid dependencies, accessible canonical skills and AGENTS routing. Existing implementation/evidence retained; current user authorizes residual Phase4 only. Acquired single run codex-phase4-final-20261127-1800. Physical signoff remains required.
+
+- 2026-11-27 run progress, codex-phase4-final-20261127-1800: committed5c5a793 harness evidence repairs and413371b spatial contact repairs. Independent reviewers reproduced/resolved unreachable dives, remote/duplicate catch tackles, downed catch contestants, assignment/backside blocking and acceptance-tool errors. New22-group tests and source/dist browser suite pass; AWR/possession/clutch unchanged. Rerunning fixed-seed, animation-reset passing and all9-position spatial matrix; rare-event/safety calibration is still under holdout testing. No statistical acceptance or publication claimed yet.
