@@ -20,6 +20,15 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 - `GEMINI.md`: the same two lines, for Gemini CLI. Never put rules there.
 - `docs/REPO_STANDARD.md`: the organization standard every Seph repo follows.
 
+## Approved development workflow
+
+- [Agent workflow](docs/AGENT_WORKFLOW.md) defines the shared Dream Board and central Development Board system.
+- Unattended agents start with [agent-execution](skills/agent-execution/SKILL.md). Select the explicitly assigned active project or the active primary. Never infer authorization from a Dream Board or legacy open items.
+- Duet uses [duet-planning](skills/duet-planning/SKILL.md) to refine ideas and promote only approved scope.
+- `development/<project-id>/BOARD.md` holds the executable queue for an enrolled project. Existing project boards remain authoritative until explicitly migrated.
+- `templates/` holds the standard board and task formats. [Nightly run](docs/NIGHTLY_RUN.md) is the portable scheduler prompt.
+- The operational board-only push exception in the workflow does not apply to code, skills, templates or registry data. Existing registry writes still go exclusively through pm.py. All other existing repo rules remain in force.
+
 ## Definitions
 
 ### Idea
@@ -65,7 +74,7 @@ Seph finishes a project before abandoning it, unless he gives a good reason to m
 - An active project with no focus is how projects drift. `check` and `list` flag them; ask Seph to give it focus or pause it.
 
 ## How to update
-Every change goes through `scripts/pm.py`. Never hand-edit the JSON or `log.md`.
+Every change to the existing project registry goes through `scripts/pm.py`. Never hand-edit the JSON or `log.md`. The separate enrolled Development Boards follow the approved development workflow above.
 The script is deterministic: no AI, Python standard library only. It checks the rules, then saves both JSON files and the `log.md` line together (all or nothing). Inside a git repo, each change is then committed on its own, with the log line as the message. Only `sync` and `commit --push` touch the network.
 The step-by-step version is skills/pm-update/SKILL.md.
 
