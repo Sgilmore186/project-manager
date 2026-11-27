@@ -13,16 +13,16 @@
 
 ## Cutover safety
 
-This board was activated on 2026-11-27 after the verified cutover recorded below. The original Codex B-018/4.3-4.7 legacy claim is released in Gridline commit [59ab8fe](https://github.com/Sgilmore186/gridline/commit/59ab8fe0df1e50f6f0fb43edb32466f68d659a74), 2026-11-27. Run ID: codex-phase4-20261126-b92883f. Gameplay/save code is pushed through 7bf8ae3, with green CI and20 test groups. The [final report](https://github.com/Sgilmore186/gridline/blob/main/docs/reports/2026-11-27.md) records actual measurements, corrections and remaining limits. No active legacy or central claim remains. Do not rebuild validated tasks or begin another legacy run. Activation still requires the integration merges and routing checks below.
+This board was activated on 2026-11-27 after the verified cutover recorded below. The original Codex B-018/4.3-4.7 legacy claim is released in Gridline commit [59ab8fe](https://github.com/Sgilmore186/gridline/commit/59ab8fe0df1e50f6f0fb43edb32466f68d659a74), 2026-11-27. Run ID: codex-phase4-20261126-b92883f. Gameplay/save code is pushed through 7bf8ae3, with green CI and20 test groups. The [final report](https://github.com/Sgilmore186/gridline/blob/main/docs/reports/2026-11-27.md) records actual measurements, corrections and remaining limits. The legacy claim remains released. Central activation and later claims are recorded in the run handoffs. Do not rebuild validated tasks or resume the legacy queue.
 
 After both integration PRs are merged: fetch the latest Gridline main and PM main, confirm the legacy agent has stopped/released its claim, reconcile its commits, test results, publication and new board entries, and verify Gridline's AGENTS.md points here. Perform a read-only routing pass (active primary, correct repo, skills accessible, valid dependencies, no competing claim). Then change Activation to active and record the handoff in this board, using a normal non-force push under the reviewed enrollment. Only the cutover coordinator may activate after those checks; if uncertain, leave pending. Do not run both queues. For pending activation, the nightly trigger may perform read-only checks and report what is missing but must not modify game code.
 
 ## Run claim
 
-- Owner: Codex
-- Run ID: codex-scheduled-20261127-2212
-- Claimed/renewed UTC: 2026-11-27T22:20:34Z
-- Starting target commit: 13fa1a3f2072e9ed21dccf41c345bbce0272e751
+- Owner: none
+- Run ID: none
+- Claimed/renewed UTC: none
+- Starting target commit: none
 
 ## Priority repairs
 
@@ -254,13 +254,13 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Validate full Phase 4 mechanics.
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
-- **Status:** in-progress
-- **Claim:** Codex / codex-scheduled-20261127-2212 / 2026-11-27T22:12:36Z / start 13fa1a3
+- **Status:** needs-fix
+- **Claim:** none
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Required samples, raw denominators, uncertainty and before/after report; no omitted/hung reps, no new unrecorded regressions. Resolve failures or record explicit blockers; do not claim a pass without evidence.
-- **Evidence:** Extensive seeded matrix andindependent final review delivered; noCritical/High correctness findings. Remaining: rare-event point misses (real40+22/600=3.7%,20+98/600=16.3%,INT5%; go39.2%,drops/eventmix), full across-position spatial style coverage andphysical performance/feel. No test targets relaxed; loose tool flags tightened tospec. [Final report](https://github.com/Sgilmore186/gridline/blob/main/docs/reports/2026-11-27.md).
-- **Handoff:** Complete only missing work; record checks and commit.
+- **Evidence:** Gridline `a2d4093` adds sudden-death browser coverage, `3f1edc2` fixes a double drop roll, and `1e2d5fe` corrects simulation depth, removes identical pass rows and rejects invalid exhibition difficulty. Build and 23 Node tests pass. Source/dist browser and mobile checks pass, and 12 fixed-seat exhibitions reached FINAL across Rookie, Pro and All-Pro. The corrected matrix has 2,400 attempts/profile. Real-roster 20+ gains were 396/2,400 (16.5%) and 40+ gains 76/2,400 (3.2%, down from 3.5%). Real go completion was 1,362/3,368 (40.4%, one batch below target), go INTs 113/3,368 (3.4%), and spectacular catch callouts 0.74 per 15 throws. The smoke test covered two contexts at every position. Final gameplay archetype verification and the statistical gate remain open. [Scheduled acceptance report](https://github.com/Sgilmore186/gridline/blob/1e2d5fea87da409fcbeb9236ec4d191ee17c851d/docs/reports/2026-11-27.md#scheduled-phase-4-follow-up)
+- **Handoff:** Resume B-018/4.7a by comparing tackle break inputs at contact for long-gain seeds 601046, 401077, 601138 and 401029 with low-YAC controls 101033, 101065, 101107 and 501127. The four controls ended on first contact and the four long cases broke one to four tackles. Fix only a reproducible cause and rerun the eight passing batches and three go-ball holdouts. Recheck deep-pass archetype contexts on the eventual final build.
 
 #### B-018/4.7b - Build, review and private release
 
@@ -272,8 +272,8 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Instructions:** Review changed code for regressions and exploits; run required build and checks, push and verify remote commit and CI. Coordinate authorized private Claude artifact/site sync from disk; verify exact commit. Do not publish real nicknames publicly.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Test evidence and commit recorded; private artifact confirmed or task stays validated/blocked; phone checklist and signoff recorded separately. No next core phase before required signoff.
-- **Evidence:** Final gameplay/save7bf8ae3 andhandoff59ab8fe pushed; CIgreen20groups, rebuilt exactdistSHA08fa27a8893ef7ef2c2da6bbca47863fd7a2803b0be2b5ce95cde5da2617cf80. GitHubPRIVATE verified afterSeph approval. A final combined+targeted independent reviews foundnoCritical/High; B/C earlier evidence retained. Private artifact/Site sync andiPhone signoff unverified. Legacy claim released; no central claim. PM14/15 mergers androuting verification still required beforeactivation. [Final report](https://github.com/Sgilmore186/gridline/blob/main/docs/reports/2026-11-27.md).
-- **Handoff:** Complete only missing work; record checks and commit.
+- **Evidence:** Sites confirmed owner-only version 6 deployed successfully from Site source `461761b`, whose game bytes and retained upload match Gridline `009d36d`. Current verified gameplay is `3f1edc2` (dist SHA-256 `f311e84ea5c46646a8a8be542847529621b75691b68a7124ef8de17b387ad493`). Latest Gridline main `1e2d5fe` has [green CI](https://github.com/Sgilmore186/gridline/actions/runs/46076331378). Publication of the current build to the private Site and Claude artifact, physical iPhone playtesting and Seph signoff remain open. [Scheduled acceptance report](https://github.com/Sgilmore186/gridline/blob/1e2d5fea87da409fcbeb9236ec4d191ee17c851d/docs/reports/2026-11-27.md#scheduled-phase-4-follow-up)
+- **Handoff:** After 4.7a passes, confirm the exact current private build and deliver the phone checklist. Require physical signoff before B-025/r1 or any later phase.
 
 ### B-025 - Pre-season gameplay foundations
 
@@ -705,3 +705,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 checkpoint, codex-scheduled-20261127-2212: Gridline `a2d4093` adds a source/dist browser regression for sudden-death overtime, including kickoff, timeout reset, score, and final with no try. Build, script checks, 23 Node tests, source/dist browser suites and [GitHub CI](https://github.com/Sgilmore186/gridline/actions/runs/46075325433) passed. The shipped game is byte-identical. Continue the Phase 4 statistical and archetype evidence review.
 
 - 2026-11-27 checkpoint, codex-scheduled-20261127-2212: Gridline `3f1edc2` fixes a second drop roll on clean deep passes. The deterministic browser case failed on the old build and passed on source and dist after the fix. Build, script checks, 23 Node tests, attribute/mobile browser checks and [GitHub CI](https://github.com/Sgilmore186/gridline/actions/runs/46075883857) passed. Three go-ball batches had 1,362/3,368 real completions (40.4%) and 113/3,368 picks (3.4%). After removing identical run-side replays, real-roster passing logged 396/2,400 gains of 20+ (16.5%) and 76/2,400 of 40+ (3.2%). Continue the statistical gate and harness corrections. The prior private Site build was confirmed at version 6.
+
+- 2026-11-27 handoff, codex-scheduled-20261127-2212: verified three direct pushes to Gridline main through `1e2d5fe`, with successful CI. Tested the corrected passing and exhibition harnesses and reconciled the earlier private Site deployment. Recorded the current Phase 4 stage and next step through pm.py at `d73d220`. Released the run and task claims. Resume 4.7a from the matched contact traces in the handoff above.
