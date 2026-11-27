@@ -54,7 +54,7 @@ docs have one index, changes go through a branch and PR, nothing private is comm
 
 ## Change rules
 1. Work on a branch and open a PR. Never commit to main directly.
-   Exception: a data repo whose script is the only writer (project-manager data goes through `pm.py`).
+   Exception: a data repo whose script is the only writer (project-manager data goes through `pm.py`). Also see [approved development workflow](AGENT_WORKFLOW.md) for the narrow operational board-only exception in Project Manager. Target repos still require their own explicit permission to push directly.
 2. Add or update tests for every behavior change.
 3. Run the repo's checks before opening a PR. CI must be green.
 4. Seph merges. An AI never merges unless he asks.
