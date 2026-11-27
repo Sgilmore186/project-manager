@@ -1,6 +1,6 @@
 # Nightly run entrypoint
 
-The actual scheduled task is configured in the chosen agent platform, not by this file. Use a runner with access to Project Manager and the target repository, a usable execution environment, and permission to test and push. Install or explicitly load the skill; do not assume the agent discovers a remote skill automatically.
+The actual scheduled task is configured in the chosen agent platform, not by this file. Use a runner with access to Project Manager and the target repository, a usable execution environment, and permission to test and push. With Project Manager in the runner's workspace, Codex can discover the entry point in `.agents/skills/agent-execution/` and Claude Code in `.claude/skills/agent-execution/`. Both load the canonical `skills/agent-execution/SKILL.md`. Explicitly load the canonical skill if native discovery is unavailable; a remote repository alone does not install a skill.
 
 ## Portable trigger prompt
 
@@ -18,7 +18,7 @@ Optional argument: project ID. Omitting it uses the current active primary. No e
 
 - Shared infrastructure merged and readable from main.
 - Project enrolled and legacy work queue reconciled.
-- Agent access and toolchain checked; read-only routing trial succeeds.
+- Agent access, native skill discovery (or explicit loading) and toolchain checked; read-only routing trial succeeds.
 - Target branch policy and central board write policy verified.
 - Platform schedule set after the actual usage reset if applicable; confirm the schedule on that platform. Do not infer account reset time.
 - First supervised or bounded run verifies claim, task selection, tests, remote push, evidence and release of claim.
