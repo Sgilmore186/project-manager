@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "rules": {
     "max_primary": 1,
     "max_secondary": 2,
@@ -471,10 +471,14 @@
         {
           "date": "2026-11-26",
           "step": "Gridline B-018 step 4.2 implementation pushed (671cbd1): versioned attributes and independent IQ/AWR, 788 permanent source IDs, deterministic provisional archetypes and hybrids, weighted player summaries, compatible saves/imports/transfers and player cards. Eleven test groups, paired 80-play regression and source/dist browser checks pass. Private Claude artifact publication remains pending because native app input is unavailable; no 4.3 work started."
+        },
+        {
+          "date": "2026-11-27",
+          "step": "Gridline Phase 4 gameplay foundation pushed in 341f48e and cba3941 with green CI: individual skills, fair IQ/AWR, weighted units, CPU matchup calibration and attribute editors. Measured 180000 mirrored CPU games and 14400 live runs; final go-ball balance and acceptance remain open."
         }
       ],
       "started": "2026-11-24",
-      "updated": "2026-11-26"
+      "updated": "2026-11-27"
     }
   ],
   "statuses": [
