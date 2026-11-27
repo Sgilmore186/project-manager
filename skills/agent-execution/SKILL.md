@@ -11,7 +11,7 @@ Entry point: Sgilmore186/project-manager. Read its AGENTS.md and docs/AGENT_WORK
 
 - Sync Project Manager using scripts/pm.py sync in a git checkout. If unavailable, fetch current main and verify the revision. Do not work from stale copies.
 - Read projects.json (or pm.py list/get). Use the explicitly assigned project ID if active; otherwise select the sole active primary project. If no active primary exists, stop with a short report. Do not choose a secondary on your own.
-- Read development/<project-id>/BOARD.md. If no enrolled board exists, stop and report that enrollment is needed. Do not create one from guesses or treat legacy open_items as automatic authorization.
+- Read development/<project-id>/BOARD.md. If no enrolled board exists or its Activation is not active, stop and report that enrollment is needed. Verify the board project ID matches the registry and its routing fields are not placeholders. Do not create one from guesses or treat legacy open_items as automatic authorization.
 - Read the board's target repository, branch and push policy. Fetch it and read AGENTS.md plus the relevant spec. If permissions, scope, access or rules conflict, stop the affected work and report it. Never silently override them.
 - Confirm available tools, runtime and actual usage/time budget when exposed. Do not assume reset times, buy credits or work around usage limits.
 
