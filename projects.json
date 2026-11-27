@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "rules": {
     "max_primary": 1,
     "max_secondary": 2,
@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "upgrade Phase 3A playtested and accepted; Phase 3B next",
-      "next_step": "Run the Phase 3B prompt (3.5 to 3.9: defender IQ, scheme counters, disguise and halftime adjustments, MIKE callouts and COACH'S READ, sims) in a new Claude Code session, then playtest",
+      "next_step": "Claim B-018 step 4.2 in gridline: implement compatible attributes and deterministic defaults, provisional archetypes, preserved roster edits and matching player cards; follow docs/spec-phase4-ratings.md.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -463,10 +463,14 @@
         {
           "date": "2026-11-25",
           "step": "Fixed four stale Gridline sims (smart stick, steering, passing, runs and sacks) so each rep starts fresh; runs median 3.6, sack 3.3 s, smart stick on beats off"
+        },
+        {
+          "date": "2026-11-26",
+          "step": "Gridline B-018 step 4.1 complete (e2da625): audited rating consumers, documented Phase 4 schema and IQ/AWR plan, captured seeded matchup and browser baselines plus 60000 mirrored CPU regulation proxy games; no gameplay changes. Phase 3B and momentum remain unplaytested."
         }
       ],
       "started": "2026-11-24",
-      "updated": "2026-11-25"
+      "updated": "2026-11-26"
     }
   ],
   "statuses": [
