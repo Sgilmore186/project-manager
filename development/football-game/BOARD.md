@@ -607,13 +607,13 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 #### B-014/b2 - Defensive play selection
 
 - **Objective:** Let user choose defensive calls before each defensive snap.
-- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft.
+- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft. Three-tab defensive play selection and actual defender previews explicitly approved 2026-11-27.
 - **Dependencies:** B-014/a1, B-014/b1
 - **Status:** pending
 - **Claim:** none
-- **Instructions:** Build landscape-friendly defensive card picker using selected defensive book, valid situation and personnel. Show front, coverage, pressure, actual player positions and assignments. Preserve play clock and play-selection accessibility; ensure chosen play drives real AI assignments. No standalone coordinator mode.
+- **Instructions:** Build landscape-friendly defensive card picker using selected defensive book, valid situation and personnel. Show front, coverage, pressure, actual player positions and assignments. Preserve play clock and play-selection accessibility; ensure chosen play drives real AI assignments. No standalone coordinator mode. Match offensive play selection with three tabs: Suggested (three distinct legal recommendations where available, using visible situation/personnel/tendencies only), Formation (4-3, 3-4, Nickel, Dime, Goal Line and supported fronts), and Play Type (Man Coverage, Zone Coverage, Blitz, Run Defense). Calls may have multiple relevant type tags; do not duplicate underlying play IDs or misrepresent coverage. Show actual defender names/numbers, alignments, man assignments, zone responsibilities and blitz paths from the same resolved data used at snap.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; ui/playcall.js, ui/menus.js, engine/defense.js, render/hud.js.
-- **Acceptance criteria:** All supported calls selectable and execute intended fronts/coverage; correct roster and previews; mobile navigation and snap/clock behavior pass browser checks.
+- **Acceptance criteria:** All supported calls selectable and execute intended fronts/coverage; correct roster and previews; mobile navigation and snap/clock behavior pass browser checks. Three tabs render and filter correctly; exactly three suggested legal calls when available, graceful fallback otherwise; no hidden offensive call access. Actual defender identities, alignments and assignments match live snap across books and formations.
 - **Evidence:** None recorded; inspect latest implementation before starting.
 - **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
 
