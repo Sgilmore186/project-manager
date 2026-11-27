@@ -31,6 +31,17 @@ How every Seph repo is organized. `project-manager` is the model repo.
 | Cursor, Copilot, Windsurf and others | Most read AGENTS.md natively. Check the tool's docs. |
 | Chat sessions with a GitHub connector | Nothing loads automatically. Tell the AI to read AGENTS.md first. |
 
+## Shared skills
+
+For every reusable repository skill, keep one canonical definition at `skills/<skill-name>/SKILL.md`. Expose it to Codex and Claude Code through lightweight native entry points:
+
+- `.agents/skills/<skill-name>/SKILL.md` for Codex.
+- `.claude/skills/<skill-name>/SKILL.md` for Claude Code.
+
+Both entry points use matching YAML name and description metadata and direct the agent to read and follow the canonical skill before acting. Use a real Markdown file, not a copy of the full instructions or a platform-dependent symlink. Supporting scripts, references and templates live beside the canonical skill. Update the canonical definition once; keep entry-point metadata synchronized when the skill name or description changes.
+
+For repositories with no reusable skills, these directories are optional. Cross-repository skills require access to their source repository and must be explicitly loaded if not installed or discoverable in the current workspace. Skill discovery does not grant tool access or permissions.
+
 ## AGENTS.md outline
 Keep each section short. Use bullets, not paragraphs.
 1. **What this repo is:** one paragraph, plus what it must never become.
@@ -72,6 +83,7 @@ environments and private logs. `.gitignore` is a guard, not proof.
 ## Checklist
 - [ ] AGENTS.md has the rules, and CLAUDE.md and GEMINI.md only import it
 - [ ] README is short and links to the details
+- [ ] Reusable skills have canonical definitions and matching native entry points (where applicable)
 - [ ] Docs are organized, with finished reports in `docs/history/`
 - [ ] Tests exist and CI runs them on every PR
 - [ ] `.gitignore` covers secrets and personal data
