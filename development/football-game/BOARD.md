@@ -21,7 +21,7 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-gridline-20261127-continued-b018
-- Claimed/renewed UTC: 2026-11-27T23:18:18Z
+- Claimed/renewed UTC: 2026-11-27T23:21:54Z
 - Starting target commit: b2ba936bb4d61d3b02068912cb275940b2748c29
 
 ## Priority repairs
@@ -255,7 +255,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
 - **Status:** in-progress
-- **Claim:** Codex / codex-gridline-20261127-continued-b018 / 2026-11-27T23:18:18Z / Gridline b2ba936
+- **Claim:** Codex / codex-gridline-20261127-continued-b018 / 2026-11-27T23:21:54Z / Gridline b2ba936
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Required samples, raw denominators, uncertainty and before/after report; no omitted/hung reps, no new unrecorded regressions. Resolve failures or record explicit blockers; do not claim a pass without evidence.
@@ -717,3 +717,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 checkpoint, codex-gridline-20261127-continued-b018: Gridline [b33ebd4](https://github.com/Sgilmore186/gridline/commit/b33ebd483a33b53e7d0604efe5f29a4e8bc0578c) lets the Fire Zone lineman contest a reachable pass when assigned to coverage. The old fixture turned the same play into a reception, and the repaired source/dist intercepted it on the same roll. The rusher control still caught the pass. All 7,200 passing and 10,800 selected go outcomes and yardage matched the corrected baseline, and all 12 scripted exhibitions reached FINAL. Continue go-ball calibration inside the approved physical reach and headline thresholds.
 
 - 2026-11-27 checkpoint, codex-gridline-20261127-continued-b018: Gridline `bb65bfb` calibrates contested deep bullets within existing interception reach and recognizes difficult retained catches at tackle distance. Three go batches measured 146/3,368 picks (4.3%) and 353 callouts (1.57 per 15), with a fresh fourth holdout at 4.6% and 1.55. One comparison batch missed completion and another missed interception. Build, browser, 23 Node tests, 12 scripted exhibitions and the eight paired passing batches passed their verification checks. Real gains of 20+ and 40+ remain above target. Next, reproduce and correct the assigned defender’s recognition delay when the TE catches a pass.
+
+- 2026-11-27 checkpoint, codex-gridline-20261127-continued-b018: Gridline `c21c562` recognizes the TE assignment after the catch. Source/dist regression verifies immediate pursuit outside three yards for the assigned defender and normal reaction time for another defender. Completed 7,200 paired passes, three go holdouts and 12 scripted exhibitions. The real 20+ and 40+ counts remain 394 and 70 out of 2,400. Next verify dive contact on its final frame.
