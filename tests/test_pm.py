@@ -154,6 +154,20 @@ class FinishRule(PMTest):
         self.ok("add", "project", "--id", "p2", "--name", "P2", "--goal", "g", "--skip-idea", "--reason", "t")
         self.fails("update", "p2", "--set", "focus=primary", says="too many primary")
 
+    def test_list_keeps_completed_apart_from_archived(self):
+        self.ok("add", "project", "--id", "fin", "--name", "Fin", "--goal", "g", "--skip-idea", "--reason", "t")
+        self.ok("update", "fin", "--set", "status=done")
+        self.ok("update", "other", "--set", "status=archived", "--reason", "t")
+        out = self.ok("list", "projects").stdout
+        self.assertIn("## projects (1)", out)
+        self.assertIn("## completed (1)", out)
+        self.assertIn("## archived (1)", out)
+        completed = out.split("## completed")[1].split("## archived")[0]
+        archived = out.split("## archived")[1]
+        self.assertIn("fin: Fin [done]", completed)
+        self.assertNotIn("fin:", archived)
+        self.assertIn("other: Other [archived]", archived)
+
     def test_active_without_focus_is_flagged(self):
         self.ok("add", "project", "--id", "p2", "--name", "P2", "--goal", "g", "--skip-idea", "--reason", "t")
         self.assertIn("p2' is active but has no focus", self.ok("check").stdout)

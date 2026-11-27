@@ -56,8 +56,8 @@ Example: Crosswalk is part of Project Manager and the orchestrator (the multi-mo
 ## Statuses
 - `active`: committed and being worked on.
 - `paused`: committed, deliberately on hold.
-- `archived`: set aside by Seph; kept for the record. Not worked on, not counted toward focus, not nagged about. Only Seph archives or un-archives.
-- `done`: goal reached.
+- `archived`: set aside by Seph; kept for the record. Shown under **Archived** with `dropped`. Not worked on, not counted toward focus, not nagged about. Only Seph archives or un-archives.
+- `done`: goal reached. Shown under **Completed** in `list` and on the dashboard, kept apart from archived.
 - `dropped`: abandoned for good.
 
 ## Finish rule
