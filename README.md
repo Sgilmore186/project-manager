@@ -8,7 +8,9 @@ The goal: hold Seph accountable and help him finish what he starts.
 - **Part**: something that only matters because it helps a larger project.
 - **Log** (`log.md`): a dated line for every change.
 
-All changes go through `scripts/pm.py` (run `python3 scripts/pm.py --help`).
+All registry changes go through `scripts/pm.py` (run `python3 scripts/pm.py --help`).
 Tests: `python3 -m unittest discover -s tests -v`.
 
 Full rules, fields and steps: [AGENTS.md](AGENTS.md). Repo organization standard: [docs/REPO_STANDARD.md](docs/REPO_STANDARD.md).
+
+Approved autonomous development: [workflow](docs/AGENT_WORKFLOW.md), [Development Boards](development/README.md), [nightly entrypoint](docs/NIGHTLY_RUN.md). Start with the [execution skill](skills/agent-execution/SKILL.md) or [Duet planning skill](skills/duet-planning/SKILL.md).
