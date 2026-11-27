@@ -21,7 +21,7 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-gridline-20261127-2250-b018
-- Claimed/renewed UTC: 2026-11-27T22:51:02Z
+- Claimed/renewed UTC: 2026-11-27T22:56:03Z
 - Starting target commit: 1e2d5fea87da409fcbeb9236ec4d191ee17c851d
 
 ## Priority repairs
@@ -255,7 +255,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
 - **Status:** in-progress
-- **Claim:** Codex / codex-gridline-20261127-2250-b018 / 2026-11-27T22:51:02Z / Gridline 1e2d5fe
+- **Claim:** Codex / codex-gridline-20261127-2250-b018 / 2026-11-27T22:56:03Z / Gridline 1e2d5fe
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Required samples, raw denominators, uncertainty and before/after report; no omitted/hung reps, no new unrecorded regressions. Resolve failures or record explicit blockers; do not claim a pass without evidence.
@@ -707,3 +707,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 checkpoint, codex-scheduled-20261127-2212: Gridline `3f1edc2` fixes a second drop roll on clean deep passes. The deterministic browser case failed on the old build and passed on source and dist after the fix. Build, script checks, 23 Node tests, attribute/mobile browser checks and [GitHub CI](https://github.com/Sgilmore186/gridline/actions/runs/46075883857) passed. Three go-ball batches had 1,362/3,368 real completions (40.4%) and 113/3,368 picks (3.4%). After removing identical run-side replays, real-roster passing logged 396/2,400 gains of 20+ (16.5%) and 76/2,400 of 40+ (3.2%). Continue the statistical gate and harness corrections. The prior private Site build was confirmed at version 6.
 
 - 2026-11-27 handoff, codex-scheduled-20261127-2212: verified three direct pushes to Gridline main through `1e2d5fe`, with successful CI. Tested the corrected passing and exhibition harnesses and reconciled the earlier private Site deployment. Recorded the current Phase 4 stage and next step through pm.py at `d73d220`. Released the run and task claims. Resume 4.7a from the matched contact traces in the handoff above.
+
+- 2026-11-27 checkpoint, codex-gridline-20261127-2250-b018: Gridline [8db9315](https://github.com/Sgilmore186/gridline/commit/8db931576d09dd562ba5ea244fdbe087fdd4b447) fixes the abrupt rear-tackle break bonus after catches. Seed 601138 fell from 70 to 17 yards, and all four short-gain controls matched. Build, 23 Node tests and source/dist live, attribute and mobile browser checks passed. Initial paired real-roster passing measured 70/2,400 gains of 40+ (2.9%, down from 76), with all 1,429 completions and 105 picks retained. [Hosted CI](https://github.com/Sgilmore186/gridline/actions/runs/46079489183) was running at this checkpoint. A replay also found post-whistle animation inflating three fumble spots; verify the passing and go-ball tools stop at the actual spot and finish spatial archetype validation before closing the run.
