@@ -26,6 +26,7 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 - Unattended agents start with [agent-execution](skills/agent-execution/SKILL.md). Select the explicitly assigned active project or the active primary. Never infer authorization from a Dream Board or legacy open items.
 - Duet uses [duet-planning](skills/duet-planning/SKILL.md) to refine ideas and promote only approved scope.
 - `development/<project-id>/BOARD.md` holds the executable queue for an enrolled project. Existing project boards remain authoritative until explicitly migrated.
+- Canonical skills live in `skills/`; native Codex and Claude Code entry points in `.agents/skills/` and `.claude/skills/` load the same definitions. Follow [the shared skill standard](docs/REPO_STANDARD.md#shared-skills).
 - `templates/` holds the standard board and task formats. [Nightly run](docs/NIGHTLY_RUN.md) is the portable scheduler prompt.
 - The operational board-only push exception in the workflow does not apply to code, skills, templates or registry data. Existing registry writes still go exclusively through pm.py. All other existing repo rules remain in force.
 
