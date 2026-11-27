@@ -224,7 +224,7 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "upgrade Phase 3A playtested and accepted; Phase 3B next",
+      "stage": "Phase 4.1 audit and baseline complete; 4.2 attributes next; Phase 3B and momentum await playtest",
       "next_step": "Claim B-018 step 4.2 in gridline: implement compatible attributes and deterministic defaults, provisional archetypes, preserved roster edits and matching player cards; follow docs/spec-phase4-ratings.md.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
