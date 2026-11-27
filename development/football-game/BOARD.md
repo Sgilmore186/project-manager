@@ -557,13 +557,104 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Evidence:** User decision recorded 2026-11-27; no gameplay changes or tests claimed.
 - **Handoff:** No implementation work; future expansion requires separate approval.
 
-### B-014 - Phase 5: Playable defense (blocked design gate)
+### B-014 - Phase 5: Playable defense
 
-- Objective: offense-only, defense-only and both sides with simulated possessions.
-- Approval: direction agreed 2026-11-26; implementation explicitly requires review of [defense draft](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-playable-defense.md).
-- Dependencies: B-018 and B-024; design approval.
-- Control decision approved 2026-11-27: full individual defensive control, one controlled defender at a time with switching during the play; user calls defensive plays before snap; remaining defenders use AI. Coordinator-only mode deferred.
-- Phase gate: drive participation and quarter lengths remain open; then Duet creates detailed tasks from the existing draft. No implementation until approved. Dream Board B-014 tracks questions.
+- Objective: playable offense, defense or both, with simulated possessions for the unplayed side.
+- Approval: 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft. [Original defense draft](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-playable-defense.md); decisions here supersede its proposed pre-snap-only switching and call-only option.
+- Dependencies: B-018, B-025 and B-024 phase gates. Do not bypass earlier release or physical signoff requirements.
+- Phase gate: all B-014 tasks pass acceptance, balanced live and simulated possessions, validated mobile controls, private publication and physical review. Full Game becomes default only once validated. Coordinator-only gameplay and career modes are explicitly deferred.
+- Defaults: recommended longer quarters in Offense Only and Defense Only, shorter in Full Game; player may override. Exact lengths, switching gesture and tackle timing are provisional implementation/tuning decisions, not fixed user-approved numbers. Preserve existing controls, rules and save compatibility.
+
+#### B-014/a1 - Six defensive playbooks
+
+- **Objective:** Deliver selectable defensive identities with actual front, coverage and personnel variety.
+- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft.
+- **Dependencies:** B-024 gate
+- **Status:** pending
+- **Claim:** none
+- **Instructions:** Audit current Phase 3 defensive call catalog. Create six approved books: Balanced (versatile), 4-3 (four-man fronts), 3-4 (linebacker versatility), Nickel (coverage/spread defense), Aggressive (pressure/blitz), Multiple (flexible fronts/coverages). Use stable IDs, distinct supported call mixes, actual front/coverage/pressure and eligible roster assignments. Connect B-024 defensive preferences and pregame override to real catalogs; verify diagrams use actual lineups, with no fictitious calls. Keep CPU scheme selection fair and situation-aware.
+- **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; engine/defense.js, engine/coach.js, data/player-store.js, ui/menus.js, game/playbook.js, tools/sim_coach.py.
+- **Acceptance criteria:** Six books selectable and meaningfully distinct; all calls legal with valid personnel, preview matches snap, saved preferences and per-game override work; no hidden opponent call access or balance regression.
+- **Evidence:** None recorded; inspect latest implementation before starting.
+- **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
+
+#### B-014/a2 - CPU offensive play caller
+
+- **Objective:** Provide fair AI offense when the user controls defense.
+- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft.
+- **Dependencies:** B-014/a1
+- **Status:** pending
+- **Claim:** none
+- **Instructions:** Use approved B-024 offensive books, situation, visible defense and prior observed tendencies; do not read hidden user calls/inputs. Choose actual formations, pass targets, timing, run lanes, handoffs, options, throwaways and pressure responses through shared game rules and canonical attributes. Use deterministic pure decision logic where practical; avoid duplicated physical simulation.
+- **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; engine/coach.js, engine/cpusim.js, game/playbook.js, game/passing.js, tools/sim_cpu_drives.mjs.
+- **Acceptance criteria:** Seeded pure decisions show plausible call mix by situation and archetype, no hidden-state leakage, only legal calls; QB/RB decisions use approved passing and option mechanics.
+- **Evidence:** None recorded; inspect latest implementation before starting.
+- **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
+
+#### B-014/b1 - Shared live possession engine
+
+- **Objective:** Run CPU offense and AI defense on field before attaching user controls.
+- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft.
+- **Dependencies:** B-014/a2
+- **Status:** pending
+- **Claim:** none
+- **Instructions:** Adapt existing offense engine to CPU-owned possessions using clear team/side/direction abstractions, shared route, blocking, QB, catch, tackle and turnover logic. Do not fork a second football engine. Verify clocks, down/distance, scoring, special teams, turnovers, weather, momentum, fatigue where present, player IDs and stats. Run both sides with AI for repeatable tests.
+- **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/plays.js, game/loop.js, game/runs.js, game/passing.js, game/clock.js, game/cpuplay.js, tests/check_phase4_browser.py, tools/sim_full_game.py.
+- **Acceptance criteria:** Seeded AI-on-AI possessions finish without errors, preserve game rules and team ownership; compare drive distributions and event rates to accepted CPU/Phase 4 baselines and report discrepancies.
+- **Evidence:** None recorded; inspect latest implementation before starting.
+- **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
+
+#### B-014/b2 - Defensive play selection
+
+- **Objective:** Let user choose defensive calls before each defensive snap.
+- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft.
+- **Dependencies:** B-014/a1, B-014/b1
+- **Status:** pending
+- **Claim:** none
+- **Instructions:** Build landscape-friendly defensive card picker using selected defensive book, valid situation and personnel. Show front, coverage, pressure, actual player positions and assignments. Preserve play clock and play-selection accessibility; ensure chosen play drives real AI assignments. No standalone coordinator mode.
+- **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; ui/playcall.js, ui/menus.js, engine/defense.js, render/hud.js.
+- **Acceptance criteria:** All supported calls selectable and execute intended fronts/coverage; correct roster and previews; mobile navigation and snap/clock behavior pass browser checks.
+- **Evidence:** None recorded; inspect latest implementation before starting.
+- **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
+
+#### B-014/c1 - Switchable defender controls
+
+- **Objective:** Control any eligible defender and switch before or during a play.
+- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft.
+- **Dependencies:** B-014/b2
+- **Status:** pending
+- **Claim:** none
+- **Instructions:** One user-controlled defender at a time; default middle linebacker where available. Support pre-snap selection and responsive mid-play switching, joystick movement and tackle action. AI handles other players and resumes released defender assignment using observed state. Choose and document a nonconflicting mobile switch/tackle gesture; avoid unintended selection, teleports, speed boosts, duplicate tackles and omniscient assistance. Use shared collision, deflection, interception and sack resolution; preserve offense controls.
+- **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; ui/input.js, ui/controls.js, game/stick.js, game/loop.js, engine/physical.js, render/hud.js.
+- **Acceptance criteria:** Browser scenarios cover switching pre/post-snap, repeated switch, man/zone/rush assignments, tackle, sack, breakup, interception, turnover and mobile input conflicts; only one defender under user control and no exploit.
+- **Evidence:** None recorded; inspect latest implementation before starting.
+- **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
+
+#### B-014/c2 - Exhibition modes and quarter length
+
+- **Objective:** Expose all three participation modes and flexible game length.
+- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft.
+- **Dependencies:** B-014/c1
+- **Status:** pending
+- **Claim:** none
+- **Instructions:** Pregame setup alongside difficulty exposes Offense Only, Defense Only, Full Game. Play every possession of selected sides; use existing validated CPU sim for unplayed side. Recommend longer quarters in one-side modes, shorter in Full Game, allow manual override, document values after timing tests. Default Full Game only after phase validation; preserve safe legacy default until then. Ensure kickoff, possession changes, halftime, overtime, clock and final stats work identically; preserve settings and save compatibility.
+- **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/exhibition.js, game/cpuplay.js, game/clock.js, ui/menus.js, ui/sheets.js, tools/sim_full_game.py.
+- **Acceptance criteria:** Complete games in each mode and multiple quarter lengths including turnover, halftime and OT; correct live/sim routing, saved choices and overrides, no clock or stats duplication. Validated Full Game default recorded.
+- **Evidence:** None recorded; inspect latest implementation before starting.
+- **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
+
+#### B-014/d1 - Defense balance, mobile review and release
+
+- **Objective:** Validate full exhibition experience and deliver private build.
+- **Approval:** 2026-11-27: Seph approved switchable individual defense, offense-only/defense-only/full-game exhibition, recommended mode-specific quarter lengths with overrides, and six defensive playbooks. Builds on the 2026-11-26 defense draft.
+- **Dependencies:** B-014/c2
+- **Status:** pending
+- **Claim:** none
+- **Instructions:** Run seeded offense/defense/full-game matrices across six defensive and seven offensive books, ratings, difficulty and field situations. Measure drive balance, sacks, interceptions, tackling, explosive plays, AI fairness and timing vs approved baselines; inspect switching and gesture latency on source/dist. Rebuild and run required tests, verify CI and exact private artifact; request physical phone review. Preserve established targets; no fake playtest.
+- **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; node v2/build.mjs, node tests/check_scripts.mjs, node --test tests/player_attributes.test.mjs tests/phase4_gameplay.test.mjs, tests/check_phase4_browser.py, tools/sim_full_game.py, tools/sim_cpu_drives.mjs, tools/sim_coach.py.
+- **Acceptance criteria:** All participation modes and schemes validated, no critical regressions, actual commands/results/commit/CI and private publication verified; physical user signoff recorded separately before B-019.
+- **Evidence:** None recorded; inspect latest implementation before starting.
+- **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
 
 ### B-019 - Phase 6: Presentation and polish (blocked by Phase 5)
 
@@ -603,4 +694,6 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 
 - 2026-11-27 planning proposal: added B-025 foundations, extended B-024, recorded optional design gates and PRE-GATE per Seph's pre-season checklist request. Preserved B-018 run claim, evidence and gates; no game code, tests, publication, registry or scheduler changes. Reconcile with latest main and coordinate with the active run holder before merge; never overwrite its claim or progress.
 
-- 2026-11-27 decision refinement: user approved default-handoff RPO/read option, seven launch offensive books, persistent exhibition settings with pregame overrides, hybrid formation-level personnel and exact player previews, current pass controls plus throw-away, and full switchable defensive player control. Manual leading/lob, dedicated practice and coordinator-only control deferred. Defense participation/quarter lengths remain open; preserve current run claim and evidence. No code, publication, registry or scheduler changes.
+- 2026-11-27 decision refinement: user approved default-handoff RPO/read option, seven launch offensive books, persistent exhibition settings with pregame overrides, hybrid formation-level personnel and exact player previews, current pass controls plus throw-away, and full switchable defensive player control. Manual leading/lob, dedicated practice and coordinator-only control deferred. Defense participation and quarter-length choices subsequently resolved; preserve current run claim and evidence. No code, publication, registry or scheduler changes.
+
+- 2026-11-27 defense decision refinement: user approved all three exhibition participation modes, Full Game default after validation, mode-specific recommended quarter lengths with manual override, and six defensive playbooks (Balanced, 4-3, 3-4, Nickel, Aggressive, Multiple). Expanded B-014 into seven ordered tasks based on the existing defense draft; its three original user questions are answered. No implementation, tests, publication or scheduler changes. Coordinate with active Phase 4 run before merging.
