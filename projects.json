@@ -224,8 +224,8 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "Phase 4.2 implementation validated; private publication and Seph review pending; 4.3 not started",
-      "next_step": "Review B-018 step 4.2 and privately republish Gridline V2 from commit 671cbd1 v2/dist/index.html; follow docs/reports/2026-11-26-phase4-attributes.md. Stop before 4.3 until Seph reviews.",
+      "stage": "Phase 4 gameplay implemented; final balance and acceptance in progress",
+      "next_step": "Finish measured go-ball repair and remaining B-018 acceptance; release legacy claim, reconcile PM PR15 and activate only after required merges. Private artifact/Site and physical phone checks remain.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
