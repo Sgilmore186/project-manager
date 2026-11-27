@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "Phase 4.1 audit and baseline complete; 4.2 attributes next; Phase 3B and momentum await playtest",
-      "next_step": "Claim B-018 step 4.2 in gridline: implement compatible attributes and deterministic defaults, provisional archetypes, preserved roster edits and matching player cards; follow docs/spec-phase4-ratings.md.",
+      "next_step": "Review B-018 step 4.2 and privately republish Gridline V2 from commit 671cbd1 v2/dist/index.html; follow docs/reports/2026-11-26-phase4-attributes.md. Stop before 4.3 until Seph reviews.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -467,6 +467,10 @@
         {
           "date": "2026-11-26",
           "step": "Gridline B-018 step 4.1 complete (e2da625): audited rating consumers, documented Phase 4 schema and IQ/AWR plan, captured seeded matchup and browser baselines plus 60000 mirrored CPU regulation proxy games; no gameplay changes. Phase 3B and momentum remain unplaytested."
+        },
+        {
+          "date": "2026-11-26",
+          "step": "Gridline B-018 step 4.2 implementation pushed (671cbd1): versioned attributes and independent IQ/AWR, 788 permanent source IDs, deterministic provisional archetypes and hybrids, weighted player summaries, compatible saves/imports/transfers and player cards. Eleven test groups, paired 80-play regression and source/dist browser checks pass. Private Claude artifact publication remains pending because native app input is unavailable; no 4.3 work started."
         }
       ],
       "started": "2026-11-24",
