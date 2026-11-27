@@ -40,6 +40,15 @@ Entry point: Sgilmore186/project-manager. Read its AGENTS.md and docs/AGENT_WORK
 
 ## 5. Finish
 
-Continue while eligible useful work and usage remain. Reserve time/usage for checks, pushes and a concise report. Stop if no task is eligible, the project is paused, verification cannot proceed safely, or limits are near. Never consume tokens merely to exhaust a quota.
+Continue through eligible approved tasks while productive usage and time remain. Do not stop merely because one task or phase finishes. Checkpoint each completed task or coherent subtask before starting another: run relevant tests, save verified work according to branch policy, verify remote changes, and update the central board with evidence and the next step. Preserve unfinished or unvalidated work on an authorized work branch when necessary; never push broken work to main.
+
+### Usage target
+
+- At the start and periodically during the run, check remaining usage and reset times through supported, authorized mechanisms when exposed. Consider both short-term and weekly limits; use the most restrictive visible remaining percentage.
+- Aim to finish the run with approximately 5% of the limiting usage allowance remaining. This is a flexible target, not a requirement to exhaust the quota or a guaranteed cutoff.
+- Above 15%: continue approved productive work, subject to time and eligibility. At 10-15%: avoid starting large tasks; finish or safely checkpoint existing work. At 5-10%: prioritize validation, commits, authorized pushes, board updates and claim release. Aim to end near 5%, not start the handoff at 5%.
+- Reserve more capacity when the task, reporting delay or environment warrants it. Stop earlier if required for safe verification, execution limits, project pause, a mandatory approval gate, active competing claim, no eligible work or another genuine blocker. Never bypass phase gates, weaken tests, buy credits or consume usage merely to exhaust a quota.
+- If usage or reset information is unavailable, explicitly report that limitation and use frequent checkpoints and conservative stopping decisions. Never invent percentages or reset times.
+- Report starting and ending remaining usage and reset times when actually visible. Do not commit private account usage or billing details to Git.
 
 Report: project, run ID, tasks done/skipped/blocked, target commits or PRs, actual checks and CI status, discovered defects, remaining steps, any decisions/limitations. No private data in Git. Independent morning review is intentionally out of scope for v1.
