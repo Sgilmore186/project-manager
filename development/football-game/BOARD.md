@@ -9,7 +9,7 @@
 - Project rules: https://github.com/Sgilmore186/gridline/blob/main/AGENTS.md
 - Dream Board: https://github.com/Sgilmore186/gridline/blob/main/docs/DREAM_BOARD.md
 - Enrollment approval/source: Seph requested Gridline integration following shared workflow setup, 2026-11-26.
-- Activation: pending
+- Activation: active
 
 ## Cutover safety
 
@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: none (legacy claim released; activation pending)
-- Run ID: none
-- Claimed/renewed UTC: none
-- Starting target commit: none
+- Owner: Codex
+- Run ID: codex-phase4-final-20261127-1800
+- Claimed/renewed UTC: 2026-11-27T18:00:12Z
+- Starting target commit: 59ab8fe0df1e50f6f0fb43edb32466f68d659a74
 
 ## Priority repairs
 
@@ -255,7 +255,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
 - **Status:** in-progress
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** Codex / codex-phase4-final-20261127-1800 / 2026-11-27T18:00:12Z / start 59ab8fe
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Required samples, raw denominators, uncertainty and before/after report; no omitted/hung reps, no new unrecorded regressions. Resolve failures or record explicit blockers; do not claim a pass without evidence.
@@ -268,7 +268,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.7a
 - **Status:** blocked
-- **Claim:** none (legacy claim released; activation pending)
+- **Claim:** Codex / codex-phase4-final-20261127-1800 / 2026-11-27T18:00:12Z / start 59ab8fe
 - **Instructions:** Review changed code for regressions and exploits; run required build and checks, push and verify remote commit and CI. Coordinate authorized private Claude artifact/site sync from disk; verify exact commit. Do not publish real nicknames publicly.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Test evidence and commit recorded; private artifact confirmed or task stays validated/blocked; phone checklist and signoff recorded separately. No next core phase before required signoff.
@@ -385,3 +385,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 Codex reconciliation: Gridline PR2 merged. PM PR14/15 open; Activation remains pending. Continued original B-018/4.3-4.7 legacy claim, no new central claim. Source341f48e/cba3941 and CI verified, report c3c559c records measurements. Final go-ball repair remains in that existing claim. Release/reconcile the legacy claim before activation; do not begin a competing run.
 
 - 2026-11-27 final handoff: legacy claim released in59ab8fe; code7bf8ae3;20-groupCI success. All measured evidence reconciled above. Initial go-ball regression was corrected; residual statistical targets, full spatial style coverage, private publication andphysical iPhone signoff remainopen. Registry milestone/nextstep updated throughpm.py. Activation remains pending whilePM14/15 areopen. No competing queue ornew claim; no B024/defense/cinematics/modes started. After required merges, fetch bothmain branches, verifyrelease androuting, then activateunder the reviewed enrollment.
+
+- 2026-11-27 cutover coordinator: activated after fresh fetch of both main branches. Verified PM14 merged2224241, PM15 merged8ac5782, Gridline2 mergedb53a87a, active primary football-game, released legacy59ab8fe, no competing claims, valid dependencies, accessible canonical skills and AGENTS routing. Existing implementation/evidence retained; current user authorizes residual Phase4 only. Acquired single run codex-phase4-final-20261127-1800. Physical signoff remains required.
