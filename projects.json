@@ -224,8 +224,8 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "Phase 4 gameplay implemented; final balance and acceptance in progress",
-      "next_step": "Finish measured go-ball repair and remaining B-018 acceptance; release legacy claim, reconcile PM PR15 and activate only after required merges. Private artifact/Site and physical phone checks remain.",
+      "stage": "Phase 4 core validated; residual acceptance and private phone release open",
+      "next_step": "Merge PM PR14/15 and verify released legacy claim before central activation; finish B-018 residual statistical/spatial style acceptance and private artifact/Site verification, then physical iPhone playtest. Do not advance core phases.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
