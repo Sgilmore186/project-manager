@@ -652,23 +652,23 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Claim:** none
 - **Instructions:** Run seeded offense/defense/full-game matrices across six defensive and seven offensive books, ratings, difficulty and field situations. Measure drive balance, sacks, interceptions, tackling, explosive plays, AI fairness and timing vs approved baselines; inspect switching and gesture latency on source/dist. Rebuild and run required tests, verify CI and exact private artifact; request physical phone review. Preserve established targets; no fake playtest.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; node v2/build.mjs, node tests/check_scripts.mjs, node --test tests/player_attributes.test.mjs tests/phase4_gameplay.test.mjs, tests/check_phase4_browser.py, tools/sim_full_game.py, tools/sim_cpu_drives.mjs, tools/sim_coach.py.
-- **Acceptance criteria:** All participation modes and schemes validated, no critical regressions, actual commands/results/commit/CI and private publication verified; physical user signoff recorded separately before B-019.
+- **Acceptance criteria:** All participation modes and schemes validated, no critical regressions, actual commands/results/commit/CI and private publication verified; physical user signoff recorded separately before season readiness.
 - **Evidence:** None recorded; inspect latest implementation before starting.
 - **Handoff:** Record actual checks, remote commit, remaining gaps and delivery status.
 
-### B-019 - Phase 6: Presentation and polish (blocked by Phase 5)
+### B-019 - Presentation and polish (deferred to Dream Board)
 
-- Objective: approved roadmap direction for comic-book presentation, smooth animations, short/skippable cinematics, mobile usability and performance.
-- Approval: 2026-11-26 roadmap; detailed scope remains to be refined where needed.
-- Dependencies: B-014 completion and core balance.
-- Phase gate: complete exhibition testing and user playtest; device-specific B-015 and screen priorities B-016 require clarification. Duet will expand approved work at the proper time, not guess feature requirements. B-017d hot kick effect requires a visible kicker.
+- Status: deferred, not an executable pre-season task or a season prerequisite.
+- Decision: 2026-11-27, Seph requested that the broader presentation overhaul be kept on the Dream Board for later human-led review and substantial hands-on testing.
+- See [Gridline Dream Board](https://github.com/Sgilmore186/gridline/blob/main/docs/DREAM_BOARD.md) for B-019, B-015, B-016 and related presentation ideas. Do not expand or implement these ideas until separately approved. Preserve prior history.
+- Gameplay-critical defects, functional mobile controls, performance regressions and required physical review/private publication remain within the existing gameplay acceptance gates. Deferring cosmetic polish does not waive those gates.
 
 ### PRE-GATE - Season readiness review
 
 - Objective: ensure gameplay is ready before season is promoted.
 - Approval: 2026-11-27 checklist request; no season implementation authorization.
-- Dependencies: B-018, B-025, B-024, B-014 and B-019 gates; PRE-OPTIONAL decisions approved/validated or deferred.
-- Status: blocked until all required phases, decisions and physical review complete.
+- Dependencies: B-018, B-025, B-024 and B-014 gates; PRE-OPTIONAL decisions approved/validated or deferred.
+- Status: blocked until all required gameplay phases, decisions and physical review complete; broader presentation polish is deferred.
 - Claim: none
 - Instructions: Review all supported formations/routes, QB archetypes, range/accuracy, QB/WR runs, approved RPO/options, CPU decision-making, scheme balance, full exhibitions, mobile controls and saves. Run required build, tests and seeded regressions against accepted baselines. Record remote commit, CI, exact private publication and phone review. Ask Seph to approve B-013 season design separately; no season implementation yet.
 - Toolbox: Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; Phase 4 spec, game-design.md, browser tests, seeded sims and shared agent-execution skill.
@@ -697,3 +697,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 decision refinement: user approved default-handoff RPO/read option, seven launch offensive books, persistent exhibition settings with pregame overrides, hybrid formation-level personnel and exact player previews, current pass controls plus throw-away, and full switchable defensive player control. Manual leading/lob, dedicated practice and coordinator-only control deferred. Defense participation and quarter-length choices subsequently resolved; preserve current run claim and evidence. No code, publication, registry or scheduler changes.
 
 - 2026-11-27 defense decision refinement: user approved all three exhibition participation modes, Full Game default after validation, mode-specific recommended quarter lengths with manual override, and six defensive playbooks (Balanced, 4-3, 3-4, Nickel, Aggressive, Multiple). Expanded B-014 into seven ordered tasks based on the existing defense draft; its three original user questions are answered. No implementation, tests, publication or scheduler changes. Coordinate with active Phase 4 run before merging.
+
+- 2026-11-27: Seph deferred the broader presentation/polish overhaul to the Dream Board for later human-led testing. Removed B-019 from season readiness prerequisites, while retaining gameplay-critical fixes, physical review, publication and the separate B-013 design approval gate. No gameplay changes or tests claimed; preserve active Phase 4 claim and reconcile before merge.
