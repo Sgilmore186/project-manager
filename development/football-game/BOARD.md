@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: Codex
-- Run ID: codex-gridline-20261127-2250-b018
-- Claimed/renewed UTC: 2026-11-27T22:56:03Z
-- Starting target commit: 1e2d5fea87da409fcbeb9236ec4d191ee17c851d
+- Owner: none
+- Run ID: none
+- Claimed/renewed UTC: none
+- Starting target commit: none
 
 ## Priority repairs
 
@@ -254,13 +254,13 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Validate full Phase 4 mechanics.
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
-- **Status:** in-progress
-- **Claim:** Codex / codex-gridline-20261127-2250-b018 / 2026-11-27T22:56:03Z / Gridline 1e2d5fe
+- **Status:** needs-fix
+- **Claim:** none
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Required samples, raw denominators, uncertainty and before/after report; no omitted/hung reps, no new unrecorded regressions. Resolve failures or record explicit blockers; do not claim a pass without evidence.
-- **Evidence:** Gridline `a2d4093` adds sudden-death browser coverage, `3f1edc2` fixes a double drop roll, and `1e2d5fe` corrects simulation depth, removes identical pass rows and rejects invalid exhibition difficulty. Build and 23 Node tests pass. Source/dist browser and mobile checks pass, and 12 fixed-seat exhibitions reached FINAL across Rookie, Pro and All-Pro. The corrected matrix has 2,400 attempts/profile. Real-roster 20+ gains were 396/2,400 (16.5%) and 40+ gains 76/2,400 (3.2%, down from 3.5%). Real go completion was 1,362/3,368 (40.4%, one batch below target), go INTs 113/3,368 (3.4%), and spectacular catch callouts 0.74 per 15 throws. The smoke test covered two contexts at every position. Final gameplay archetype verification and the statistical gate remain open. [Scheduled acceptance report](https://github.com/Sgilmore186/gridline/blob/1e2d5fea87da409fcbeb9236ec4d191ee17c851d/docs/reports/2026-11-27.md#scheduled-phase-4-follow-up)
-- **Handoff:** Resume B-018/4.7a by comparing tackle break inputs at contact for long-gain seeds 601046, 401077, 601138 and 401029 with low-YAC controls 101033, 101065, 101107 and 501127. The four controls ended on first contact and the four long cases broke one to four tackles. Fix only a reproducible cause and rerun the eight passing batches and three go-ball holdouts. Recheck deep-pass archetype contexts on the eventual final build.
+- **Evidence:** Gridline `8db9315` fixed the abrupt rear tackle break bonus after catches. `b2ba936` corrected whistle-spot measurement and recorded the final matrix. Real-roster 40+ gains fell from 76 to 70/2,400 (2.92%, target 1–2%). Gains of 20+ were 394/2,400 (16.42%, target 8–12%). Go-ball results were 1,363/3,368 completions (40.5%), 113/3,368 picks (3.4%, target 4–6%), and 167 spectacular catches (0.74 per 15, target about 1–2). All nine equal-summary positions were tested across 18 contexts and five focused scenarios. All 12 scripted games reached FINAL across both seats and three difficulties. Build, 23 Node tests, source/dist browser checks and [hosted CI](https://github.com/Sgilmore186/gridline/actions/runs/46079905898) passed. [Follow-up report](https://github.com/Sgilmore186/gridline/blob/b2ba936bb4d61d3b02068912cb275940b2748c29/docs/reports/2026-11-27.md#post-catch-tackle-follow-up) and [earlier acceptance report](https://github.com/Sgilmore186/gridline/blob/1e2d5fea87da409fcbeb9236ec4d191ee17c851d/docs/reports/2026-11-27.md#scheduled-phase-4-follow-up)
+- **Handoff:** The matched contact replay follow-up is complete. Trace the remaining gains after first contact and the go-ball interception and callout deficits, preserving actual reach, approved contact timing and the existing thresholds. Rerun eight passing batches and three go holdouts after a verified repair. B-018/4.7b and later phases remain gated.
 
 #### B-018/4.7b - Build, review and private release
 
@@ -272,7 +272,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Instructions:** Review changed code for regressions and exploits; run required build and checks, push and verify remote commit and CI. Coordinate authorized private Claude artifact/site sync from disk; verify exact commit. Do not publish real nicknames publicly.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Test evidence and commit recorded; private artifact confirmed or task stays validated/blocked; phone checklist and signoff recorded separately. No next core phase before required signoff.
-- **Evidence:** Sites confirmed owner-only version 6 deployed successfully from Site source `461761b`, whose game bytes and retained upload match Gridline `009d36d`. Current verified gameplay is `3f1edc2` (dist SHA-256 `f311e84ea5c46646a8a8be542847529621b75691b68a7124ef8de17b387ad493`). Latest Gridline main `1e2d5fe` has [green CI](https://github.com/Sgilmore186/gridline/actions/runs/46076331378). Publication of the current build to the private Site and Claude artifact, physical iPhone playtesting and Seph signoff remain open. [Scheduled acceptance report](https://github.com/Sgilmore186/gridline/blob/1e2d5fea87da409fcbeb9236ec4d191ee17c851d/docs/reports/2026-11-27.md#scheduled-phase-4-follow-up)
+- **Evidence:** The last verified owner-only Site was version 6, from Site source `461761b` and Gridline `009d36d`. The current gameplay build is `8db9315` (dist SHA-256 `ed08f7d1c05318a89a193c4c502eca73ee24403fd598885fc24e6d670cfbe795`). Latest Gridline main `b2ba936` has [green CI](https://github.com/Sgilmore186/gridline/actions/runs/46079905898). Exact-build private Site/Claude publication, physical iPhone testing and Seph signoff remain open. [Follow-up report](https://github.com/Sgilmore186/gridline/blob/b2ba936bb4d61d3b02068912cb275940b2748c29/docs/reports/2026-11-27.md#post-catch-tackle-follow-up)
 - **Handoff:** After 4.7a passes, confirm the exact current private build and deliver the phone checklist. Require physical signoff before B-025/r1 or any later phase.
 
 ### B-025 - Pre-season gameplay foundations
@@ -709,3 +709,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 handoff, codex-scheduled-20261127-2212: verified three direct pushes to Gridline main through `1e2d5fe`, with successful CI. Tested the corrected passing and exhibition harnesses and reconciled the earlier private Site deployment. Recorded the current Phase 4 stage and next step through pm.py at `d73d220`. Released the run and task claims. Resume 4.7a from the matched contact traces in the handoff above.
 
 - 2026-11-27 checkpoint, codex-gridline-20261127-2250-b018: Gridline [8db9315](https://github.com/Sgilmore186/gridline/commit/8db931576d09dd562ba5ea244fdbe087fdd4b447) fixes the abrupt rear-tackle break bonus after catches. Seed 601138 fell from 70 to 17 yards, and all four short-gain controls matched. Build, 23 Node tests and source/dist live, attribute and mobile browser checks passed. Initial paired real-roster passing measured 70/2,400 gains of 40+ (2.9%, down from 76), with all 1,429 completions and 105 picks retained. [Hosted CI](https://github.com/Sgilmore186/gridline/actions/runs/46079489183) was running at this checkpoint. A replay also found post-whistle animation inflating three fumble spots; verify the passing and go-ball tools stop at the actual spot and finish spatial archetype validation before closing the run.
+
+- 2026-11-27 handoff, codex-gridline-20261127-2250-b018: verified Gridline main through `b2ba936`. The passing and go-ball tools now stop at the whistle and match all seven baseline fumble spots. Re-ran 7,200 spatial passes, 10,800 selected go plays, 38,400 equal-summary spatial attempts and 12 scripted exhibitions. Gridline [CI](https://github.com/Sgilmore186/gridline/actions/runs/46079905898), 23 Node tests and source/dist browser regressions passed. Updated the registry through pm.py at `a0b8390`. B-018/4.7a needs further balance work; 4.7b waits on that gate. Released both claims. [Follow-up report](https://github.com/Sgilmore186/gridline/blob/b2ba936bb4d61d3b02068912cb275940b2748c29/docs/reports/2026-11-27.md#post-catch-tackle-follow-up)
