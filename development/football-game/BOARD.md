@@ -21,7 +21,7 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-scheduled-20261127-2212
-- Claimed/renewed UTC: 2026-11-27T22:12:36Z
+- Claimed/renewed UTC: 2026-11-27T22:14:55Z
 - Starting target commit: 13fa1a3f2072e9ed21dccf41c345bbce0272e751
 
 ## Priority repairs
@@ -701,3 +701,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27: Seph deferred the broader presentation/polish overhaul to the Dream Board for later human-led testing. Removed B-019 from season readiness prerequisites, while retaining gameplay-critical fixes, physical review, publication and the separate B-013 design approval gate. No gameplay changes or tests claimed; preserve active Phase 4 claim and reconcile before merge.
 
 - 2026-11-27 claim recovery, codex-scheduled-20261127-2212: confirmed prior run codex-phase4-final-20261127-1800 stopped at a usage limit, verified the released legacy claim and current Gridline main `13fa1a3` with green CI. Resume B-018/4.7a from remote main. An uncommitted browser test remains in the original checkout.
+
+- 2026-11-27 checkpoint, codex-scheduled-20261127-2212: Gridline `a2d4093` adds a source/dist browser regression for sudden-death overtime, including kickoff, timeout reset, score, and final with no try. Build, script checks, 23 Node tests, source/dist browser suites and [GitHub CI](https://github.com/Sgilmore186/gridline/actions/runs/46075325433) passed. The shipped game is byte-identical. Continue the Phase 4 statistical and archetype evidence review.
