@@ -21,7 +21,7 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-gridline-20261127-continued-b018
-- Claimed/renewed UTC: 2026-11-27T23:11:00Z
+- Claimed/renewed UTC: 2026-11-27T23:14:19Z
 - Starting target commit: b2ba936bb4d61d3b02068912cb275940b2748c29
 
 ## Priority repairs
@@ -255,7 +255,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
 - **Status:** in-progress
-- **Claim:** Codex / codex-gridline-20261127-continued-b018 / 2026-11-27T23:11:00Z / Gridline b2ba936
+- **Claim:** Codex / codex-gridline-20261127-continued-b018 / 2026-11-27T23:14:19Z / Gridline b2ba936
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Required samples, raw denominators, uncertainty and before/after report; no omitted/hung reps, no new unrecorded regressions. Resolve failures or record explicit blockers; do not claim a pass without evidence.
@@ -713,3 +713,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 handoff, codex-gridline-20261127-2250-b018: verified Gridline main through `b2ba936`. The passing and go-ball tools now stop at the whistle and match all seven baseline fumble spots. Re-ran 7,200 spatial passes, 10,800 selected go plays, 38,400 equal-summary spatial attempts and 12 scripted exhibitions. Gridline [CI](https://github.com/Sgilmore186/gridline/actions/runs/46079905898), 23 Node tests and source/dist browser regressions passed. Updated the registry through pm.py at `a0b8390`. B-018/4.7a needs further balance work; 4.7b waits on that gate. Released both claims. [Follow-up report](https://github.com/Sgilmore186/gridline/blob/b2ba936bb4d61d3b02068912cb275940b2748c29/docs/reports/2026-11-27.md#post-catch-tackle-follow-up)
 
 - 2026-11-27 checkpoint, codex-gridline-20261127-continued-b018: Gridline [ba08cc7](https://github.com/Sgilmore186/gridline/commit/ba08cc7421c147663def3e6b90a82a891a57f079) gives each Phase 4 scenario an independent safety-help seed, paired across roster seats. Verified 7,200 passes, three go-ball holdouts, 14,400 rushing/protection attempts and 8,000 counter/safety-budget scenarios. Real go and explosive-gain counts were reproduced. Node and source/dist browser checks passed. Continue with the reproduced fire-zone landing-point eligibility defect.
+
+- 2026-11-27 checkpoint, codex-gridline-20261127-continued-b018: Gridline [b33ebd4](https://github.com/Sgilmore186/gridline/commit/b33ebd483a33b53e7d0604efe5f29a4e8bc0578c) lets the Fire Zone lineman contest a reachable pass when assigned to coverage. The old fixture turned the same play into a reception, and the repaired source/dist intercepted it on the same roll. The rusher control still caught the pass. All 7,200 passing and 10,800 selected go outcomes and yardage matched the corrected baseline, and all 12 scripted exhibitions reached FINAL. Continue go-ball calibration inside the approved physical reach and headline thresholds.
