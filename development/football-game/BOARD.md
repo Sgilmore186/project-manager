@@ -355,7 +355,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Dependencies:** B-025/p2
 - **Status:** pending
 - **Claim:** none
-- **Instructions:** Add dedicated mobile control without hijacking tap/hold/joystick. Apply game rules for tackle box, reaching LOS and eligible receiver vicinity; enforce intentional grounding spot/loss of down/safety as applicable. Route through normal ball, down, clock and stats resolution. Document control and rule abstraction; do not make all throwaways penalty-free.
+- **Instructions:** Add dedicated mobile control without hijacking tap/hold/joystick. Apply game rules for tackle box, reaching LOS and eligible receiver vicinity; enforce intentional grounding spot/loss of down/safety as applicable. Route through normal ball, down, clock and stats resolution. Document control and rule abstraction; do not make all throwaways penalty-free. Confirmed base controls: retain existing tap-to-pass and hold-to-bullet; add only the dedicated throw-away control. No manual pass leading or separate lob control.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; ui/input.js, ui/controls.js, render/hud.js, game/passing.js, game/plays.js, game/clock.js.
 - **Acceptance criteria:** Browser tests cover legal outside-box throw past LOS, in-box no receiver, short-of-LOS outside box, eligible receiver nearby, post-LOS/repeated action, end zone and down/clock/stats; no input conflicts or exploits.
 - **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
@@ -399,10 +399,10 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 
 - **Objective:** Independent stable formation/personnel and play/concept IDs.
 - **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
-- **Dependencies:** B-018 gate B-025 gate also required.
+- **Dependencies:** B-018 gate, B-025 gate.
 - **Status:** pending
 - **Claim:** none (legacy claim released)
-- **Instructions:** Audit existing paired cards, define reusable IDs and backward-compatible data. Expose only supported formations; implement actual alignments and assignments for any newly supported formation. Separate ordinary calls into fixed PASS or RUN with stable play IDs. Explicitly model RPO/option decisions and actual resolved outcomes; special teams are separate. Migrate paired cards, RUN IT! and RUN/PASS toggle with compatibility mapping. Ordinary pass may legally scramble, never become an arbitrary handoff. Share formation/personnel/concept/ballcarrier/type/assignment metadata across UI, game and CPU.
+- **Instructions:** Audit existing paired cards, define reusable IDs and backward-compatible data. Expose only supported formations; implement actual alignments and assignments for any newly supported formation. Separate ordinary calls into fixed PASS or RUN with stable play IDs. Explicitly model RPO/option decisions and actual resolved outcomes; special teams are separate. Migrate paired cards, RUN IT! and RUN/PASS toggle with compatibility mapping. Ordinary pass may legally scramble, never become an arbitrary handoff. Share formation/personnel/concept/ballcarrier/type/assignment metadata across UI, game and CPU. Formation data must specify actual skill-player slots and alignments, with legal roster mapping and varying receiver positions across formations. Use the same resolved lineup for previews, snap and execution.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
 - **Acceptance criteria:** No legacy call breaks; every formation has valid personnel and assignments. No ordinary call flips type at snap; old saves/debug fixtures have documented mapping; legal outcomes counted correctly.
 - **Evidence:** None recorded in central board; inspect latest implementation before starting.
@@ -410,14 +410,14 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 
 #### B-024/a2 - Selectable offensive styles
 
-- **Objective:** Balanced, run-heavy, pass-heavy and spread/mobile QB playbooks.
-- **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
+- **Objective:** Seven distinct offensive books with persistent exhibition preferences and pregame overrides.
+- **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md). 2026-11-27: all seven offensive playbooks and mode-dependent selection explicitly approved.
 - **Dependencies:** B-024/a1
 - **Status:** pending
 - **Claim:** none (legacy claim released)
-- **Instructions:** Define selectable offensive books from supported formations/concepts; ensure styles reflect actual personnel and choices. Differentiate books by actual roster strengths. Candidate identities: Balanced, West Coast, Air Raid, Vertical, Power Run, Spread Option, Multiple. Final count/names are proposals; preserve existing approved styles and avoid cosmetic-only variants.
+- **Instructions:** Define selectable offensive books from supported formations/concepts; ensure styles reflect actual personnel and choices. Differentiate books by actual roster strengths. Approved launch books: Balanced, West Coast, Air Raid, Vertical, Power Run, Spread Option and Multiple. Make each meaningfully different, with real formations and calls. Exhibition/Quick Drive settings store favorite team, preferred offensive and defensive playbooks; pregame setup alongside difficulty permits per-game overrides without changing saved preferences. Provide compatible defaults for existing saves and expose only supported defensive catalogs; do not invent an approved number of defensive books. Future season/dynasty/coach modes use their own team/coaching scheme rules; do not build those modes now.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
-- **Acceptance criteria:** Style selection changes available calls coherently; no fictitious formation or cosmetic-only difference. Mobile QB books offer genuine non-RB carries once implemented; pocket QB and power-run units have fitting call mixes; selected book persists and uses valid catalog.
+- **Acceptance criteria:** Style selection changes available calls coherently; no fictitious formation or cosmetic-only difference. Mobile QB books offer genuine non-RB carries once implemented; pocket QB and power-run units have fitting call mixes; selected book persists and uses valid catalog. All seven books selectable and distinct; favorite team and offensive/defensive preferences survive reload; per-game override works and does not overwrite saved preference; unsupported defensive choices are not fabricated.
 - **Evidence:** None recorded in central board; inspect latest implementation before starting.
 - **Handoff:** Complete only missing work; record checks and commit.
 
@@ -441,9 +441,9 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Dependencies:** B-024/a2, B-024/b1
 - **Status:** pending
 - **Claim:** none (legacy claim released)
-- **Instructions:** Build Suggested Plays and Formations views, explicit selection and accurate route/block diagrams. Preserve quick play and existing controls. Three tabs: Suggested, Formation, Play Type. Types: Quick Game, Intermediate & Deep, RPO, Option, Run, Special Teams where appropriate. Screen and play-action are pass tags. Run has RB Runs and QB & WR Runs filter for actual QB power/draw/counter and jet sweep/end-around/reverse as supported. Hide unsupported calls; preserve mobile navigation and audibles.
+- **Instructions:** Build Suggested Plays and Formations views, explicit selection and accurate route/block diagrams. Preserve quick play and existing controls. Three tabs: Suggested, Formation, Play Type. Types: Quick Game, Intermediate & Deep, RPO, Option, Run, Special Teams where appropriate. Screen and play-action are pass tags. Run has RB Runs and QB & WR Runs filter for actual QB power/draw/counter and jet sweep/end-around/reverse as supported. Hide unsupported calls; preserve mobile navigation and audibles. Show actual selected skill-player names, jersey numbers, field alignments and route/block assignments in formation/play previews. Formation-specific placement must vary where the formation calls for it. Preview uses identical resolved lineup and geometry as actual snap, including overrides.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
-- **Acceptance criteria:** Browser shows all supported calls by formation/concept; no overlap; diagram matches actual execution. Three tabs, three suggestions where legal, accurate filters/diagrams, no overflow; QB/WR run filter shows real ballcarriers.
+- **Acceptance criteria:** Browser shows all supported calls by formation/concept; no overlap; diagram matches actual execution. Three tabs, three suggestions where legal, accurate filters/diagrams, no overflow; QB/WR run filter shows real ballcarriers. Compare previews with snap for multiple formations, mirrored plays and manual personnel swaps; same player may align differently across formations, and displayed names/numbers/positions match live assignments.
 - **Evidence:** None recorded in central board; inspect latest implementation before starting.
 - **Handoff:** Complete only missing work; record checks and commit.
 
@@ -463,39 +463,39 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 #### B-024/c1a - RPO and option design gate
 
 - **Objective:** Resolve controls and explicit decision mechanics.
-- **Approval:** 2026-11-27: RPO and Option requested; exact decision controls unresolved.
-- **Dependencies:** B-024/c1
-- **Status:** blocked
+- **Approval:** 2026-11-27: user chose default handoff for both RPO and read option (A in both decisions).
+- **Dependencies:** none (design decision only; implementation remains gated).
+- **Status:** done
 - **Claim:** none
-- **Instructions:** Propose mobile controls, read defender, decision window, defaults, give/keep/throw/pitch, blocking and illegal downfield handling, AI and diagrams. Present to Seph for approval; do not implement fake decisions or permit every ordinary call to switch.
+- **Instructions:** RPO: default RB handoff unless user taps an eligible receiver during a short mesh decision window; after handoff no pass. Read option: default RB handoff unless user taps dedicated QB Keep during the window; after resolution no reversal. Tune timing and legal blocking through tests. Pitch/triple option not separately approved; defer additional controls.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/runs.js, game/plays.js, ui/input.js, game/playbook.js.
-- **Acceptance criteria:** Explicit user approval of decision controls and rules recorded.
-- **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
-- **Handoff:** Record commands, outcomes, remote commit and outstanding checks; do not repeat validated work.
+- **Acceptance criteria:** User approves the two default-handoff controls; timing and mechanics validated in c1b.
+- **Evidence:** Both decisions explicitly approved 2026-11-27; no gameplay implementation or test claimed.
+- **Handoff:** Proceed to c1b only after c1 and earlier phase gates pass.
 
 #### B-024/c1b - Implement approved RPO and options
 
 - **Objective:** Deliver genuine read-based plays.
 - **Approval:** 2026-11-27: Seph requested the pre-season gameplay checklist be added to PM with task instructions for automations; reported gameplay defects and requested playbook features. Unsettled design choices remain gated.
-- **Dependencies:** B-024/c1a
+- **Dependencies:** B-024/c1, B-024/c1a.
 - **Status:** pending
 - **Claim:** none
-- **Instructions:** Implement only approved decision states; enforce one resolved ball outcome, legal blocking, stats and audibles. Expose only working concepts in Play Type. AI uses observed reads.
+- **Instructions:** Implement only approved decision states; enforce one resolved ball outcome, legal blocking, stats and audibles. Expose only working concepts in Play Type. AI uses observed reads. Implement default handoff on RPO unless receiver tapped before mesh deadline; default handoff on read option unless QB Keep tapped before deadline. Lock outcome at resolution. Retain standard passing controls, do not introduce pitch or triple option without approval.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, game/runs.js, game/plays.js, game/passing.js, ui/input.js.
-- **Acceptance criteria:** Test give/keep/throw/pitch where approved, expired decisions, no double possession/extra pass, correct stats and no hidden-state AI.
+- **Acceptance criteria:** Test give/keep/throw/pitch where approved, expired decisions, no double possession/extra pass, correct stats and no hidden-state AI. Test default timeout, early valid tap, invalid/late tap, no throw after handoff, keep and give, both AI and user outcomes; one ballcarrier only.
 - **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
 - **Handoff:** Record commands, outcomes, remote commit and outstanding checks; do not repeat validated work.
 
 #### B-024/c1c - Specialist personnel and CPU schemes
 
 - **Objective:** Make player strengths and book selection affect actual CPU calls.
-- **Approval:** 2026-11-27: Seph requested the pre-season gameplay checklist be added to PM with task instructions for automations; reported gameplay defects and requested playbook features. Unsettled design choices remain gated.
+- **Approval:** 2026-11-27: Seph requested the pre-season gameplay checklist be added to PM with task instructions for automations; reported gameplay defects and requested playbook features. Unsettled design choices remain gated. 2026-11-27: hybrid formation-level personnel system and actual skill-player previews explicitly approved.
 - **Dependencies:** B-024/a2, B-024/c1b
 - **Status:** pending
 - **Claim:** none
-- **Instructions:** Use stable IDs and canonical attrs, eligible formation packages and no duplicate or magical substitutions. Make CPU and drive sim respect approved scheme tendencies; do not add unrelated advanced packages.
+- **Instructions:** Use stable IDs and canonical attrs, eligible formation packages and no duplicate or magical substitutions. Make CPU and drive sim respect approved scheme tendencies; do not add unrelated advanced packages. Automatically fill formation slots from depth chart, eligibility and player strengths; allow manual formation-level substitutions through a Personnel control. Persist per-formation overrides until changed/reset, reconcile invalid/removed players safely, prohibit duplicates and incompatible assignments. No individual play-level customization. Update every preview and live snap from the resolved roster mapping.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; data/player-store.js, game/plays.js, engine/coach.js, engine/cpusim.js, tools/sim_cpu_drives.mjs.
-- **Acceptance criteria:** Paired situations show differentiated scheme calls, valid personnel, no hidden information and no CPU balance regression.
+- **Acceptance criteria:** Paired situations show differentiated scheme calls, valid personnel, no hidden information and no CPU balance regression. Default and manually overridden lineups survive reload; reset restores automatic selection; no duplicates; actual names/numbers/positions/routes match preview; receiver placement differs appropriately across formations; roster changes reconcile safely.
 - **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
 - **Handoff:** Record commands, outcomes, remote commit and outstanding checks; do not repeat validated work.
 
@@ -503,10 +503,10 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 
 - **Objective:** Balance and fairness against Phase 4.
 - **Approval:** 2026-11-26, [B-024 legacy backlog](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md).
-- **Dependencies:** B-024/c1 B-024/c1b, B-024/c1c.
+- **Dependencies:** B-024/c1, B-024/c1b, B-024/c1c.
 - **Status:** pending
 - **Claim:** none (legacy claim released)
-- **Instructions:** Test every call, mobile navigation, existing quick play, AI fairness and Phase 4 regression targets. Build, push and verify private release according to AGENTS.md. Enumerate every legal call across books and filters; verify real routes, blocks, carrier, classification, options, audibles, suggestions, AI fairness and mobile navigation. Compare multiple seeds to B-025 and Phase 4 baselines.
+- **Instructions:** Test every call, mobile navigation, existing quick play, AI fairness and Phase 4 regression targets. Build, push and verify private release according to AGENTS.md. Enumerate every legal call across books and filters; verify real routes, blocks, carrier, classification, options, audibles, suggestions, AI fairness and mobile navigation. Compare multiple seeds to B-025 and Phase 4 baselines. Include saved favorite team and book preferences, pregame overrides, formation-level personnel persistence/reset, actual skill-player previews and approved default-handoff mechanics.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, ui/playcall.js, game-design.md and B-024 legacy specification.
 - **Acceptance criteria:** All supported calls validated; relevant sims, browser checks and release evidence recorded.
 - **Evidence:** None recorded in central board; inspect latest implementation before starting.
@@ -521,48 +521,49 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 #### PRE-OPTIONAL/a - Pass leading and trajectories
 
 - **Objective:** Evaluate existing lead prediction, touch/bullet; consider manual lead and separate lob.
-- **Approval:** 2026-11-27 checklist: proposed additions, not finalized controls.
+- **Approval:** 2026-11-27: user explicitly deferred this proposal.
 - **Dependencies:** B-024 gate
-- **Status:** blocked
+- **Status:** done
 - **Claim:** none
-- **Instructions:** Audit leadSpot/routeAhead, touch and hold bullet. Document existing behavior and any gaps. Propose gesture and trajectory design only if needed; obtain approval before new controls.
+- **Instructions:** Manual pass leading and separate lob controls deferred; preserve existing tap/hold passing and add throw-away in B-025/p3.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/passing.js, ui/input.js, tools/sim_passing.py.
-- **Acceptance criteria:** Current behavior demonstrated; new manual lead/lob approved or deferred.
-- **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
-- **Handoff:** Record commands, outcomes, remote commit and outstanding checks; do not repeat validated work.
+- **Acceptance criteria:** Decision to defer recorded; no implementation required.
+- **Evidence:** User decision recorded 2026-11-27; no gameplay changes or tests claimed.
+- **Handoff:** No implementation work; future expansion requires separate approval.
 
 #### PRE-OPTIONAL/b - Pocket and additional personnel
 
 - **Objective:** Review pocket and packages after core work.
-- **Approval:** 2026-11-27 checklist: proposed additions beyond existing work not finalized.
+- **Approval:** 2026-11-27 checklist: proposed additions beyond existing work not finalized. 2026-11-27: formation-level hybrid personnel approved; pocket scope limited to audit and necessary repairs within existing approved scope.
 - **Dependencies:** B-024 gate
-- **Status:** blocked
+- **Status:** pending
 - **Claim:** none
-- **Instructions:** Audit Phase 4 pass protection, pocket shape, assignments and B-024 personnel; document actual residual issues. Propose targeted changes, no wholesale rewrite.
+- **Instructions:** Verify Phase 4 pass protection and actual pocket behavior against B-025 passing requirements; verify B-024 hybrid personnel and preview correctness. Reproduce and address only necessary scoped defects under existing repair authority. Defer unrelated new mechanics; no wholesale rewrite.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; engine/physical.js, game/loop.js, game/plays.js, tools/sim_runs_and_sacks.py.
-- **Acceptance criteria:** Existing behavior and gaps recorded; new mechanics approved or deferred.
+- **Acceptance criteria:** Record audit evidence, resolve scoped regressions, and defer any unapproved new feature; no open design question required for audit.
 - **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
 - **Handoff:** Record commands, outcomes, remote commit and outstanding checks; do not repeat validated work.
 
 #### PRE-OPTIONAL/c - Play and route testing mode
 
 - **Objective:** Decide if dedicated practice UI is needed.
-- **Approval:** 2026-11-27 checklist: proposed practice mode not finalized.
+- **Approval:** 2026-11-27: user explicitly deferred this proposal.
 - **Dependencies:** B-024 gate
-- **Status:** blocked
+- **Status:** done
 - **Claim:** none
-- **Instructions:** Audit Quick Drive/debug harness. Propose repeatable snap/reset, controlled field position/coverage and route inspection; don't expose release debug cheats or build new mode without approval.
+- **Instructions:** Dedicated practice mode declined for base game; use Exhibition and existing automated tests, no new practice UI.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/exhibition.js, main.js, ui/menus.js, tests/check_phase4_browser.py.
-- **Acceptance criteria:** Existing repeatable workflow documented; practice UI approved or deferred.
-- **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
-- **Handoff:** Record commands, outcomes, remote commit and outstanding checks; do not repeat validated work.
+- **Acceptance criteria:** Decision to defer recorded; no implementation required.
+- **Evidence:** User decision recorded 2026-11-27; no gameplay changes or tests claimed.
+- **Handoff:** No implementation work; future expansion requires separate approval.
 
 ### B-014 - Phase 5: Playable defense (blocked design gate)
 
 - Objective: offense-only, defense-only and both sides with simulated possessions.
 - Approval: direction agreed 2026-11-26; implementation explicitly requires review of [defense draft](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-playable-defense.md).
 - Dependencies: B-018 and B-024; design approval.
-- Phase gate: user approves controls, drive participation and quarter lengths; then Duet creates detailed tasks from the existing draft. No implementation until approved. Dream Board B-014 tracks questions.
+- Control decision approved 2026-11-27: full individual defensive control, one controlled defender at a time with switching during the play; user calls defensive plays before snap; remaining defenders use AI. Coordinator-only mode deferred.
+- Phase gate: drive participation and quarter lengths remain open; then Duet creates detailed tasks from the existing draft. No implementation until approved. Dream Board B-014 tracks questions.
 
 ### B-019 - Phase 6: Presentation and polish (blocked by Phase 5)
 
@@ -601,3 +602,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-27 run progress, codex-phase4-final-20261127-1800: committed5c5a793 harness evidence repairs and413371b spatial contact repairs. Independent reviewers reproduced/resolved unreachable dives, remote/duplicate catch tackles, downed catch contestants, assignment/backside blocking and acceptance-tool errors. New22-group tests and source/dist browser suite pass; AWR/possession/clutch unchanged. Rerunning fixed-seed, animation-reset passing and all9-position spatial matrix; rare-event/safety calibration is still under holdout testing. No statistical acceptance or publication claimed yet.
 
 - 2026-11-27 planning proposal: added B-025 foundations, extended B-024, recorded optional design gates and PRE-GATE per Seph's pre-season checklist request. Preserved B-018 run claim, evidence and gates; no game code, tests, publication, registry or scheduler changes. Reconcile with latest main and coordinate with the active run holder before merge; never overwrite its claim or progress.
+
+- 2026-11-27 decision refinement: user approved default-handoff RPO/read option, seven launch offensive books, persistent exhibition settings with pregame overrides, hybrid formation-level personnel and exact player previews, current pass controls plus throw-away, and full switchable defensive player control. Manual leading/lob, dedicated practice and coordinator-only control deferred. Defense participation/quarter lengths remain open; preserve current run claim and evidence. No code, publication, registry or scheduler changes.
