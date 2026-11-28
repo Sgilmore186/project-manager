@@ -224,8 +224,8 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "Phase 4 accepted for progression. B-025 preseason gameplay foundations underway.",
-      "next_step": "Complete B-025 route audit and fixes in central board order. Phase 4 physical iPhone review and separate Claude artifact update are deferred.",
+      "stage": "B-025 route audit done. Route repair saved on private branch pending passing regression fix.",
+      "next_step": "Resume B-025/r2 at Gridline 3f5d808 and trace coverage leverage and first contact on the added long gains. Owner-only Site v7 remains live.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
