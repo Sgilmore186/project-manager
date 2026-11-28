@@ -21,12 +21,12 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-gridline-20261128-0530
-- Claimed/renewed UTC: 2026-11-28T05:32:03Z
+- Claimed/renewed UTC: 2026-11-28T05:38:04Z
 - Starting target commit: 7c784d05617c176dad3548bec553d71ef632b5ef
 
 ## Priority repairs
 
-- Cloud browser compatibility requested 2026-11-28. Gridline browser tests and simulations navigate to file URLs, which managed Chromium blocks. Run codex-http-20261128-7c784d0 verified the scope but did not implement or validate the repair. In progress under codex-gridline-20261128-0530 from `7c784d0`. Add loopback HTTP support, verify seeded behavior and all applicable tests, and retain existing local compatibility.
+- Cloud browser compatibility, validated on macOS: Gridline [3c29538](https://github.com/Sgilmore186/gridline/commit/3c29538b05cf1aedc0b5ad58755b792e7620aa4b) adds default loopback HTTP and an explicit direct-file fallback. Matched all 7,200 passing and 3,600 selected go-ball rows across transports. All 19 browser sim/diagnostic entry points, source/dist, mobile and save checks, 23 Node tests, two Python tests and [Gridline CI](https://github.com/Sgilmore186/gridline/actions/runs/46112917902) passed. The shipped build is byte-identical. A managed Chromium run remains to be confirmed.
 No new repair authorized by this migration. Agents can add reproducible, scoped bugs and necessary quality fixes under the shared execution skill. Known baseline debt: some go-ball and long-gain targets remain outside desired ranges (legacy 3.9); measure before changing and address in Phase 4 validation where applicable.
 
 ## Ordered phases
@@ -255,8 +255,8 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Validate full Phase 4 mechanics.
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
-- **Status:** needs-fix
-- **Claim:** none
+- **Status:** in-progress
+- **Claim:** Codex / codex-gridline-20261128-0530 / 2026-11-28T05:38:04Z / `3c29538`
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Required samples, raw denominators, uncertainty and before/after report; no omitted/hung reps, no new unrecorded regressions. Resolve failures or record explicit blockers; do not claim a pass without evidence.
