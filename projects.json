@@ -224,8 +224,8 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "Phase 4 pooled passing targets reached. Three go-ball completion holdouts and private delivery remain gated.",
-      "next_step": "Continue B-018/4.7a from Gridline a0c7d5d. Reproduce a catch-point or release-geometry defect in offsets 120000, 420000 or 660000 before tuning. Compare 24–32-yard bullets with offsets 480000 and 600000 and retain the eight standard passing blocks. B-018/4.7b remains blocked.",
+      "stage": "Phase 4 release regression passed. Owner-only Site v7 live. Claude artifact and physical iPhone signoff pending.",
+      "next_step": "Republish the private Gridline V2 Claude artifact from the exact Gridline 235f347 dist and verify Only you access. Use owner-only Site v7 for the physical iPhone playtest and Seph signoff before B-025/r1.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
