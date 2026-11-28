@@ -29,6 +29,14 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 - Cloud browser compatibility, validated on macOS: Gridline [3c29538](https://github.com/Sgilmore186/gridline/commit/3c29538b05cf1aedc0b5ad58755b792e7620aa4b) adds default loopback HTTP and an explicit direct-file fallback. Matched all 7,200 passing and 3,600 selected go-ball rows across transports. All 19 browser sim/diagnostic entry points, source/dist, mobile and save checks, 23 Node tests, two Python tests and [Gridline CI](https://github.com/Sgilmore186/gridline/actions/runs/46112917902) passed. The shipped build is byte-identical. A managed Chromium run remains to be confirmed.
 No new repair authorized by this migration. Agents can add reproducible, scoped bugs and necessary quality fixes under the shared execution skill. Known baseline debt: some go-ball and long-gain targets remain outside desired ranges (legacy 3.9); measure before changing and address in Phase 4 validation where applicable.
 
+
+## Gridline balance acceptance policy (owner-approved 2026-11-28)
+
+- Numerical targets remain football calibration goals. Assess representative pooled outcomes, uncertainty, independent controls and human gameplay. Minor stochastic batch misses without a reproduced defect or material systematic imbalance are documented monitoring items, not automatic phase blockers.
+- Time-box further tuning to a bounded reproduction/paired diagnostic; stop when evidence does not justify more changes. No cherry-picking seeds, hiding misses, relaxing functional tests or tuning solely to turn a flag green. Retain actual measurements and report the rationale.
+- Crashes, exploits, data loss, broken rules/controls, unfair AI, significant balance regressions and failed mandatory functional checks remain release blockers. Escalate material ambiguity. Prefer frequent verified private playable builds and human feedback over marginal statistical optimization.
+- Applies to future Gridline phases. Preserve explicit private-publication and physical-signoff gates. See Gridline AGENTS.md and the Phase 4 spec for the matching rules.
+
 ## Ordered phases
 
 ### Historical phases 1–3 and shipped backlog
@@ -255,7 +263,7 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Validate full Phase 4 mechanics.
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
-- **Status:** needs-fix
+- **Status:** validated
 - **Claim:** none
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
@@ -267,20 +275,22 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Cover 3 recovery:** Gridline [47a06f8](https://github.com/Sgilmore186/gridline/commit/47a06f8b7be5dec9ad51438fba260fdaa582bd52) fixes the first recovery decision on visible deep throws to the middle third. Seed 1901020 became a breakup and the 2001103 gain dropped from 57.93 to 40.25 yards. All seven real passing blocks met both explosive-gain points (1,717/16,800 for 20+, 279/16,800 for 40+). Catches behind the defense fell from 55 to 47 on the six matched blocks and totaled 56/16,800 with the fresh block (0.333%). The 10,800 selected go rows across offsets 120000, 360000 and 420000 matched exactly. Source and dist matched 7,200 passing rows, and the build, 23 Node tests, two Python tests, browser/mobile/cards, 12 live scripted exhibitions and [hosted CI](https://github.com/Sgilmore186/gridline/actions/runs/46150833643) passed. [Report](https://github.com/Sgilmore186/gridline/blob/47a06f8b7be5dec9ad51438fba260fdaa582bd52/docs/reports/2026-11-28.md#cover-3-recovery-over-the-middle)
 - **Seam recovery follow-up:** Gridline [2f34096](https://github.com/Sgilmore186/gridline/commit/2f34096fd4b721153b09d2947b51862b5950b239) keeps the Cover 3 approach until a defender is close enough to play the throw. Catches behind the defense fell from 55 to 40 on the six matched real passing blocks and totaled 53/19,200 with two fresh blocks (0.276%, 95% batch interval 0.201–0.351%). All eight explosive-gain blocks were in range (1,979/19,200 for 20+, 313/19,200 for 40+). All 14,400 selected go rows at 120000, 360000, 420000 and 480000 matched. Extended 120000 and 420000 completion still missed at 671/1,702 and 641/1,676. Build, source/dist parity, 23 Node tests, two Python tests, browser/mobile/cards, 12 scripted exhibitions and [hosted CI](https://github.com/Sgilmore186/gridline/actions/runs/46151629694) passed. [Report](https://github.com/Sgilmore186/gridline/blob/2f34096fd4b721153b09d2947b51862b5950b239/docs/reports/2026-11-28.md#uninterrupted-recovery-in-the-cover-3-seam)
 - **Final go-ball evidence:** Gridline [a0c7d5d](https://github.com/Sgilmore186/gridline/commit/a0c7d5d9d10564f27b84f585e19238b203b6440e) adds deterministic air-win/retention reporting and leaves the `2f34096` dist byte-identical. All 5,400 played selections in the extended 420000 regression matched, with no page errors. Across nine independent offsets and both extensions, the real profile completed 4,549/11,217 (40.55%, 95% stratified game-bootstrap interval 39.66–41.42%). Extended 120000 and 420000 and fresh 660000 missed at 39.42%, 38.25% and 38.67%. The runtime-only retention trial failed both extended completion floors and regressed the 360000 drop-rate control. No reproduced reach defect explained the 24–32-yard bullet difference. Build/script checks, Python compile/browser-server tests and [hosted CI](https://github.com/Sgilmore186/gridline/actions/runs/46152296566) passed. [Report](https://github.com/Sgilmore186/gridline/blob/a0c7d5d9d10564f27b84f585e19238b203b6440e/docs/reports/2026-11-28.md#go-ball-holdout-calibration)
-- **Handoff:** Continue B-018/4.7a from `a0c7d5d`. Reproduce a catch-point or release-geometry defect in 120000, 420000 or 660000 before tuning. Compare the 24–32-yard bullet band with 480000 and 600000, and retain the eight standard passing blocks. Private publication and iPhone signoff wait on B-018/4.7b.
+- **Owner acceptance (2026-11-28):** Seph accepts the documented minor deep-ball misses (39.42%, 38.25%, 38.67% vs 40%; pooled 40.55%, 95% interval 39.66–41.42%). No reproduced reach defect; retention pilot regressed a control. Eight passing blocks meet explosive-gain point targets; catches behind defense 0.276% pooled. Keep all evidence and monitor residuals; do not keep retuning solely to make every random batch pass. Acceptance is an explicit documented tradeoff, not an assertion that all measurements passed. Phase 4 gameplay and statistical acceptance are effectively complete; delivery and phone review still open.
+- **Handoff:** Proceed directly to B-018/4.7b. Reopen calibration only if final review or playtest identifies a reproducible defect or material imbalance.
 
 #### B-018/4.7b - Build, review and private release
 
 - **Objective:** Deliver tested build and physical playtest package.
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.7a
-- **Status:** blocked
-- **Claim:** none (waiting on 4.7a)
+- **Status:** pending
+- **Claim:** none (ready for release agent)
 - **Instructions:** Review changed code for regressions and exploits; run required build and checks, push and verify remote commit and CI. Coordinate authorized private Claude artifact/site sync from disk; verify exact commit. Do not publish real nicknames publicly.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Test evidence and commit recorded; private artifact confirmed or task stays validated/blocked; phone checklist and signoff recorded separately. No next core phase before required signoff.
 - **Evidence:** The last verified owner-only Site was version 6 from Gridline `009d36d`. Current gameplay [1245557](https://github.com/Sgilmore186/gridline/commit/124555739ac19eae58ad6ed59c87e5cff32b2511) has dist SHA-256 `55c3fea404882e0be39bbe660570812994ea05affadd5a5ed16530831df910e5` and [green CI](https://github.com/Sgilmore186/gridline/actions/runs/46123711150). The rare catch target and one real go-ball completion holdout keep B-018/4.7a open. Current private Site and Claude publication, physical iPhone testing and Seph signoff remain pending.
-- **Handoff:** After 4.7a passes, confirm the exact current private build and deliver the phone checklist. Require physical signoff before B-025/r1 or any later phase.
+- **Owner authorization (2026-11-28):** Run the final code/exploit review and required release regression tests now, publish the exact validated private artifact and verify the owner-only Site. Use existing evidence rather than rerunning exploratory tuning just to improve seed results. Resolve real release-blocking defects, retain the live build if checks fail, and report actual tests, commit, CI, SHA-256, artifact/Site version, rollback point, remaining issues and phone checklist.
+- **Handoff:** 4.7a is accepted; this task is the immediate priority. Physical iPhone playtest/signoff remains required before B-025/r1 or later phases. Do not claim it happened.
 
 ### B-025 - Pre-season gameplay foundations
 
