@@ -224,8 +224,8 @@
       "goal": "A polished, fun football game Seph actually plays on his phone",
       "status": "active",
       "focus": "primary",
-      "stage": "Phase 4 release regression passed. Owner-only Site v7 live. Claude artifact and physical iPhone signoff pending.",
-      "next_step": "Republish the private Gridline V2 Claude artifact from the exact Gridline 235f347 dist and verify Only you access. Use owner-only Site v7 for the physical iPhone playtest and Seph signoff before B-025/r1.",
+      "stage": "Phase 4 accepted for progression. B-025 preseason gameplay foundations underway.",
+      "next_step": "Complete B-025 route audit and fixes in central board order. Phase 4 physical iPhone review and separate Claude artifact update are deferred.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
