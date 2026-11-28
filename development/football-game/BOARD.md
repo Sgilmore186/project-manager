@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: Codex
-- Run ID: codex-b025-20261128-1645
-- Claimed/renewed UTC: 2026-11-28T16:49:40Z
-- Starting target commit: bfd4e34
+- Owner: none
+- Run ID: none
+- Claimed/renewed UTC: none
+- Starting target commit: none
 
 ## Priority repairs
 
@@ -319,13 +319,13 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Make every called route predictable and correct.
 - **Approval:** 2026-11-27: Seph requested the pre-season gameplay checklist be added to PM with task instructions for automations; reported gameplay defects and requested playbook features. Unsettled design choices remain gated.
 - **Dependencies:** B-025/r1
-- **Status:** in-progress
-- **Claim:** codex-b025-20261128-1645 (2026-11-28T16:49:40Z, Gridline 0f4428f)
+- **Status:** needs-fix
+- **Claim:** none
 - **Instructions:** Use shared geometry for diagram, live steering and throw prediction. Fix corner cut hesitation, premature go termination, incorrect out breaks, slants/drags crossing the OL at unintended depth. Define stem depth, cut angle and continuation; preserve designed curls/hitches/zone settles, screens/flats and legitimate football events. Mirror sides and handle boundaries; no teleporting.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, game/loop.js, game/passing.js, ui/playcall.js, tools/sim_passing.py.
 - **Acceptance criteria:** Seeded trajectories verify go, corner, out, slant, drag, dig, post, curl and comeback; no unplanned stops; route predictor agrees with real catch-time movement; source/dist parity.
-- **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
-- **Handoff:** Record commands, outcomes, remote commit and outstanding checks; do not repeat validated work.
+- **Evidence:** Gridline [3f5d808](https://github.com/Sgilmore186/gridline/commit/3f5d808852fcba7b9a1761819acd778aeec99d6b) is verified on private branch `codex/gridline-b025-r2`. [Route and passing report](https://github.com/Sgilmore186/gridline/blob/3f5d808852fcba7b9a1761819acd778aeec99d6b/docs/reports/2026-11-28-b025.md#b-025r2-route-repair). 225 source/dist traces, current browser regressions, mobile checks and four exhibitions pass. Both real go-ball samples pooled at 993/2,232 completions and 121 picks. Matched real passing on 4,800 attempts moved from 83 to 115 gains of 40+ and 8 to 28 catches behind everyone. B-025/r2 awaits the balance repair. Owner-only Site v7 remains the live build.
+- **Handoff:** Resume from the private checkpoint. Trace actual defender leverage and first-contact opportunities on the added long gains. Preserve the verified route geometry and repeat the matched tests before promotion. B-025/r3 waits on r2.
 
 #### B-025/r3 - Route ratings and separation
 
@@ -763,3 +763,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-28 handoff, codex-gridline-20261128-1330-b018: verified four Gridline checkpoints through `a0c7d5d` and green CI. The two Cover 3 repairs reduced the pooled behind-defense rate to 53/19,200; all eight explosive-gain blocks met their point targets. Nine go-ball offsets retained 36,000 selected plays across the three profiles. The three below-floor completion results keep 4.7a open. Updated the registry through pm.py at `ed3d747`. Released the run and task claims. Exact-build private release and physical iPhone signoff remain gated.
 
 - 2026-11-28 owner decision: Phase 4 accepted for progression; owner has no time for the physical playtest and requests moving on. Owner-only Site v7 and exact regression evidence remain verified. Physical iPhone review/signoff and separate Claude artifact update deferred, not completed. B-025/r1 eligible. No gameplay changes or new test claims. Registry sync through pm.py remains for the next coding-capable run.
+
+- 2026-11-28 handoff, codex-b025-20261128-1645: B-025/r1 complete on Gridline main at `0f4428f`, with green CI. B-025/r2 preserved at `3f5d808` on the private checkpoint branch. Route geometry and go-ball regressions passed. The matched passing sample still shows a material rise in gains of 40+ and catches behind all defenders. Site v7 remains live. Both claims released.
