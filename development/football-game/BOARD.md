@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: none
-- Run ID: none
-- Claimed/renewed UTC: none
-- Starting target commit: none
+- Owner: Claude Code
+- Run ID: claude-b025-20261128-1712
+- Claimed/renewed UTC: 2026-11-28T17:12:02Z
+- Starting target commit: 3f5d808 (codex/gridline-b025-r2)
 
 ## Priority repairs
 
@@ -319,8 +319,8 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Make every called route predictable and correct.
 - **Approval:** 2026-11-27: Seph requested the pre-season gameplay checklist be added to PM with task instructions for automations; reported gameplay defects and requested playbook features. Unsettled design choices remain gated.
 - **Dependencies:** B-025/r1
-- **Status:** needs-fix
-- **Claim:** none
+- **Status:** in-progress
+- **Claim:** claude-b025-20261128-1712 (2026-11-28T17:12:02Z, Gridline 3f5d808 on codex/gridline-b025-r2)
 - **Instructions:** Use shared geometry for diagram, live steering and throw prediction. Fix corner cut hesitation, premature go termination, incorrect out breaks, slants/drags crossing the OL at unintended depth. Define stem depth, cut angle and continuation; preserve designed curls/hitches/zone settles, screens/flats and legitimate football events. Mirror sides and handle boundaries; no teleporting.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, game/loop.js, game/passing.js, ui/playcall.js, tools/sim_passing.py.
 - **Acceptance criteria:** Seeded trajectories verify go, corner, out, slant, drag, dig, post, curl and comeback; no unplanned stops; route predictor agrees with real catch-time movement; source/dist parity.
