@@ -15,9 +15,9 @@ Test board for [orchestration](../../docs/ORCHESTRATION.md). Not a registry proj
 
 ## Run claim
 
-- Owner: Claude Code (cloud, Duet thread)
-- Run ID: cc-e2e-20261128-a
-- Claimed/renewed UTC: 2026-11-28T17:11:04Z
+- Owner: none
+- Run ID: none
+- Claimed/renewed UTC: none
 - Starting target commit: aa18f43
 
 Only one active implementation run per project. Follow agent-execution skill before claiming or recovering a claim.
@@ -42,16 +42,16 @@ None.
 - **Dependencies:** none
 - **Assignee:** claude-code
 - **Touches:** e2e/claude_ping.py, e2e/test_claude_ping.py
-- **Status:** in-progress
-- **Claim:** cc-e2e-20261128-a (Claude Code cloud)
+- **Status:** validated
+- **Claim:** none (released)
 - **Instructions:** Add `e2e/claude_ping.py` with `ping()` returning `"claude-code-cloud-ok"`, and `e2e/test_claude_ping.py` (unittest) asserting it. Change nothing else. Open a draft PR titled `[JOB orchestrator-e2e/E2E-CC-1] ...`.
 - **Toolbox:** `python3 -m unittest discover -s e2e -v`; `python3 scripts/control.py`.
 - **Acceptance criteria:**
   - The test passes when run by the validator (Duet), not just the executor.
   - The diff stays inside Touches.
   - Claim taken and released on this board with a run ID.
-- **Evidence:** none yet
-- **Handoff:** none yet
+- **Evidence:** 2026-11-28, run cc-e2e-20261128-a. Draft PR https://github.com/Sgilmore186/research-paper-workflow/pull/3, commit 0759f23. Validated from a fresh clone: `python3 -m unittest discover -s e2e -v` passed (1 test); diff is exactly the two Touches files. The target repo has no CI, so none ran. Gate: never merged; close after the test.
+- **Handoff:** done as a test; nothing left.
 
 #### E2E-CODEX-1 - Codex cloud job
 
@@ -88,4 +88,4 @@ None.
 
 ## Run handoffs
 
-None yet.
+- 2026-11-28T17:11:50Z, run cc-e2e-20261128-a (Claude Code cloud, Duet thread). STOP test: with a test STOP set, `control.py status` and `ready` both exited 3 and no claim was taken; STOP then cleared. Claim race: two clones claimed at once; run -a won, run -b's push was rejected (fetch first), it re-read and `ready` refused it. Overlap: with E2E-CC-1 in progress, `overlap E2E-OVERLAP-1` exited 4, `overlap E2E-CODEX-1` exited 0. E2E-CC-1 validated (PR #3 in research-paper-workflow). E2E-CODEX-1 blocked on a Codex cloud environment. Claim released.
