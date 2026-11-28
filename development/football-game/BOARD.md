@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: none
-- Run ID: none
-- Claimed/renewed UTC: none
-- Starting target commit: none
+- Owner: Codex
+- Run ID: codex-gridline-release-QMdlqRKg
+- Claimed/renewed UTC: 2026-11-28T16:33:29Z
+- Starting target commit: 235f347
 
 ## Priority repairs
 
@@ -283,8 +283,8 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Deliver tested build and physical playtest package.
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.7a
-- **Status:** pending
-- **Claim:** none (ready for release agent)
+- **Status:** in-progress
+- **Claim:** Codex / codex-gridline-release-QMdlqRKg / 2026-11-28T16:33:29Z / Gridline 235f347
 - **Instructions:** Review changed code for regressions and exploits; run required build and checks, push and verify remote commit and CI. Coordinate authorized private Claude artifact/site sync from disk; verify exact commit. Do not publish real nicknames publicly.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Test evidence and commit recorded; private artifact confirmed or task stays validated/blocked; phone checklist and signoff recorded separately. No next core phase before required signoff.
