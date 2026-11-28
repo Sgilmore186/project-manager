@@ -21,7 +21,7 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-b025-20261128-1645
-- Claimed/renewed UTC: 2026-11-28T16:45:21Z
+- Claimed/renewed UTC: 2026-11-28T16:49:40Z
 - Starting target commit: bfd4e34
 
 ## Priority repairs
@@ -306,21 +306,21 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Reproduce corner/go stops, out geometry and slant/drag interference.
 - **Approval:** 2026-11-27: Seph requested the pre-season gameplay checklist be added to PM with task instructions for automations; reported gameplay defects and requested playbook features. Unsettled design choices remain gated.
 - **Dependencies:** B-018 gate
-- **Status:** in-progress
-- **Claim:** codex-b025-20261128-1645 (2026-11-28T16:45:21Z, Gridline bfd4e34)
+- **Status:** done
+- **Claim:** none
 - **Instructions:** Capture route waypoints, movement, cut timing, LOS-relative coordinates and prediction vs actual trajectory across receivers, mirrored sides, field spots, frame rates and coverage. Isolate legitimate press, intentional settles and stumbles from defects. Record seeds and baseline.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, game/loop.js, game/passing.js, engine/duels.js, tools/sim_passing.py.
 - **Acceptance criteria:** Reproduce each reported issue or document non-reproduction and conditions; retain deterministic fixtures and before data.
-- **Evidence:** None recorded for this task; inspect latest implementation and Phase 4 evidence before starting.
-- **Handoff:** Record commands, outcomes, remote commit and outstanding checks; do not repeat validated work.
+- **Evidence:** Gridline [0f4428f](https://github.com/Sgilmore186/gridline/commit/0f4428f6d93777423b48540a96f51d47f37d3bdd), [green CI](https://github.com/Sgilmore186/gridline/actions/runs/46167124719), and [audit report](https://github.com/Sgilmore186/gridline/blob/0f4428f6d93777423b48540a96f51d47f37d3bdd/docs/reports/2026-11-28-b025.md). All 198 live route traces match source/dist. Reproduced deep waypoint braking, the out aiming outside the sideline, a shallow slant stem, slot mesh OL interference and a go crossing the end line. No sustained open-field go stop was reproduced. Jam, stumble, curl and hitch controls were recorded. Game build hash still matches owner-only Site v7.
+- **Handoff:** Use the seeded trace fixture and before measurements in r2.
 
 #### B-025/r2 - Route geometry and continuous movement
 
 - **Objective:** Make every called route predictable and correct.
 - **Approval:** 2026-11-27: Seph requested the pre-season gameplay checklist be added to PM with task instructions for automations; reported gameplay defects and requested playbook features. Unsettled design choices remain gated.
 - **Dependencies:** B-025/r1
-- **Status:** pending
-- **Claim:** none
+- **Status:** in-progress
+- **Claim:** codex-b025-20261128-1645 (2026-11-28T16:49:40Z, Gridline 0f4428f)
 - **Instructions:** Use shared geometry for diagram, live steering and throw prediction. Fix corner cut hesitation, premature go termination, incorrect out breaks, slants/drags crossing the OL at unintended depth. Define stem depth, cut angle and continuation; preserve designed curls/hitches/zone settles, screens/flats and legitimate football events. Mirror sides and handle boundaries; no teleporting.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, game/loop.js, game/passing.js, ui/playcall.js, tools/sim_passing.py.
 - **Acceptance criteria:** Seeded trajectories verify go, corner, out, slant, drag, dig, post, curl and comeback; no unplanned stops; route predictor agrees with real catch-time movement; source/dist parity.
