@@ -30,11 +30,15 @@ No project is enrolled until its central board is explicitly created and verifie
 - The central board's phases and tasks are authoritative for execution. Project Manager's coarse open_items/next_step/stage remain summaries, maintained through pm.py. Do not mechanically equate every task with an open item.
 - Keep approval, status and evidence in the board; Git preserves history. Do not delete finished tasks to make a board look clean.
 
+## Orchestration and STOP
+
+Duet dispatches approved tasks to Codex and Claude Code and validates results. See [orchestration](ORCHESTRATION.md). A `STOP` file at this repo's root halts every agent on every project; check it with `python3 scripts/control.py status`.
+
 ## Push rules
 
 Infrastructure, code, skills, templates and general docs in Project Manager follow its existing branch + PR policy. The existing registry data still changes only through pm.py.
 
-Once this standard is merged, operational updates restricted to an already-enrolled development/<project-id>/BOARD.md (claims, approved promotions, progress and evidence) may use normal direct pushes to main, with fetch/reconciliation, explicit staging of that board, diff review and remote verification. This narrow operational exception does not authorize changing the registry manually, creating new enrollments on main, modifying infrastructure or bypassing CI. Initial enrollment uses a reviewed PR. Target code uses its own explicitly authorized push policy; otherwise use a PR. A task may be validated but not done while a required merge, release or review is pending.
+Once this standard is merged, operational updates restricted to an already-enrolled development/<project-id>/BOARD.md (claims, approved promotions, progress and evidence) may use normal direct pushes to main, with fetch/reconciliation, explicit staging of that board, diff review and remote verification. Creating the root `STOP` file is also allowed as a direct push to main by anyone, because it only reduces activity. Only Seph, or an agent on his explicit word, deletes it. This narrow operational exception does not authorize changing the registry manually, creating new enrollments on main, modifying infrastructure or bypassing CI. Initial enrollment uses a reviewed PR. Target code uses its own explicitly authorized push policy; otherwise use a PR. A task may be validated but not done while a required merge, release or review is pending.
 
 ## Run configuration
 

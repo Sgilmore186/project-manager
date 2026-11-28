@@ -7,6 +7,11 @@ description: Run approved project tasks autonomously, defaulting to the active p
 
 Entry point: Sgilmore186/project-manager. Read its AGENTS.md and docs/AGENT_WORKFLOW.md. Follow the project's own AGENTS.md and permissions as well. This skill is for unattended and manual development runs, not for brainstorming.
 
+## 0. STOP check
+
+- Run `python3 scripts/control.py status` in the Project Manager checkout. If it prints `STOPPED`, do no work: report the reason and exit. If you hold a claim, release it with a short handoff first (board-only write).
+- Repeat this check before claiming, before every push to a target repo and before starting the next task. If STOP appears mid-task, stop changing code, push nothing to the target's main, release the claim with a handoff and report. See [orchestration](../../docs/ORCHESTRATION.md#stop-system-wide).
+
 ## 1. Route and check access
 
 - Sync Project Manager using scripts/pm.py sync in a git checkout. If unavailable, fetch current main and verify the revision. Do not work from stale copies.
@@ -19,6 +24,8 @@ Entry point: Sgilmore186/project-manager. Read its AGENTS.md and docs/AGENT_WORK
 
 - First inspect reproducible urgent defects (security, data integrity, broken tests, broken functionality), then necessary scoped code-quality/performance fixes, then unfinished tasks in the current approved phase in board order.
 - A bug or necessary repair within approved scope can be added by an agent: record reproduction, scope, acceptance and evidence. No new feature, unrelated cleanup, permission expansion or major rewrite without Seph's approval.
+- If the run was given an assignee (`claude-code` or `codex`), consider only tasks whose Assignee is that agent or `any`. Tasks with no Assignee count as `any`. Never claim a `dispatched` task or one that another lane holds.
+- Before claiming, run `python3 scripts/control.py overlap <project-id> <task-id>`; on overlap with active work, pick another eligible task or stop. Change only paths in the task's Touches; if the fix needs more, record why and stop for Duet or Seph.
 - Check dependencies, approval evidence, existing commits, tests, current claims and relevant project-local legacy claims. Do not start a later phase while an earlier required task or phase gate is open. Skip active claims, unrelated blocked tasks and proposals. Work on another independent eligible task in the same phase if possible.
 - Use a unique run ID and UTC time. Fetch main, acquire the board's single-writer run claim with a normal non-force push, then fetch and confirm ownership before modifying the target. If a competing claim wins, do not continue. Connector-only agents without a reliable way to claim must stop. Never automatically steal a stale claim without checking target state and whether the old agent is still active; if uncertain report the blocker.
 - Update the task to in-progress with owner, run ID, timestamp and starting commit. If another agent has a conflicting local claim, leave that task alone.

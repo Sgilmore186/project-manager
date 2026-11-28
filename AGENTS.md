@@ -13,6 +13,8 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 - `log.md`: dated, human-readable history of every change (written by the script). `.gitattributes` merges it line by line, so two AIs adding lines never conflict.
 - `scripts/pm.py`: the only way to change the data. Python 3.9+, standard library only.
 - `tests/test_pm.py`: behavior tests for the script.
+- `scripts/control.py` and `tests/test_control.py`: read-only safety checks for agents (STOP, claims, dispatch readiness, path overlap). See [orchestration](docs/ORCHESTRATION.md).
+- `STOP` (only while set): halts every agent on every project. Anyone may create it on main; only Seph clears it.
 - `.github/workflows/tests.yml`: runs the tests on every PR and push to main (on Ubuntu 24.04, the last runner image with Python 3.9).
 - `scripts/dashboard_data.py` and `.github/workflows/dashboard-data.yml`: on every push to main, copy `ideas.json` and `projects.json` into the GitHub issue labeled `dashboard-data`. Seph's dashboard reads that issue, so it stays live. Never edit or close that issue by hand; if it's missing, run the `dashboard-data` workflow.
 - `README.md`: short overview for humans.
@@ -27,6 +29,7 @@ The goal: hold Seph accountable and challenge him to finish what he starts.
 - Duet uses [duet-planning](skills/duet-planning/SKILL.md) to refine ideas and promote only approved scope.
 - `development/<project-id>/BOARD.md` holds the executable queue for an enrolled project. Existing project boards remain authoritative until explicitly migrated.
 - Canonical skills live in `skills/`; native Codex and Claude Code entry points in `.agents/skills/` and `.claude/skills/` load the same definitions. Follow [the shared skill standard](docs/REPO_STANDARD.md#shared-skills).
+- Duet orchestrates Codex and Claude Code per [orchestration](docs/ORCHESTRATION.md). Every agent runs `python3 scripts/control.py status` first and stops if STOP is set.
 - `templates/` holds the standard board and task formats. [Nightly run](docs/NIGHTLY_RUN.md) is the portable scheduler prompt.
 - The operational board-only push exception in the workflow does not apply to code, skills, templates or registry data. Existing registry writes still go exclusively through pm.py. All other existing repo rules remain in force.
 

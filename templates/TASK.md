@@ -7,6 +7,8 @@ Copy the section below into an approved phase or Priority repairs on the central
 - **Objective:** <what Seph wants accomplished>
 - **Approval:** <date and source of explicit approval, or repair within approved scope with reproduction/evidence>
 - **Dependencies:** <task IDs and external gates, or none>
+- **Assignee:** <claude-code | codex | any>
+- **Touches:** <comma-separated paths or globs in the target repo this task may change>
 - **Status:** pending
 - **Claim:** none
 - **Instructions:** <specific prompt; constraints, relevant paths/specs and intended behavior>
@@ -22,10 +24,13 @@ Copy the section below into an approved phase or Priority repairs on the central
 
 - pending: approved, not yet started.
 - in-progress: claimed, with run ID, owner, time and starting commit.
+- dispatched: Duet handed it to an executor that can't write the board (Codex cloud); Duet holds the claim. Counts as active work.
 - blocked: reason and next step recorded; no implementation until the blocker is resolved.
 - implemented: code exists; some required checks remain.
 - validated: required implementation checks pass; a required external gate remains.
 - needs-fix: a known failure or regression prevents completion.
 - done: all stated acceptance and delivery gates passed; remote evidence recorded.
+
+Assignee and Touches drive dispatch; see [orchestration](../docs/ORCHESTRATION.md). An agent claims only tasks assigned to it or to `any`, and changes only paths in Touches.
 
 Do not mark a task done only because code exists. If the task is already satisfied, verify it and record evidence without rebuilding. Record publication and physical playtest separately where relevant. A validated task awaiting a gate should not be reimplemented. Use an explicit gate when Seph's approval is needed before moving on.
