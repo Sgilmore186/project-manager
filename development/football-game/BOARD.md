@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: Codex
-- Run ID: codex-gridline-release-QMdlqRKg
-- Claimed/renewed UTC: 2026-11-28T16:33:29Z
-- Starting target commit: 235f347
+- Owner: none
+- Run ID: none
+- Claimed/renewed UTC: none
+- Starting target commit: none
 
 ## Priority repairs
 
@@ -283,14 +283,15 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Deliver tested build and physical playtest package.
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.7a
-- **Status:** in-progress
-- **Claim:** Codex / codex-gridline-release-QMdlqRKg / 2026-11-28T16:33:29Z / Gridline 235f347
+- **Status:** validated (owner-only Site live; separate Claude artifact update blocked)
+- **Claim:** none (codex-gridline-release-QMdlqRKg released)
 - **Instructions:** Review changed code for regressions and exploits; run required build and checks, push and verify remote commit and CI. Coordinate authorized private Claude artifact/site sync from disk; verify exact commit. Do not publish real nicknames publicly.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Test evidence and commit recorded; private artifact confirmed or task stays validated/blocked; phone checklist and signoff recorded separately. No next core phase before required signoff.
-- **Evidence:** The last verified owner-only Site was version 6 from Gridline `009d36d`. Current gameplay [1245557](https://github.com/Sgilmore186/gridline/commit/124555739ac19eae58ad6ed59c87e5cff32b2511) has dist SHA-256 `55c3fea404882e0be39bbe660570812994ea05affadd5a5ed16530831df910e5` and [green CI](https://github.com/Sgilmore186/gridline/actions/runs/46123711150). The rare catch target and one real go-ball completion holdout keep B-018/4.7a open. Current private Site and Claude publication, physical iPhone testing and Seph signoff remain pending.
+- **Evidence:** Exact release [235f347](https://github.com/Sgilmore186/gridline/commit/235f3472590a055defa4bbaf97d28c0bffac3383), HTML SHA-256 `7a6e18cb0a0a237146bab4e60e1bf0cd85637b89cab295a482da34b61d524b31`. Final code review found no release blocker. Byte-identical rebuild, script checks, 23 Node tests, two Python tests, source/dist gameplay, cards, save and three mobile viewport checks passed. Pro/Clear and All-Pro/Snow full games reached FINAL, including overtime. [Release CI](https://github.com/Sgilmore186/gridline/actions/runs/46165254847) passed. Reused 4.7a exact-gameplay data. No additional balance sims ran.
+- **Publication:** [Owner-only Site version 7](https://gridline.sephgilmore152.chatgpt.site) deployed from Site commit `3b1795b9bcbfc662bf6c7060a09bb8147274d601`. Packaged game HTML matches the release SHA-256. Access verified as one owner and no other users/groups/visitors. Unauthenticated game request returned 401. Rollback is owner-only Site version 6, Site commit `461761b` from Gridline `009d36d`. The separate **Gridline V2** Claude artifact remains pending. The app showed **Only you** but returned `noWindowsAvailable` on attempts to open it, and the CLI was signed out. [Release report and iPhone checklist](https://github.com/Sgilmore186/gridline/blob/142d902ae4fcde2d9d3c853396bd5b771f4fdc61/docs/reports/2026-11-28.md#b-01847b-release-regression).
 - **Owner authorization (2026-11-28):** Run the final code/exploit review and required release regression tests now, publish the exact validated private artifact and verify the owner-only Site. Use existing evidence rather than rerunning exploratory tuning just to improve seed results. Resolve real release-blocking defects, retain the live build if checks fail, and report actual tests, commit, CI, SHA-256, artifact/Site version, rollback point, remaining issues and phone checklist.
-- **Handoff:** 4.7a is accepted; this task is the immediate priority. Physical iPhone playtest/signoff remains required before B-025/r1 or later phases. Do not claim it happened.
+- **Handoff:** Publish the separate **Gridline V2** Claude artifact from the committed `v2/dist/index.html` at `235f347` with **Only you** access. Physical iPhone playtest and Seph signoff are open. B-025/r1 and later phases remain gated.
 
 ### B-025 - Pre-season gameplay foundations
 
