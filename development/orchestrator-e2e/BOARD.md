@@ -42,8 +42,8 @@ None.
 - **Dependencies:** none
 - **Assignee:** claude-code
 - **Touches:** e2e/claude_ping.py, e2e/test_claude_ping.py
-- **Status:** pending
-- **Claim:** none
+- **Status:** in-progress
+- **Claim:** cc-e2e-20261128-a (Claude Code cloud)
 - **Instructions:** Add `e2e/claude_ping.py` with `ping()` returning `"claude-code-cloud-ok"`, and `e2e/test_claude_ping.py` (unittest) asserting it. Change nothing else. Open a draft PR titled `[JOB orchestrator-e2e/E2E-CC-1] ...`.
 - **Toolbox:** `python3 -m unittest discover -s e2e -v`; `python3 scripts/control.py`.
 - **Acceptance criteria:**
