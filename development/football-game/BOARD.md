@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: none
-- Run ID: none
-- Claimed/renewed UTC: none
-- Starting target commit: none
+- Owner: Codex
+- Run ID: codex-gridline-20261128-touch-b018
+- Claimed/renewed UTC: 2026-11-28T07:08:00Z
+- Starting target commit: 8aea470a004c5e8d210dafd7f6885804f95a4aa7
 
 ## Priority repairs
 
@@ -255,8 +255,8 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Validate full Phase 4 mechanics.
 - **Approval:** 2026-11-26, B-018 in the [legacy board](https://github.com/Sgilmore186/gridline/blob/b92883f6280afce066ab100e3a882c7017ca4059/docs/BOARD.md); scope in [Phase 4 specification](https://github.com/Sgilmore186/gridline/blob/main/docs/spec-phase4-ratings.md).
 - **Dependencies:** B-018/4.3a–f, B-018/4.4a–c, B-018/4.5a–c, B-018/4.6a–b
-- **Status:** needs-fix
-- **Claim:** none
+- **Status:** in-progress
+- **Claim:** Codex, `codex-gridline-20261128-touch-b018`, 2026-11-28T07:08:00Z, starting `8aea470`
 - **Instructions:** Execute every experiment in the 4.7 specification, including pure 100k reps/cell, spatial passing/rushing, IQ/AWR, same-OVR profiles, counters, full games, compatibility and live exhibition. Fix biased go-ball lab setup; reset RNGs and pair seeds.
 - **Toolbox:** Gridline `skills/gridline-validation/SKILL.md`; private publication procedure in AGENTS.md and reports; Chrome/Playwright, Git, Node.
 - **Acceptance criteria:** Required samples, raw denominators, uncertainty and before/after report; no omitted/hung reps, no new unrecorded regressions. Resolve failures or record explicit blockers; do not claim a pass without evidence.
