@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "rules": {
     "max_primary": 1,
     "max_secondary": 2,
@@ -225,7 +225,7 @@
       "status": "active",
       "focus": "primary",
       "stage": "Phase 4 gameplay implemented. Acceptance and current private release remain open.",
-      "next_step": "Finish B-018/4.7a explosive-gain validation. Trace catches already 20+ yards separately from gains that cross 20 or 40 after the catch. Preserve the revised go-ball rates on holdouts before private release and iPhone signoff.",
+      "next_step": "Continue B-018/4.7a with the standard 2.2-second matrix. Replay tight-end throws aimed 20 to 24 yards with the target and defense held fixed, then isolate the next eligible defender after the first broken tackle. Recheck explosive gains and go-ball holdouts before private release and iPhone signoff.",
       "open_items": [
         "The snap: routes, pass rush and blocking",
         "Ball physics: throw, catch and tackle",
@@ -482,7 +482,7 @@
         }
       ],
       "started": "2026-11-24",
-      "updated": "2026-11-27"
+      "updated": "2026-11-28"
     }
   ],
   "statuses": [
