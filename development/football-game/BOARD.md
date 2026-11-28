@@ -19,14 +19,14 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: none
-- Run ID: none
-- Claimed/renewed UTC: none
-- Starting target commit: none
+- Owner: Codex
+- Run ID: codex-gridline-20261128-0530
+- Claimed/renewed UTC: 2026-11-28T05:32:03Z
+- Starting target commit: 7c784d05617c176dad3548bec553d71ef632b5ef
 
 ## Priority repairs
 
-- Cloud browser compatibility requested 2026-11-28. Gridline browser tests and simulations navigate to file URLs, which managed Chromium blocks. Run codex-http-20261128-7c784d0 verified the scope but did not implement or validate the repair. Next run should add local HTTP support, verify seeded behavior and all applicable tests, and retain existing local compatibility.
+- Cloud browser compatibility requested 2026-11-28. Gridline browser tests and simulations navigate to file URLs, which managed Chromium blocks. Run codex-http-20261128-7c784d0 verified the scope but did not implement or validate the repair. In progress under codex-gridline-20261128-0530 from `7c784d0`. Add loopback HTTP support, verify seeded behavior and all applicable tests, and retain existing local compatibility.
 No new repair authorized by this migration. Agents can add reproducible, scoped bugs and necessary quality fixes under the shared execution skill. Known baseline debt: some go-ball and long-gain targets remain outside desired ranges (legacy 3.9); measure before changing and address in Phase 4 validation where applicable.
 
 ## Ordered phases
