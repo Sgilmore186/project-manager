@@ -22,6 +22,10 @@ Read Sgilmore186/project-manager AGENTS.md and docs/AGENT_WORKFLOW.md. Read the 
 - Update the central board first and verify the remote change. Link the Dream Board idea to the approved phase/task IDs, without duplicating live status. If a cross-repo write fails, report the incomplete link and reconcile on the next run.
 - Respect both repos' push and review rules. No forced pushes, fake approvals, private data or unsupported publication.
 
+## Dispatch
+
+- When Duet hands approved tasks to Codex or Claude Code, set each task's Assignee and Touches and follow [orchestration](../../docs/ORCHESTRATION.md): STOP check, readiness, overlap, duplicate search, claim, dispatch, validate, report.
+
 ## Report
 
 Say what changed, what was approved, what remains a dream and the next actual decision if one is needed. Do not start implementation unless assigned a separate development run.
