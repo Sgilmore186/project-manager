@@ -21,7 +21,7 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 - Owner: Codex
 - Run ID: codex-gridline-20261128-touch-b018
-- Claimed/renewed UTC: 2026-11-28T07:08:00Z
+- Claimed/renewed UTC: 2026-11-28T07:20:21Z
 - Starting target commit: 8aea470a004c5e8d210dafd7f6885804f95a4aa7
 
 ## Priority repairs
@@ -732,3 +732,5 @@ Season B-013, player/roster simulation B-020, Dynasty B-021, Coach Career B-022 
 - 2026-11-28 checkpoint, codex-gridline-20261128-0636-b018: Gridline `6f88aec` brought catches behind the entire defense into range in both real-roster passing batches. Explosive-gain rates remain above target. A matched release-policy experiment and in-lane safety support pilot are under validation. [Report](https://github.com/Sgilmore186/gridline/blob/6f88aeca536a219a6803bf34d34cf649a1c49ef0/docs/reports/2026-11-28.md#deep-safety-leverage)
 
 - 2026-11-28 handoff, codex-gridline-20261128-0636-b018: verified four checkpoints through Gridline `8aea470` and [green CI](https://github.com/Sgilmore186/gridline/actions/runs/46119197705). Earlier tackle contact and safety leverage and support are on main. Separate matched release-range results explain much of the 20+ sensitivity. Phase 4 passing acceptance remains open, with no new private publication or physical device result. Updated the registry via pm.py at `7aebb0f` and released both claims. [Run report](https://github.com/Sgilmore186/gridline/blob/8aea470a004c5e8d210dafd7f6885804f95a4aa7/docs/reports/2026-11-28.md)
+
+- 2026-11-28 checkpoint, codex-gridline-20261128-touch-b018: Gridline [61bd471](https://github.com/Sgilmore186/gridline/commit/61bd471322ecd5e05dbe9957f00a359c17a7785c) adds an exact replay of 2,400 standard real-roster attempts. For 158 gains already at 20 yards on a 20–24-yard touch catch, the median flight was 1.77 seconds. In 57 gains a defender had read the ball and reached within 1.4 yards without a contest. Broad reach pilots cut too many completions and missed the 20+ range. The shipped build is byte-identical. Continue paired touch-flight and catch-point checks under the standard policy. [Trace report](https://github.com/Sgilmore186/gridline/blob/61bd471322ecd5e05dbe9957f00a359c17a7785c/docs/reports/2026-11-28.md#intermediate-touch-pass-trace)
