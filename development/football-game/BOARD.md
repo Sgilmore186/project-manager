@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: none
-- Run ID: none
-- Claimed/renewed UTC: none
-- Starting target commit: none
+- Owner: Codex
+- Run ID: codex-b025-20261128-1645
+- Claimed/renewed UTC: 2026-11-28T16:45:21Z
+- Starting target commit: bfd4e34
 
 ## Priority repairs
 
@@ -306,8 +306,8 @@ Existing implementation and history remain at the [legacy board snapshot](https:
 - **Objective:** Reproduce corner/go stops, out geometry and slant/drag interference.
 - **Approval:** 2026-11-27: Seph requested the pre-season gameplay checklist be added to PM with task instructions for automations; reported gameplay defects and requested playbook features. Unsettled design choices remain gated.
 - **Dependencies:** B-018 gate
-- **Status:** pending
-- **Claim:** none
+- **Status:** in-progress
+- **Claim:** codex-b025-20261128-1645 (2026-11-28T16:45:21Z, Gridline bfd4e34)
 - **Instructions:** Capture route waypoints, movement, cut timing, LOS-relative coordinates and prediction vs actual trajectory across receivers, mirrored sides, field spots, frame rates and coverage. Isolate legitimate press, intentional settles and stumbles from defects. Record seeds and baseline.
 - **Toolbox:** Gridline `skills/gameplay-engineering/SKILL.md`, `skills/gridline-validation/SKILL.md`; game/playbook.js, game/loop.js, game/passing.js, engine/duels.js, tools/sim_passing.py.
 - **Acceptance criteria:** Reproduce each reported issue or document non-reproduction and conditions; retain deterministic fixtures and before data.
