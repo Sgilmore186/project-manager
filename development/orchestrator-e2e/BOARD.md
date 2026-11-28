@@ -15,10 +15,10 @@ Test board for [orchestration](../../docs/ORCHESTRATION.md). Not a registry proj
 
 ## Run claim
 
-- Owner: none
-- Run ID: none
-- Claimed/renewed UTC: none
-- Starting target commit: none
+- Owner: Claude Code (cloud, Duet thread)
+- Run ID: cc-e2e-20261128-a
+- Claimed/renewed UTC: 2026-11-28T17:11:04Z
+- Starting target commit: aa18f43
 
 Only one active implementation run per project. Follow agent-execution skill before claiming or recovering a claim.
 
