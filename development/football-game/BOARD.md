@@ -19,10 +19,10 @@ After both integration PRs are merged: fetch the latest Gridline main and PM mai
 
 ## Run claim
 
-- Owner: none
-- Run ID: none
-- Claimed/renewed UTC: none
-- Starting target commit: none
+- Owner: Codex
+- Run ID: codex-http-20261128-7c784d0
+- Claimed/renewed UTC: 2026-11-28T03:12:24.708165+00:00
+- Starting target commit: 7c784d05617c176dad3548bec553d71ef632b5ef
 
 ## Priority repairs
 
